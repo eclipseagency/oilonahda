@@ -4,32 +4,10 @@ import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
-import { services, categories, type ServiceCategory, type Service } from '@/lib/services'
+import { type ServiceCategory, type Service } from '@/lib/services'
 import { nahdaServicesAsServices, nahdaCategoriesTabs, nahdaServiceImages } from '@/lib/nahdaBranchData'
-import { branches, type BranchId } from '@/lib/branches'
-import { images } from '@/lib/images'
+import { branches } from '@/lib/branches'
 import { trackEvent } from '@/lib/track'
-
-const serviceImages: Record<string, string> = {
-  'oilo-massage': images.oiloMassage,
-  'swedish-60': images.swedish,
-  'swedish-40': images.swedish,
-  'hot-stone': images.hotStone,
-  'thai-60': images.thai,
-  'thai-40': images.thai,
-  'shiatsu': images.shiatsu,
-  'royal-bath': images.royalBath,
-  'dead-sea-bath': images.deadSeaBath,
-  'classic-bath': images.classicBath,
-  'mani-pedi': images.maniPedi,
-  'facial': images.facial,
-  'jacuzzi': images.jacuzzi,
-  'royal-package': images.candles,
-  'vip-package': images.royalBath,
-  'offer-massage-bath': images.massage,
-  'offer-massage-pedi': images.maniPedi,
-  'offer-bath-pedi': images.classicBath,
-}
 
 // ─── Types ───
 interface TimeSlot {
@@ -402,15 +380,12 @@ function BookingContent() {
   const isAr = locale === 'ar'
 
   // Standalone Al Nahda booking flow.
-  const initialBranch: BranchId = 'al-nahda'
-  const [branch] = useState<BranchId>(initialBranch)
-  const catalog: Service[] = branch === 'al-nahda' ? nahdaServicesAsServices : services
-  const cats = branch === 'al-nahda' ? nahdaCategoriesTabs : categories
+  const branch = 'al-nahda' as const
+  const catalog: Service[] = nahdaServicesAsServices
+  const cats = nahdaCategoriesTabs
   // Al Nahda uses its real interior shots (/services/nahda-*.webp).
-  // Without this, Nahda keys miss the Rabie map and every card fell back to one
-  // generic photo — the "same image for all services" bug.
-  const branchImages = branch === 'al-nahda' ? nahdaServiceImages : serviceImages
-  const branchFallbackImg = branch === 'al-nahda' ? nahdaServiceImages['dry-massage'] : images.massage
+  const branchImages = nahdaServiceImages
+  const branchFallbackImg = nahdaServiceImages['dry-massage']
 
   const [step, setStep] = useState(1)
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | 'all'>('all')
@@ -478,7 +453,7 @@ function BookingContent() {
         setSelectedCategory(found.category)
       }
     }
-  }, [searchParams])
+  }, [searchParams, catalog])
 
   // Fetch slots when date is selected
   const fetchSlots = useCallback(async (date: string) => {
@@ -486,7 +461,7 @@ function BookingContent() {
     setSlots([])
     setSelectedTime(null)
     try {
-      const res = await fetch(`/api/booking/slots?date=${date}&branch=${branch ?? 'al-nahda'}`)
+      const res = await fetch(`/api/booking/slots?date=${date}`)
       const data = await res.json()
       if (data.slots) {
         setSlots(data.slots)
@@ -496,7 +471,7 @@ function BookingContent() {
     } finally {
       setLoadingSlots(false)
     }
-  }, [branch])
+  }, [])
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date)
@@ -562,9 +537,7 @@ function BookingContent() {
           w.snaptr?.('track', 'SIGN_UP', { client_dedup_id: data.booking_id })
           // Al Nahda has its own separate Google Ads account, so its booking
           // conversion must report to the Al Nahda account.
-          const gadsConv = (branch === 'al-nahda'
-            ? process.env.NEXT_PUBLIC_GADS_CONVERSION_NAHDA
-            : process.env.NEXT_PUBLIC_GADS_CONVERSION)?.trim()
+          const gadsConv = process.env.NEXT_PUBLIC_GADS_CONVERSION_NAHDA?.trim()
           if (gadsConv) {
             w.gtag?.('event', 'conversion', {
               send_to: gadsConv,
@@ -746,7 +719,7 @@ function BookingContent() {
                 const startUtc = new Date(Date.UTC(yy, mm - 1, dd, h - 3, m))
                 const endUtc = new Date(startUtc.getTime() + 60 * 60 * 1000)
                 const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
-                const ab = branches[branch ?? 'al-nahda']
+                const ab = branches['al-nahda']
                 const locName = `Oilo Spa — ${ab.nameEn}`
                 const params = new URLSearchParams({
                   action: 'TEMPLATE',
@@ -772,9 +745,9 @@ function BookingContent() {
                 const start = `${dt}T${h}${m}00`
                 const endH = String((parseInt(h) + 1) % 24).padStart(2, '0')
                 const end = `${dt}T${endH}${m}00`
-                const ab = branches[branch ?? 'al-nahda']
+                const ab = branches['al-nahda']
                 const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Oilo Spa//EN', 'BEGIN:VEVENT',
-                  `UID:${bookingReference}@oilo.sa`, `DTSTAMP:${start}Z`, `DTSTART;TZID=Asia/Riyadh:${start}`,
+                  `UID:${bookingReference}@oilospa.com`, `DTSTAMP:${start}Z`, `DTSTART;TZID=Asia/Riyadh:${start}`,
                   `DTEND;TZID=Asia/Riyadh:${end}`, `SUMMARY:${titles} — Oilo Spa`,
                   `LOCATION:Oilo Spa — ${ab.nameEn}, ${ab.addressEn}`, `DESCRIPTION:Reference ${bookingReference}`,
                   'END:VEVENT', 'END:VCALENDAR'].join('\r\n')

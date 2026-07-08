@@ -71,29 +71,16 @@ export async function requireAdmin(): Promise<AdminSession | Response> {
   return session
 }
 
-const VALID_BRANCHES: AdminBranch[] = ['al-nahda']
-
-function isAdminBranch(v: unknown): v is AdminBranch {
-  return typeof v === 'string' && (VALID_BRANCHES as string[]).includes(v)
-}
-
 /**
- * Resolve the branch a request should operate on. The session is the only auth
- * gate; the *viewed* branch is allowed to float so an admin can switch branches
- * from the dashboard without re-logging-in. Reads the hint from the `?branch=`
- * query param (GET) or an explicit `branchOverride` value (mutations pass the
- * `branch` field from their parsed body). Falls back to the session branch when
- * absent or invalid.
+ * This standalone build is locked to Al Nahda. Ignore any branch hints coming
+ * from query strings or request bodies so admin APIs cannot read or mutate data
+ * for any other branch.
  */
 export function resolveBranch(req: Request, session: AdminSession, branchOverride?: unknown): AdminBranch {
-  if (isAdminBranch(branchOverride)) return branchOverride
-  try {
-    const param = new URL(req.url).searchParams.get('branch')
-    if (isAdminBranch(param)) return param
-  } catch {
-    // Malformed URL — fall through to the session branch.
-  }
-  return session.branch
+  void req
+  void session
+  void branchOverride
+  return 'al-nahda'
 }
 
 const loginAttempts = new Map<string, { count: number; resetAt: number }>()

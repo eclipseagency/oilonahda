@@ -4,11 +4,11 @@ import { branches } from '@/lib/branches'
 export const metadata: Metadata = {
   title: 'حجز مساج وسبا في الرياض | احجز موعدك في Oilo Spa',
   description: 'احجز جلسة مساج، حمام مغربي، حجامة أو باقة عناية في أويلو سبا فرع النهضة بالرياض. اختر الخدمة، التاريخ والوقت المناسب لك.',
-  alternates: { canonical: 'https://oilo.sa/booking' },
+  alternates: { canonical: 'https://www.oilospa.com/booking' },
   openGraph: {
     title: 'حجز مساج وسبا في الرياض | Oilo Spa',
     description: 'احجز جلسة مساج أو حمام مغربي أو حجامة في أويلو سبا فرع النهضة بالرياض.',
-    url: 'https://oilo.sa/booking',
+    url: 'https://www.oilospa.com/booking',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',
     type: 'website',
@@ -21,8 +21,8 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': 'https://oilo.sa/booking#webpage',
-        url: 'https://oilo.sa/booking',
+        '@id': 'https://www.oilospa.com/booking#webpage',
+        url: 'https://www.oilospa.com/booking',
         name: 'حجز مساج وسبا في الرياض | Oilo Spa',
         description: metadata.description,
         inLanguage: 'ar-SA',
@@ -32,7 +32,7 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
           '@type': 'ReserveAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://oilo.sa/booking',
+            urlTemplate: 'https://www.oilospa.com/booking',
             actionPlatform: [
               'https://schema.org/DesktopWebPlatform',
               'https://schema.org/MobileWebPlatform',
@@ -45,7 +45,7 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://oilo.sa/' },
-          { '@type': 'ListItem', position: 2, name: 'الحجز', item: 'https://oilo.sa/booking' },
+          { '@type': 'ListItem', position: 2, name: 'الحجز', item: 'https://www.oilospa.com/booking' },
         ],
       },
       {
@@ -54,7 +54,7 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
         itemListElement: [branches['al-nahda']].map((branch, index) => ({
           '@type': 'ListItem',
           position: index + 1,
-          url: 'https://oilo.sa/booking',
+          url: 'https://www.oilospa.com/booking',
           name: `${branch.nameAr} - ${branch.districtAr}`,
         })),
       },

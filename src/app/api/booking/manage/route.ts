@@ -42,6 +42,7 @@ async function findBookingByRef(reference: string, phone: string) {
     .from('bookings')
     .select('id, name, phone, service_key, date, time_slot, status, created_at, notes')
     .eq('phone', phone)
+    .eq('branch', 'al-nahda')
     .ilike('id', `${refPrefix}%`)
     .limit(1)
   if (error || !data || data.length === 0) return null
@@ -116,6 +117,7 @@ export async function POST(request: NextRequest) {
       .from('bookings')
       .update({ status: 'cancelled', notes: appendNote(booking.notes, 'Cancelled by customer via /booking/manage') })
       .eq('id', booking.id)
+      .eq('branch', 'al-nahda')
     if (error) return Response.json({ error: 'Failed to cancel' }, { status: 500 })
 
     // Fire-and-forget WhatsApp to owner
@@ -171,6 +173,7 @@ export async function POST(request: NextRequest) {
         ),
       })
       .eq('id', booking.id)
+      .eq('branch', 'al-nahda')
     if (error) return Response.json({ error: 'Failed to reschedule' }, { status: 500 })
 
     notifyOwnerReschedule({
@@ -225,7 +228,7 @@ function notifyOwnerCancel(p: { reference: string; name: string; phone: string; 
 }
 function notifyCustomerCancel(p: { phoneIntl: string; name: string; reference: string }) {
   postWa(p.phoneIntl,
-    `أهلاً ${p.name},\nتم إلغاء حجزك في Oilo Spa.\nرقم الحجز: ${p.reference}\n\nنتمنى رؤيتك قريبًا. للحجز مجددًا: https://oilo.sa/booking`)
+    `أهلاً ${p.name},\nتم إلغاء حجزك في Oilo Spa فرع النهضة.\nرقم الحجز: ${p.reference}\n\nنتمنى رؤيتك قريبًا. للحجز مجددًا: https://www.oilospa.com/booking`)
 }
 function notifyOwnerReschedule(p: { reference: string; name: string; phone: string; oldDate: string; oldTime: string; newDate: string; newTime: string; serviceAr: string }) {
   postWa('966556733851',
@@ -233,5 +236,5 @@ function notifyOwnerReschedule(p: { reference: string; name: string; phone: stri
 }
 function notifyCustomerReschedule(p: { phoneIntl: string; name: string; reference: string; newDate: string; newTime: string }) {
   postWa(p.phoneIntl,
-    `أهلاً ${p.name},\nتم تعديل موعد حجزك.\nرقم: ${p.reference}\nالموعد الجديد: ${p.newDate} ${p.newTime}\n\nنراك قريبًا في Oilo Spa.`)
+    `أهلاً ${p.name},\nتم تعديل موعد حجزك في Oilo Spa فرع النهضة.\nرقم: ${p.reference}\nالموعد الجديد: ${p.newDate} ${p.newTime}\n\nنراك قريبًا.`)
 }

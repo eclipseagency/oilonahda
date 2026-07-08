@@ -63,7 +63,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Booking
     'booking.title': 'احجز جلستك',
-    'booking.subtitle': 'Book Your Session',
+    'booking.subtitle': 'اختر خدمتك وموعدك في فرع النهضة',
     'booking.service': 'اختر الخدمة',
     'booking.date': 'التاريخ',
     'booking.time': 'الوقت',
@@ -232,7 +232,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'hours.friday.time': '1:30 PM – 4:00 AM',
 
     'booking.title': 'Book Your Session',
-    'booking.subtitle': 'Select your service and preferred time',
+    'booking.subtitle': 'Select your Al Nahda service and preferred time',
     'booking.service': 'Select Service',
     'booking.date': 'Date',
     'booking.time': 'Time',

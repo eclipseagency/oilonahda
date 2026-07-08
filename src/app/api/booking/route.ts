@@ -196,6 +196,7 @@ export async function POST(request: NextRequest) {
     .from('bookings')
     .select('*', { count: 'exact', head: true })
     .eq('phone', phone)
+    .eq('branch', branch)
     .eq('date', today)
     .neq('status', 'cancelled')
   if ((phoneToday ?? 0) >= 3) {
@@ -258,7 +259,7 @@ export async function POST(request: NextRequest) {
   await sendSnapConversion({
     eventName: 'SIGN_UP',
     eventId: bookingId,
-    eventSourceUrl: ref || 'https://oilo.sa/booking',
+    eventSourceUrl: ref || 'https://www.oilospa.com/booking',
     phoneE164NoPlus: toIntlSaudi(phone), // "9665XXXXXXXX"
     clientIp: ip,
     userAgent: userAgent || undefined,
