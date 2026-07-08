@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<title>عقد إدارة وسائل التواصل الاجتماعي — أويلو سبا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --bg:#0a0a0c;
+    --paper:#0d0d10;
+    --gold:#C9A96E;
+    --gold-deep:#8C6F3F;
+    --gold-bright:#E8D9B5;
+    --warm:#F5EFE4;
+    --line:rgba(201,169,110,0.22);
+    --muted:rgba(245,239,228,0.62);
+    --whisper:rgba(245,239,228,0.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:#1a1a1d;
+    font-family:'IBM Plex Sans Arabic',serif;
+    -webkit-font-smoothing:antialiased;
+    color:var(--warm);
+  }
+  body{padding:24px 0}
+
+  .page{
+    width:210mm;
+    height:297mm;
+    margin:0 auto 24px;
+    background:var(--paper);
+    color:var(--warm);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.08);
+    page-break-after:always;
+    break-after:page;
+    display:flex;flex-direction:column;
+  }
+  .page:last-child{page-break-after:auto}
+
+  .page::before{content:"";position:absolute;inset:14mm 14mm auto 14mm;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .page::after{content:"";position:absolute;inset:auto 14mm 14mm 14mm;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  .pad{padding:22mm 22mm}
+  .pheader{display:flex;justify-content:space-between;align-items:center;padding:8mm 22mm 0;font-size:9pt;color:var(--whisper);letter-spacing:.16em;text-transform:uppercase}
+  .pheader .brand{color:var(--gold);letter-spacing:.32em}
+  .pfooter{margin-top:auto;padding:0 22mm 8mm;display:flex;justify-content:space-between;align-items:center;font-size:8.5pt;color:var(--whisper);letter-spacing:.18em;text-transform:uppercase}
+  .pfooter .num{font-family:'Cormorant Garamond',serif;font-size:14pt;color:var(--gold);letter-spacing:0}
+  .pfooter .brand-mini{color:var(--gold);letter-spacing:.32em}
+
+  /* Cover */
+  .cover{
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(201,169,110,0.22), transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.10), transparent 50%),
+      linear-gradient(180deg,#0b0b0e 0%, #060608 100%);
+    text-align:center;justify-content:center;align-items:center;
+  }
+  .cover-inner{padding:0 22mm}
+  .seal{
+    width:96px;height:96px;border-radius:50%;
+    border:1px solid var(--gold);margin:0 auto 28px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    background:radial-gradient(circle at 30% 30%, rgba(201,169,110,0.20), transparent 65%);
+  }
+  .seal::before,.seal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(201,169,110,0.4)}
+  .seal::after{inset:14px;border-color:rgba(201,169,110,0.25)}
+  .seal span{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);letter-spacing:.04em;position:relative;z-index:1}
+
+  .cover-eyebrow{font-size:10pt;letter-spacing:.5em;color:var(--gold);margin-bottom:24px;text-transform:uppercase}
+  .cover h1{
+    font-family:'IBM Plex Sans Arabic',serif;
+    font-weight:300;font-size:46pt;line-height:1.15;
+    background:linear-gradient(135deg,#F4E5C2 0%, #C9A96E 50%, #8C6F3F 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:14px
+  }
+  .cover h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:22pt;color:var(--warm);opacity:.85;margin-bottom:32px}
+  .cover .badge{display:inline-block;padding:10px 28px;border:1px solid var(--gold);border-radius:2px;font-size:11pt;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+  .cover .parties{margin-top:60px;font-size:10pt;letter-spacing:.18em;color:var(--whisper);line-height:2.2}
+  .cover .parties strong{color:var(--gold);font-weight:500;letter-spacing:.24em}
+
+  .ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0;color:var(--gold)}
+  .ornament .l{width:50px;height:1px;background:var(--gold);opacity:.6}
+  .ornament .d{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .ornament .d.s{width:3px;height:3px;opacity:.6}
+
+  /* Section heads */
+  .section-eyebrow{font-size:9pt;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:8mm}
+  h2.title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34pt;line-height:1.1;color:var(--warm);margin-bottom:6mm}
+  h2.title em{font-style:italic;color:var(--gold);font-weight:300}
+  .lede{font-size:11pt;line-height:1.95;color:var(--muted);max-width:140mm;margin-bottom:8mm}
+
+  h3.subhead{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:17pt;color:var(--gold);margin:6mm 0 3mm;padding-bottom:2mm;border-bottom:1px solid var(--line)}
+  p.body{font-size:10.5pt;line-height:1.95;color:var(--muted);margin-bottom:3mm}
+  p.body strong{color:var(--warm);font-weight:500}
+
+  /* Numbered clauses */
+  .clause{display:flex;gap:6mm;margin-bottom:6mm}
+  .clause .n{font-family:'Cormorant Garamond',serif;font-size:30pt;color:var(--gold);line-height:1;flex-shrink:0;min-width:14mm}
+  .clause .b h4{font-family:'IBM Plex Sans Arabic',serif;font-weight:600;font-size:11.5pt;color:var(--warm);margin-bottom:2mm;letter-spacing:.04em}
+  .clause .b p{font-size:10pt;line-height:1.95;color:var(--muted)}
+
+  /* Service grid */
+  ul.svc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4mm 8mm;margin:4mm 0 6mm}
+  ul.svc li{position:relative;padding-inline-start:7mm;font-size:10pt;line-height:1.7;color:var(--muted);min-height:7mm}
+  ul.svc li::before{content:"";position:absolute;inset-inline-start:0;top:8px;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+  ul.svc li strong{color:var(--warm);font-weight:600}
+
+  /* Terms strip */
+  .term-strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:6mm 0}
+  .term-strip .s{text-align:center;padding:6mm 2mm;border-inline-start:1px solid var(--line)}
+  .term-strip .s:first-child{border-inline-start:0}
+  .term-strip .num{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30pt;color:var(--gold);line-height:1}
+  .term-strip .num small{font-size:14pt;color:var(--muted);font-family:'IBM Plex Sans Arabic',serif}
+  .term-strip .lbl{font-size:8.5pt;letter-spacing:.22em;color:var(--whisper);text-transform:uppercase;margin-top:3mm}
+
+  /* Pricing table */
+  .pricetbl{width:100%;border-collapse:collapse;margin:5mm 0}
+  .pricetbl th,.pricetbl td{padding:4mm 3mm;text-align:start;font-size:10pt;border-bottom:1px solid var(--line)}
+  .pricetbl th{color:var(--gold);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-size:9pt}
+  .pricetbl td{color:var(--muted)}
+  .pricetbl td strong{color:var(--warm);font-weight:500}
+  .pricetbl .total td{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:14pt;font-weight:500;border-bottom:0;padding-top:5mm}
+
+  /* Pull quote */
+  .pull{border-inline-start:2px solid var(--gold);padding:4mm 6mm;margin:5mm 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13pt;line-height:1.5;color:var(--gold-bright)}
+
+  /* Signatures */
+  .sig-block{display:grid;grid-template-columns:1fr 1fr;gap:14mm;margin-top:14mm}
+  .sig{border:1px solid var(--line);padding:8mm 6mm 7mm;border-radius:1px;background:rgba(201,169,110,0.02)}
+  .sig .role{font-size:9pt;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:6mm}
+  .sig .nm{color:var(--warm);font-size:11pt;margin-bottom:14mm;line-height:1.6}
+  .sig .nm small{display:block;color:var(--muted);font-size:9pt;margin-top:1mm}
+  .sig .line{border-top:1px solid var(--line);padding-top:2mm;font-size:8.5pt;color:var(--whisper);letter-spacing:.18em;text-transform:uppercase}
+
+  .closing{justify-content:center;align-items:center;text-align:center}
+  .closing .seal{width:72px;height:72px}
+  .closing .seal span{font-size:32pt}
+  .closing h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:30pt;color:var(--gold-bright);margin:6mm 0 8mm;line-height:1.4;max-width:140mm}
+  .closing .sub{font-size:10pt;letter-spacing:.32em;color:var(--whisper);text-transform:uppercase;margin-top:4mm}
+</style>
+</head>
+<body>
+
+<!-- ====== PAGE 1 — COVER ====== -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div class="seal"><span>O</span></div>
+    <div class="cover-eyebrow">عقد خدمات</div>
+    <h1>إدارة وسائل<br>التواصل الاجتماعي</h1>
+    <h2>أويلو سبا — الرياض</h2>
+    <div class="ornament"><span class="l"></span><span class="d s"></span><span class="d"></span><span class="d s"></span><span class="l"></span></div>
+    <div class="badge">عقد شهري · مايو ٢٠٢٦</div>
+    <div class="parties">
+      مُقدِّم الخدمة &nbsp;·&nbsp; <strong>إيكلبس للدعاية والإعلان</strong><br>
+      المُتعاقد &nbsp;·&nbsp; <strong>أويلو سبا</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 2 — INTRO + SCOPE ====== -->
+<div class="page">
+  <div class="pheader"><span>عقد · إدارة سوشيال ميديا</span><span class="brand">OILO · ECLIPSE</span></div>
+  <div class="pad">
+    <div class="section-eyebrow">المقدمة</div>
+    <h2 class="title">اتفاقية <em>شراكة شهرية</em></h2>
+    <p class="lede">
+      تنظِّم هذه الاتفاقية العلاقة بين <strong>إيكلبس للدعاية والإعلان</strong> (الطرف الأول) و<strong>أويلو سبا</strong> (الطرف الثاني)
+      فيما يخصّ إدارة حضور العلامة على وسائل التواصل الاجتماعي وإنتاج المحتوى الإبداعي،
+      وذلك وفق البنود والشروط الواردة أدناه.
+    </p>
+
+    <h3 class="subhead">١ · الأطراف</h3>
+    <p class="body"><strong>الطرف الأول:</strong> إيكلبس للدعاية والإعلان — وكالة محتوى وأداء رقمي.</p>
+    <p class="body"><strong>الطرف الثاني:</strong> أويلو سبا — منشأة سبا رجالي بمدينة الرياض.</p>
+
+    <h3 class="subhead">٢ · موضوع العقد</h3>
+    <p class="body">
+      يتعهّد الطرف الأول بإدارة حسابات أويلو سبا على إنستجرام، تيك توك، سناب شات، فيسبوك، وإكس،
+      وإنتاج محتوى شهري متكامل (تصوير، تصميم، فيديو، نص) متوافق مع هويّة العلامة،
+      مع متابعة يومية للتفاعل وإعداد تقرير أداء شهري.
+    </p>
+
+    <div class="pull">
+      «الهدف هو بناء حضور رقمي راقٍ يُترجم إلى زيارات حقيقية للسبا — لا مجرّد أرقام متابعين.»
+    </div>
+
+    <h3 class="subhead">٣ · مدة العقد</h3>
+    <p class="body">
+      يبدأ العقد من تاريخ التوقيع ويُجدَّد <strong>شهريًّا تلقائيًّا</strong> ما لم يُخطر أحد الطرفين الآخر كتابةً
+      برغبته في عدم التجديد قبل خمسة عشر (١٥) يومًا من نهاية الشهر الحالي.
+    </p>
+  </div>
+  <div class="pfooter"><span class="brand-mini">OILO × ECLIPSE</span><span class="num">٠٢</span></div>
+</div>
+
+<!-- ====== PAGE 3 — SERVICES ====== -->
+<div class="page">
+  <div class="pheader"><span>عقد · إدارة سوشيال ميديا</span><span class="brand">OILO · ECLIPSE</span></div>
+  <div class="pad">
+    <div class="section-eyebrow">نطاق الخدمات</div>
+    <h2 class="title">ما يُقدِّمه <em>الطرف الأول</em></h2>
+
+    <p class="lede">
+      تشمل الخدمة الشهرية الشاملة الآتي — جميعها مدرجة ضمن قيمة العقد دون أي رسوم إضافية:
+    </p>
+
+    <h3 class="subhead">المحتوى والإبداع</h3>
+    <ul class="svc">
+      <li><strong>خطة محتوى شهرية</strong> مبنيّة على هويّة العلامة وأهداف الشهر</li>
+      <li><strong>١٨ منشورًا (Posts) مصمَّمًا</strong> مُوزَّعًا على القنوات</li>
+      <li><strong>١٥ ستوري</strong> أسبوعي/يومي بتصاميم متناسقة</li>
+      <li><strong>٢ ريلز / فيديو قصير</strong> شهريًّا (مونتاج + موسيقى)</li>
+      <li><strong>كتابة الكابشن</strong> بالعربية الفصيحة المختصرة</li>
+      <li><strong>هاشتاجات مدروسة</strong> لكل منشور لاستهداف الرياض</li>
+      <li><strong>توجيه التصوير</strong> وقائمة لقطات شهرية للمصوّر</li>
+      <li><strong>تصاميم هايلايتس</strong> وغلاف الحسابات عند الحاجة</li>
+    </ul>
+
+    <h3 class="subhead">الإدارة والمتابعة</h3>
+    <ul class="svc">
+      <li><strong>الجدولة والنشر</strong> عبر منصّة Publer</li>
+      <li><strong>الردّ على الرسائل</strong> (DMs) خلال ساعات العمل</li>
+      <li><strong>إدارة التعليقات</strong> والتفاعل اليومي</li>
+      <li><strong>متابعة المراجعات</strong> وتحفيز العملاء على التقييم</li>
+      <li><strong>تنسيق العروض</strong> والباقات مع الإدارة</li>
+      <li><strong>تغطية المناسبات</strong> الموسميّة (عيد · يوم وطني)</li>
+      <li><strong>دعم خدمة العملاء</strong> عبر واتساب أويلو</li>
+      <li><strong>تقرير أداء شهري</strong> بتصميم احترافي</li>
+    </ul>
+
+    <h3 class="subhead">القنوات المُغطّاة</h3>
+    <p class="body">
+      إنستجرام · تيك توك · سناب شات · فيسبوك · إكس (تويتر).
+      <br>
+      <span style="color:var(--whisper);font-size:9.5pt">
+        لا تشمل الخدمة: إنتاج تصوير ميداني خارجي، إعلانات مدفوعة (تُحاسَب على حدة)، أو تصميم موقع/تطبيق.
+      </span>
+    </p>
+  </div>
+  <div class="pfooter"><span class="brand-mini">OILO × ECLIPSE</span><span class="num">٠٣</span></div>
+</div>
+
+<!-- ====== PAGE 4 — FINANCIAL TERMS ====== -->
+<div class="page">
+  <div class="pheader"><span>عقد · إدارة سوشيال ميديا</span><span class="brand">OILO · ECLIPSE</span></div>
+  <div class="pad">
+    <div class="section-eyebrow">البنود المالية</div>
+    <h2 class="title">القيمة <em>وآلية الدفع</em></h2>
+
+    <div class="term-strip">
+      <div class="s"><div class="num">٣٫٥٠٠ <small>ريال</small></div><div class="lbl">قيمة العقد الشهرية</div></div>
+      <div class="s"><div class="num">١٫٧٥٠ <small>ريال</small></div><div class="lbl">دفعة كل ١٥ يومًا</div></div>
+      <div class="s"><div class="num">٢ <small>دفعات</small></div><div class="lbl">في الشهر الواحد</div></div>
+    </div>
+
+    <h3 class="subhead">٤ · القيمة الإجمالية</h3>
+    <p class="body">
+      تبلغ القيمة الشهرية للعقد <strong>ثلاثة آلاف وخمسمائة ريال سعودي (٣٫٥٠٠ ر.س)</strong>،
+      شاملةً جميع الخدمات المُدرجة في القسم الثالث، باستثناء ما تمّ التنويه عنه.
+    </p>
+
+    <h3 class="subhead">٥ · جدول الدفعات</h3>
+    <table class="pricetbl">
+      <thead><tr><th>الدفعة</th><th>التوقيت</th><th>القيمة</th></tr></thead>
+      <tbody>
+        <tr><td><strong>الدفعة الأولى</strong></td><td>عند بداية الشهر / يوم التوقيع</td><td>١٫٧٥٠ ر.س</td></tr>
+        <tr><td><strong>الدفعة الثانية</strong></td><td>بعد مرور ١٥ يومًا من بداية الشهر</td><td>١٫٧٥٠ ر.س</td></tr>
+        <tr class="total"><td><strong>الإجمالي الشهري</strong></td><td>—</td><td>٣٫٥٠٠ ر.س</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subhead">٦ · طريقة الدفع</h3>
+    <p class="body">
+      يُسدَّد المبلغ عبر التحويل البنكي على حساب الطرف الأول المُعلَن، ويُعدّ التحويل ساريًا فور وصول إشعار الإيداع.
+      تُصدر فاتورة لكل دفعة عند استلامها.
+    </p>
+
+    <h3 class="subhead">٧ · التأخّر في السداد</h3>
+    <p class="body">
+      في حال تأخّر أيّ دفعة عن موعدها بأكثر من خمسة (٥) أيام عمل، يحقّ للطرف الأول إيقاف النشر ومنح الأولوية لعملاء آخرين
+      حتى يتمّ السداد، دون أن يُعدّ ذلك إخلالًا بالعقد.
+    </p>
+  </div>
+  <div class="pfooter"><span class="brand-mini">OILO × ECLIPSE</span><span class="num">٠٤</span></div>
+</div>
+
+<!-- ====== PAGE 5 — GENERAL TERMS + SIGN ====== -->
+<div class="page">
+  <div class="pheader"><span>عقد · إدارة سوشيال ميديا</span><span class="brand">OILO · ECLIPSE</span></div>
+  <div class="pad">
+    <div class="section-eyebrow">أحكام عامة وتوقيع</div>
+    <h2 class="title">الالتزامات <em>والتوقيع</em></h2>
+
+    <div class="clause">
+      <div class="n">٨</div>
+      <div class="b">
+        <h4>التزامات الطرف الأول</h4>
+        <p>تنفيذ الخدمات في مواعيدها · الحفاظ على هويّة وقيم أويلو · تسليم تقرير شهري · الاستجابة لملاحظات العميل خلال ٤٨ ساعة.</p>
+      </div>
+    </div>
+
+    <div class="clause">
+      <div class="n">٩</div>
+      <div class="b">
+        <h4>التزامات الطرف الثاني</h4>
+        <p>تزويد الطرف الأول بالصور والفيديوهات الخاصّة بالسبا · إبلاغه بالعروض والتغييرات · سداد الدفعات في موعدها · اعتماد المحتوى أو إبداء الملاحظات خلال ٢٤ ساعة من إرساله.</p>
+      </div>
+    </div>
+
+    <div class="clause">
+      <div class="n">١٠</div>
+      <div class="b">
+        <h4>السرّيّة وحقوق الملكيّة</h4>
+        <p>جميع المحتويات المُنتجة تنتقل ملكيّتها إلى أويلو سبا فور سداد الدفعة الكاملة لشهر الإنتاج. يلتزم الطرفان بسرّيّة المعلومات التجاريّة وكلمات المرور المُتبادَلة.</p>
+      </div>
+    </div>
+
+    <div class="clause">
+      <div class="n">١١</div>
+      <div class="b">
+        <h4>إنهاء العقد</h4>
+        <p>يحقّ لأيّ طرف إنهاء العقد بإشعار خطّيّ مدّته ١٥ يومًا. لا تُستردّ الدفعات السابقة، وتُسلَّم جميع الأعمال المُنجزة حتى تاريخ الإنهاء.</p>
+      </div>
+    </div>
+
+    <div class="clause">
+      <div class="n">١٢</div>
+      <div class="b">
+        <h4>القانون الحاكم</h4>
+        <p>تخضع هذه الاتفاقيّة لأنظمة المملكة العربيّة السعوديّة، وتُحلّ النزاعات ودّيًّا أو عبر الجهة القضائيّة المختصّة بالرياض.</p>
+      </div>
+    </div>
+
+    <div class="sig-block">
+      <div class="sig">
+        <div class="role">الطرف الأول · مُقدِّم الخدمة</div>
+        <div class="nm">إيكلبس للدعاية والإعلان<small>الاسم والتوقيع والتاريخ</small></div>
+        <div class="line">التوقيع · ___ / ___ / ٢٠٢٦</div>
+      </div>
+      <div class="sig">
+        <div class="role">الطرف الثاني · العميل</div>
+        <div class="nm">أويلو سبا<small>الاسم والتوقيع والتاريخ</small></div>
+        <div class="line">التوقيع · ___ / ___ / ٢٠٢٦</div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter"><span class="brand-mini">OILO × ECLIPSE</span><span class="num">٠٥</span></div>
+</div>
+
+<!-- ====== PAGE 6 — CLOSING ====== -->
+<div class="page closing">
+  <div class="seal"><span>O</span></div>
+  <div class="ornament"><span class="l"></span><span class="d s"></span><span class="d"></span><span class="d s"></span><span class="l"></span></div>
+  <h2>«حضور هادئ، يُترك في الذاكرة.»</h2>
+  <div class="sub">OILO · ECLIPSE — مايو ٢٠٢٦</div>
+</div>
+
+</body>
+</html>

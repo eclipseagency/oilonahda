@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<title>تقرير أويلو سبا — الربع الثاني ٢٠٢٦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root{
+    --bg:#0a0a0c;
+    --paper:#0d0d10;
+    --gold:#C9A96E;
+    --gold-deep:#8C6F3F;
+    --gold-bright:#E8D9B5;
+    --warm:#F5EFE4;
+    --line:rgba(201,169,110,0.22);
+    --muted:rgba(245,239,228,0.62);
+    --whisper:rgba(245,239,228,0.42);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:#1a1a1d;
+    font-family:'IBM Plex Sans Arabic',serif;
+    -webkit-font-smoothing:antialiased;
+    color:var(--warm);
+  }
+  body{padding:24px 0}
+
+  /* PAGE — A4 */
+  .page{
+    width:210mm;
+    height:297mm;
+    margin:0 auto 24px;
+    background:var(--paper);
+    color:var(--warm);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,169,110,0.08);
+    page-break-after:always;
+    break-after:page;
+    display:flex;flex-direction:column;
+  }
+  .page:last-child{page-break-after:auto}
+
+  .page::before{
+    content:"";
+    position:absolute;inset:14mm 14mm auto 14mm;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent);
+  }
+  .page::after{
+    content:"";
+    position:absolute;inset:auto 14mm 14mm 14mm;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent);
+  }
+
+  .pad{padding:22mm 22mm}
+  .pad-tight{padding:16mm 22mm}
+
+  .pheader{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8mm 22mm 0;font-size:9pt;color:var(--whisper);
+    letter-spacing:.16em;text-transform:uppercase
+  }
+  .pheader .brand{color:var(--gold);letter-spacing:.32em}
+
+  .pfooter{
+    margin-top:auto;
+    padding:0 22mm 8mm;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:8.5pt;color:var(--whisper);letter-spacing:.18em;text-transform:uppercase
+  }
+  .pfooter .num{font-family:'Cormorant Garamond',serif;font-size:14pt;color:var(--gold);letter-spacing:0}
+  .pfooter .brand-mini{color:var(--gold);letter-spacing:.32em}
+
+  /* ==== COVER ==== */
+  .cover{
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(201,169,110,0.22), transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.10), transparent 50%),
+      linear-gradient(180deg,#0b0b0e 0%, #060608 100%);
+    text-align:center;
+    justify-content:center;align-items:center;
+  }
+  .cover-inner{padding:0 22mm}
+  .seal{
+    width:96px;height:96px;border-radius:50%;
+    border:1px solid var(--gold);
+    margin:0 auto 28px;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    background:radial-gradient(circle at 30% 30%, rgba(201,169,110,0.20), transparent 65%);
+  }
+  .seal::before,.seal::after{
+    content:"";position:absolute;inset:6px;border-radius:50%;
+    border:1px solid rgba(201,169,110,0.4);
+  }
+  .seal::after{inset:14px;border-color:rgba(201,169,110,0.25)}
+  .seal span{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;color:var(--gold);
+    letter-spacing:.04em;position:relative;z-index:1
+  }
+
+  .cover-eyebrow{
+    font-size:10pt;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:24px
+  }
+  .cover h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:64pt;line-height:1.05;
+    background:linear-gradient(135deg,#F4E5C2 0%, #C9A96E 50%, #8C6F3F 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:14px
+  }
+  .cover h2{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:300;
+    font-size:24pt;color:var(--warm);opacity:.85;
+    margin-bottom:32px
+  }
+  .cover .month{
+    display:inline-block;
+    padding:10px 28px;border:1px solid var(--gold);border-radius:2px;
+    font-size:11pt;letter-spacing:.4em;color:var(--gold);text-transform:uppercase
+  }
+  .cover .client{
+    margin-top:80px;
+    font-size:9pt;letter-spacing:.32em;color:var(--whisper);text-transform:uppercase
+  }
+  .cover .client strong{color:var(--gold);font-weight:400;letter-spacing:.4em}
+
+  .ornament{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:24px 0;color:var(--gold)
+  }
+  .ornament .l{width:50px;height:1px;background:var(--gold);opacity:.6}
+  .ornament .d{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .ornament .d.s{width:3px;height:3px;opacity:.6}
+
+  /* ==== Section headings ==== */
+  .section-eyebrow{
+    font-size:9pt;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:8mm
+  }
+  h2.title{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:38pt;line-height:1.1;
+    color:var(--warm);margin-bottom:6mm
+  }
+  h2.title em{
+    font-style:italic;color:var(--gold);font-weight:300
+  }
+  .lede{
+    font-size:11.5pt;line-height:1.85;color:var(--muted);
+    max-width:140mm;margin-bottom:10mm
+  }
+
+  /* ==== Editorial body ==== */
+  h3.subhead{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:18pt;
+    color:var(--gold);margin-bottom:3mm;
+    padding-bottom:2mm;border-bottom:1px solid var(--line)
+  }
+  p.body{font-size:10.5pt;line-height:1.95;color:var(--muted);margin-bottom:4mm}
+  p.body strong{color:var(--warm);font-weight:500}
+
+  .col2{display:grid;grid-template-columns:1fr 1fr;gap:10mm}
+  .col2 + .col2{margin-top:8mm}
+
+  /* Stat row */
+  .stat-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin:8mm 0
+  }
+  .stat-strip.three{grid-template-columns:repeat(3,1fr)}
+  .stat-strip .s{
+    text-align:center;padding:7mm 2mm;
+    border-inline-start:1px solid var(--line)
+  }
+  .stat-strip .s:first-child{border-inline-start:0}
+  .stat-strip .num{
+    font-family:'Cormorant Garamond',serif;font-weight:400;
+    font-size:34pt;color:var(--gold);line-height:1
+  }
+  .stat-strip .lbl{
+    font-size:8.5pt;letter-spacing:.22em;color:var(--whisper);
+    text-transform:uppercase;margin-top:3mm
+  }
+
+  /* Pull quote */
+  .pull{
+    border-inline-start:2px solid var(--gold);
+    padding:4mm 6mm;margin:6mm 0;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:14pt;line-height:1.5;
+    color:var(--gold-bright)
+  }
+
+  /* feature list */
+  ul.feat{list-style:none;margin-top:2mm}
+  ul.feat li{
+    position:relative;padding-inline-start:6mm;
+    font-size:10.5pt;line-height:1.85;color:var(--muted);margin-bottom:2mm
+  }
+  ul.feat li::before{
+    content:"";position:absolute;inset-inline-start:0;top:9px;
+    width:5px;height:5px;background:var(--gold);
+    transform:rotate(45deg)
+  }
+  ul.feat li strong{color:var(--warm);font-weight:500}
+
+  /* Branch cards */
+  .branch-cards{display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin:6mm 0}
+  .bcard{
+    border:1px solid var(--line);border-radius:2px;
+    padding:8mm 7mm;position:relative;
+    background:linear-gradient(180deg, rgba(201,169,110,0.05), transparent)
+  }
+  .bcard .tag{
+    font-size:8pt;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:4mm
+  }
+  .bcard h3{
+    font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22pt;
+    color:var(--warm);margin-bottom:2mm
+  }
+  .bcard .district{font-size:10pt;color:var(--gold-bright);margin-bottom:5mm}
+  .bcard .row{
+    display:flex;justify-content:space-between;gap:4mm;
+    font-size:9.5pt;line-height:1.7;color:var(--muted);
+    padding:2.5mm 0;border-top:1px solid var(--line)
+  }
+  .bcard .row .k{color:var(--whisper);letter-spacing:.04em;white-space:nowrap}
+  .bcard .row .v{color:var(--warm);text-align:start}
+
+  /* Channel grid */
+  .ed-channels{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin:6mm 0;
+    border:1px solid var(--line)
+  }
+  .ed-channels .c{
+    padding:6mm 3mm;text-align:center;
+    border-inline-start:1px solid var(--line)
+  }
+  .ed-channels .c:first-child{border-inline-start:0}
+  .ed-channels .c .name{
+    font-size:9pt;letter-spacing:.28em;color:var(--gold);
+    text-transform:uppercase
+  }
+
+  /* Screenshot frame */
+  .shot{
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;
+    background:#0a0a0c;box-shadow:0 8px 30px rgba(0,0,0,0.5)
+  }
+  .shot img{display:block;width:100%;height:auto}
+  .shot .cap{
+    font-size:8.5pt;letter-spacing:.06em;color:var(--whisper);
+    padding:3mm 4mm;text-align:center;border-top:1px solid var(--line)
+  }
+
+  /* Status bullet */
+  .status{
+    display:inline-block;font-size:8.5pt;letter-spacing:.24em;text-transform:uppercase;
+    padding:2px 10px;border:1px solid var(--gold);color:var(--gold);
+    margin-bottom:4mm;border-radius:1px
+  }
+  .status.pending{border-color:#E8B478;color:#E8B478}
+  .status.next{border-color:var(--gold);color:var(--gold);border-style:dashed}
+
+  /* Numbered editorial blocks */
+  .num-block{display:flex;gap:8mm;margin-bottom:8mm}
+  .num-block .n{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42pt;color:var(--gold);line-height:1;flex-shrink:0;
+    min-width:14mm
+  }
+  .num-block .b h3{
+    font-family:'Cormorant Garamond',serif;font-weight:400;
+    font-size:16pt;color:var(--warm);margin-bottom:2mm
+  }
+  .num-block .b p{font-size:10.5pt;line-height:1.85;color:var(--muted)}
+
+  /* Bar chart (growth) */
+  .bars{display:flex;align-items:flex-end;gap:10mm;height:52mm;margin:8mm 0 4mm;padding:0 4mm}
+  .bars .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bars .bar .fill{
+    width:100%;max-width:26mm;
+    background:linear-gradient(180deg,#E8D9B5,#C9A96E 60%,#8C6F3F);
+    border-radius:2px 2px 0 0;position:relative
+  }
+  .bars .bar .val{
+    font-family:'Cormorant Garamond',serif;font-size:22pt;color:var(--gold);
+    margin-bottom:2mm
+  }
+  .bars .bar .mlbl{font-size:9pt;letter-spacing:.2em;color:var(--whisper);margin-top:3mm;text-transform:uppercase}
+
+  /* Closing page */
+  .closing{justify-content:center;align-items:center;text-align:center}
+  .closing .seal{width:64px;height:64px}
+  .closing .seal span{font-size:28pt}
+  .closing h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+    font-size:32pt;color:var(--gold-bright);margin:6mm 0 8mm;line-height:1.4;
+    max-width:140mm
+  }
+  .closing p{
+    font-size:11pt;line-height:2;color:var(--muted);max-width:140mm;margin-bottom:6mm
+  }
+  .closing .sig{
+    margin-top:14mm;font-size:9pt;letter-spacing:.38em;color:var(--whisper);
+    text-transform:uppercase
+  }
+  .closing .sig strong{color:var(--gold);letter-spacing:.42em;font-weight:400}
+
+  @media screen and (max-width:880px){
+    .page{width:100%;height:auto;min-height:100vh;box-shadow:none;margin:0}
+    body{background:var(--paper)}
+    .pad{padding:14mm 8mm}
+    .col2,.branch-cards{grid-template-columns:1fr}
+    .stat-strip{grid-template-columns:repeat(2,1fr)}
+    .ed-channels{grid-template-columns:repeat(2,1fr)}
+    .ed-channels .c:nth-child(3){border-inline-start:0}
+    .cover h1{font-size:42pt}
+  }
+
+  @media print{
+    body{background:#fff;padding:0}
+    .page{margin:0;box-shadow:none;width:210mm;height:297mm}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== PAGE 1 — COVER ============== -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div class="seal"><span>O</span></div>
+    <div class="cover-eyebrow">Quarterly Report · 2026</div>
+    <h1>أويلو سبا</h1>
+    <h2>تقرير الربع الثاني</h2>
+    <div class="ornament"><span class="l"></span><span class="d s"></span><span class="d"></span><span class="d s"></span><span class="l"></span></div>
+    <div class="month">Q2 · April – June 2026</div>
+    <div class="client">
+      <div>Prepared for</div>
+      <div style="margin-top:6px"><strong>OILO SPA · فرعا الربيع والنهضة</strong></div>
+      <div style="margin-top:18px">By Eclipse Agency</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PAGE 2 — EXECUTIVE SUMMARY ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>Quarterly Report · Q2 2026</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الربع الثاني · أبريل – يونيو ٢٠٢٦</div>
+    <h2 class="title">ملخّص <em>تنفيذي</em></h2>
+
+    <p class="lede">
+      يوثّق هذا التقرير ما نُفّذ على منظومة أويلو الرقمية خلال الربع الثاني (أبريل إلى يونيو ٢٠٢٦):
+      إضافة فرع النهضة إلى بنية الموقع متعددة الفروع، إطلاق إعلانات جوجل وتجهيز بقية المنصات للإطلاق،
+      واستمرار الحجوزات العضوية من بحث جوجل. الأرقام أدناه مستخرجة مباشرةً من قاعدة بيانات الحجز.
+    </p>
+
+    <div class="stat-strip">
+      <div class="s"><div class="num">٤٦</div><div class="lbl">حجز إلكتروني</div></div>
+      <div class="s"><div class="num">×٧</div><div class="lbl">نمو الحجوزات</div></div>
+      <div class="s"><div class="num">٢</div><div class="lbl">فرعان</div></div>
+      <div class="s"><div class="num">٣٥٪</div><div class="lbl">من بحث جوجل</div></div>
+    </div>
+
+    <div class="col2" style="margin-top:10mm">
+      <div>
+        <h3 class="subhead">أبرز ما نُفّذ</h3>
+        <ul class="feat">
+          <li>نمو الحجوزات من <strong>٥ إلى ٣٦</strong> شهرياً بعد إطلاق الإعلانات</li>
+          <li>إطلاق <strong>فرع النهضة</strong> رقمياً بصفحته الخاصة</li>
+          <li>ثلث الحجوزات تأتي من <strong>بحث جوجل العضوي</strong></li>
+          <li>نظام حجز مستقل لكل فرع بسعة منفصلة</li>
+          <li>محتوى مستمر عبر أربع منصات للفرعين</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">ما هو قادم</h3>
+        <ul class="feat">
+          <li>إطلاق حملات <strong>Meta و TikTok و Snapchat</strong> عند اعتماد العميل</li>
+          <li>توسيع الاستهداف الإعلاني ليشمل <strong>فرع النهضة</strong></li>
+          <li>حملات واتساب لتنشيط العملاء الحاليين</li>
+          <li>محتوى مصوّر مخصّص لكل فرع</li>
+          <li>تقارير أداء شهرية مفصولة لكل فرع</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">02</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 3 — TWO BRANCHES ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>I · Two Branches</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل الأول · البنية متعددة الفروع</div>
+    <h2 class="title">بنية <em>الفرعين</em> التقنية</h2>
+
+    <p class="lede">
+      أُعيد بناء الموقع على بنية متعددة الفروع. لكل فرع صفحة هبوط مستقلة، عنوان وساعات وإحداثيات وخريطة
+      ورقم واتساب خاص، وسعة حجز محسوبة على حدة، وبيانات LocalBusiness منفصلة تربطه بموقعه الجغرافي في
+      نتائج البحث.
+    </p>
+
+    <div class="branch-cards">
+      <div class="bcard">
+        <div class="tag">الفرع الأول</div>
+        <h3>فرع الربيع</h3>
+        <div class="district">حي الربيع · الرياض</div>
+        <div class="row"><span class="k">الصفحة</span><span class="v">oilo.sa/al-rabie</span></div>
+        <div class="row"><span class="k">السبت – الخميس</span><span class="v">١٠ ص – ٤ فجراً</span></div>
+        <div class="row"><span class="k">الجمعة</span><span class="v">١:٣٠ ظ – ٤ فجراً</span></div>
+        <div class="row"><span class="k">الواتساب</span><span class="v">٠٥٥ ٦٩٩ ٦٩٠٩</span></div>
+      </div>
+      <div class="bcard">
+        <div class="tag">الفرع الجديد</div>
+        <h3>فرع النهضة</h3>
+        <div class="district">حي النهضة · الرياض</div>
+        <div class="row"><span class="k">الصفحة</span><span class="v">oilo.sa/al-nahda</span></div>
+        <div class="row"><span class="k">السبت – الخميس</span><span class="v">١٠ ص – ٦ ص</span></div>
+        <div class="row"><span class="k">الجمعة</span><span class="v">٤ ع – ٦ ص</span></div>
+        <div class="row"><span class="k">الواتساب</span><span class="v">٠٥٥ ٦٧٣ ٣٨٥١</span></div>
+      </div>
+    </div>
+
+    <div class="col2" style="margin-top:6mm">
+      <div>
+        <h3 class="subhead">صفحة لكل فرع</h3>
+        <p class="body">
+          صفحة هبوط مستقلة لكل فرع (<strong>/al-rabie</strong> و <strong>/al-nahda</strong>) مع صور
+          المكان، الخدمات، الموقع على الخريطة، الساعات، ورقم واتساب خاص. يصل الزائر مباشرةً إلى فرعه
+          الأقرب دون ازدحام في الرسالة.
+        </p>
+      </div>
+      <div>
+        <h3 class="subhead">حجزٌ مستقل لكل فرع</h3>
+        <p class="body">
+          سعة الحجز محسوبة لكل فرع على حدة، فامتلاء مواعيد فرعٍ لا يحجب الآخر. بيانات JSON-LD منفصلة
+          لكل موقع تجعل جوجل يعرض الفرع الصحيح حسب موقع الباحث الجغرافي في الرياض.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">03</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 4 — DIGITAL PERFORMANCE ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>II · Performance</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل الثاني · الأرقام</div>
+    <h2 class="title">أداء <em>الحجوزات الإلكترونية</em></h2>
+
+    <p class="lede">
+      كل الأرقام التالية مستخرجة مباشرةً من قاعدة بيانات الحجز على الموقع خلال الربع الثاني (أبريل إلى يونيو).
+      المنحنى واضح: تزامن إطلاق إعلانات جوجل في مايو مع ارتفاع الحجوزات إلى نحو سبعة أضعاف.
+    </p>
+
+    <h3 class="subhead">نمو الحجوزات شهرياً</h3>
+    <div class="bars">
+      <div class="bar"><div class="val">٥</div><div class="fill" style="height:14%"></div><div class="mlbl">أبريل</div></div>
+      <div class="bar"><div class="val">٣٦</div><div class="fill" style="height:100%"></div><div class="mlbl">مايو</div></div>
+      <div class="bar"><div class="val">٥</div><div class="fill" style="height:14%"></div><div class="mlbl">يونيو حتى الآن</div></div>
+    </div>
+    <p class="body" style="text-align:center;color:var(--whisper);font-size:9.5pt">
+      عدد الحجوزات الإلكترونية المسجّلة شهرياً عبر oilo.sa
+    </p>
+
+    <div class="col2" style="margin-top:8mm">
+      <div>
+        <h3 class="subhead">مصادر الحجز</h3>
+        <ul class="feat">
+          <li><strong>٣٠ حجزاً</strong> مباشرة (واتساب وروابط مباشرة)</li>
+          <li><strong>١٦ حجزاً</strong> من بحث جوجل العضوي</li>
+          <li>أي ثلث الحجوزات يأتي من السيو دون تكلفة إعلانية</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">أكثر الخدمات حجزاً</h3>
+        <ul class="feat">
+          <li><strong>مساج أويلو المميّز</strong> · الأعلى طلباً</li>
+          <li>عرض مساج + حمام مغربي</li>
+          <li>السويدي ٦٠ دقيقة + الحمام الكلاسيكي</li>
+          <li>عروض الدمج (مساج + باديكير) رائجة</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">04</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 5 — NEW BRANCH BUILD ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>III · Al Nahda Launch</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل الثالث · /al-nahda</div>
+    <h2 class="title">إطلاق <em>فرع النهضة</em> رقمياً</h2>
+
+    <p class="lede">
+      دخول فرعٍ جديد إلى منظومة أويلو الرقمية يعني أكثر من إضافة عنوان. بنينا لفرع النهضة حضوراً كاملاً
+      يطابق فخامة فرع الربيع، جاهزاً لاستقبال أول عملائه.
+    </p>
+
+    <div class="num-block">
+      <div class="n">٠١</div>
+      <div class="b">
+        <h3>صفحة فرع كاملة</h3>
+        <p>قسم بطل بصور المكان الجديد، الخدمات والأسعار، قسم الأجواء، والتقييمات، بنفس الهوية الذهبية على الأسود التي تميّز العلامة.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٢</div>
+      <div class="b">
+        <h3>موقع وساعات مؤكّدة</h3>
+        <p>العنوان على شارع سلمان الفارسي بحي النهضة، مثبّت على خرائط جوجل بإحداثيات دقيقة، مع ساعات عمل الفرع الخاصة (١٠ صباحاً حتى ٦ صباحاً) ورقم واتساب مستقل.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٣</div>
+      <div class="b">
+        <h3>خرائط جوجل وتهيئة البحث</h3>
+        <p>إضافة الفرع إلى <strong>خرائط جوجل (Google Business)</strong> بصوره ومعلوماته، مع بيانات LocalBusiness منظّمة وإدراجه في خريطة الموقع وروابط اللغتين، ليظهر أمام الباحثين في محيطه الجغرافي.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٤</div>
+      <div class="b">
+        <h3>معالجة وتجهيز الصور</h3>
+        <p>معالجة صور الفرع الجديد وتحسينها للويب بصيغ حديثة سريعة التحميل، لاستخدامها على الموقع وخرائط جوجل وملف الواتساب التجاري.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">05</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 6 — SOCIAL ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>IV · Social Media</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل الرابع · المحتوى</div>
+    <h2 class="title">إدارة <em>منصات التواصل</em></h2>
+
+    <p class="lede">
+      محتوى منتظم على مدار الربع بهوية أويلو الفاخرة: الذهبي على الأسود، تايبوغرافي عربي راقٍ، وتصوير
+      حقيقي للمكان. جدول نشر ثابت لكل فرع عبر أربع منصات.
+    </p>
+
+    <div class="stat-strip three" style="margin:4mm 0 5mm">
+      <div class="s"><div class="num">٥</div><div class="lbl">أيام نشر أسبوعياً / فرع</div></div>
+      <div class="s"><div class="num">٢</div><div class="lbl">فرعان</div></div>
+      <div class="s"><div class="num">٤</div><div class="lbl">منصات</div></div>
+    </div>
+
+    <p class="body">
+      نلتزم بجدول نشر <strong>٥ أيام في الأسبوع لكل فرع على حدة</strong>، بمحتوى موحّد الهوية مع تمييز
+      كل فرع بموقعه ورقم تواصله في الدعوات إلى الحجز، موزّعاً على المنصات الأربع التالية:
+    </p>
+
+    <div class="ed-channels" style="margin-top:3mm">
+      <div class="c"><div class="name">Instagram</div></div>
+      <div class="c"><div class="name">TikTok</div></div>
+      <div class="c"><div class="name">Facebook</div></div>
+      <div class="c"><div class="name">Snapchat</div></div>
+    </div>
+
+    <div class="col2" style="margin-top:6mm">
+      <div>
+        <h3 class="subhead">المنشورات</h3>
+        <ul class="feat">
+          <li>تعريف بالخدمات والباقات الفاخرة</li>
+          <li>إبراز عروض الصباح والحمام المغربي</li>
+          <li>التعريف بفرع النهضة وموقعه</li>
+          <li>دعوات حجز مباشرة لكل فرع</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">الستوريز</h3>
+        <ul class="feat">
+          <li>لقطات يومية من داخل الفرعين</li>
+          <li>تذكير منتظم بالعروض اليومية</li>
+          <li>هايلايت دائم لـ«الحمام المغربي»</li>
+          <li>روابط حجز مباشرة لكل فرع</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:6mm;border:1px dashed var(--gold);padding:5mm 7mm;border-radius:2px;background:linear-gradient(180deg,rgba(201,169,110,0.06),transparent)">
+      <span class="status next">مطلوب من العميل</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:16pt;color:var(--warm);margin-bottom:2mm">مادة فيديو من الفرعين لإنتاج الريلز</h3>
+      <p class="body" style="margin-bottom:0">
+        لإنتاج ريلز احترافية لكل فرع، نحتاج لقطات فيديو خام من داخل <strong>فرع الربيع</strong> و
+        <strong>فرع النهضة</strong>: الاستقبال، الغرف، الأجواء، وأثناء الخدمات. كلما توفّرت مادة أكثر،
+        زاد عدد الريلز وجودتها لكل فرع.
+      </p>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">06</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 7 — WHATSAPP / WATI ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>V · WhatsApp Automation</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل الخامس · واتساب + WATI</div>
+    <h2 class="title">أتمتة <em>الواتساب</em> والحجز</h2>
+
+    <p class="lede">
+      ربطنا واتساب الفرعين بمنصّة <strong>WATI</strong> لتحويل كل محادثة إلى حجز: ردّ آلي فوري، توجيه
+      للموظف المختص، وقوالب جاهزة بالخدمات والأسعار، مع رابط حجز يفتح الفرع الصحيح مباشرةً.
+    </p>
+
+    <div class="col2" style="align-items:start">
+      <div class="shot">
+        <img src="assets/wati-nahda.jpeg" alt="WhatsApp WATI Oilo Nahda" />
+        <div class="cap">ردّ آلي فعلي على عميل في فرع النهضة</div>
+      </div>
+      <div>
+        <ul class="feat">
+          <li><strong>ردّ ترحيبي فوري</strong> على أي رسالة، مع رابط الحجز الخاص بالفرع</li>
+          <li><strong>نظام تذاكر</strong> يفتح لكل محادثة ويوجّهها للموظف المختص</li>
+          <li><strong>قوالب جاهزة</strong> بقائمة الخدمات والأسعار وساعات العمل</li>
+          <li><strong>رابط حجز ذكي</strong> يفتح فرع العميل مباشرةً (<span dir="ltr">branch=al-nahda</span>)</li>
+          <li>يعمل على مدار <strong>٢٤ ساعة</strong> دون انتظار ردّ بشري</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col2" style="margin-top:7mm">
+      <div>
+        <h3 class="subhead">وصول الإدارة لكل فرع</h3>
+        <p class="body">حساب دخول مستقل على لوحة الإدارة (<span dir="ltr">oilo.sa/admin</span>) لكل فرع، ليتابع مسؤول الفرع حجوزاته أولاً بأول من الجوال أو المتصفّح.</p>
+      </div>
+      <div>
+        <h3 class="subhead">تنبيهات الحجز</h3>
+        <p class="body">تنبيه بريدي للفرع عند كل حجز جديد، يصل مباشرةً إلى بريد الفرع دون الحاجة لفتح اللوحة، ليرى الفريق الحجز لحظة وصوله.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:6mm;border:1px dashed var(--gold);padding:5mm 7mm;border-radius:2px;background:linear-gradient(180deg,rgba(201,169,110,0.06),transparent)">
+      <span class="status next">مطلوب من العميل</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:16pt;color:var(--warm);margin-bottom:2mm">رقم جديد لإضافة فرع الربيع إلى WATI</h3>
+      <p class="body" style="margin-bottom:0">
+        نظام WATI مُفعَّل على <strong>فرع النهضة</strong>. ولإضافة <strong>فرع الربيع</strong> نحتاج رقم
+        جوال جديداً <strong>غير مُسجَّل على واتساب</strong> (شرط أساسي لتفعيل واتساب الأعمال على المنصة).
+        فور توفّره نُفعّل الردّ الآلي ورابط الحجز الخاص بفرع الربيع خلال وقتٍ قصير.
+      </p>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">07</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 8 — PAID ADS ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>VI · Paid Advertising</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل السادس · الإعلانات</div>
+    <h2 class="title">الحملات <em>المدفوعة</em></h2>
+
+    <p class="lede">
+      أُطلقت <strong>إعلانات جوجل</strong> لأويلو خلال الربع، وهي القناة المدفوعة الوحيدة العاملة حتى الآن.
+      أمّا منصّتا Meta و TikTok فجاهزتان بالكامل (حسابات إعلانية مُنشأة ومُوثّقة) بانتظار اعتماد العميل
+      لإطلاقهما.
+    </p>
+
+    <div class="num-block">
+      <div class="n">✓</div>
+      <div class="b">
+        <h3>إعلانات جوجل <span class="status" style="margin-inline-start:6mm">تعمل</span></h3>
+        <p>حملات بحث على Google Ads تستهدف الباحثين عن سبا ومساج للرجال في الرياض، وتقود الزائر مباشرةً إلى صفحة الحجز. تزامن إطلاقها مع ارتفاع الحجوزات في مايو.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">▸</div>
+      <div class="b">
+        <h3>حملات Meta <span class="status pending" style="margin-inline-start:6mm">بانتظار الاعتماد</span></h3>
+        <p>الحساب الإعلاني على Meta مُنشأ ومُوثّق وجاهز لحملات إنستغرام وفيسبوك باستهداف جغرافي حول كل فرع. لم تُطلَق بعد، بانتظار موافقة العميل.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">▸</div>
+      <div class="b">
+        <h3>حملات TikTok <span class="status pending" style="margin-inline-start:6mm">بانتظار الاعتماد</span></h3>
+        <p>الحساب الإعلاني على TikTok مُنشأ ومُوثّق وجاهز للإطلاق باستهداف الرياض فور توفّر مادة الفيديو وموافقة العميل.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">✓</div>
+      <div class="b">
+        <h3>جاهزية المنصات <span class="status" style="margin-inline-start:6mm">مكتملة</span></h3>
+        <p>جميع الحسابات الإعلانية (جوجل، Meta، TikTok) مُنشأة ومُوثّقة وجاهزة للإطلاق، إلى جانب بحث جوجل العضوي الذي يولّد نحو ثلث الحجوزات (١٦ من ٤٦) دون تكلفة. الإطلاق الكامل يتم فور الاعتماد دون إعداد إضافي.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">08</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 9 — NEXT QUARTER ============== -->
+<section class="page">
+  <div class="pheader">
+    <span class="brand">Oilo Spa</span>
+    <span>VII · Next Quarter</span>
+  </div>
+
+  <div class="pad" style="padding-top:14mm">
+    <div class="section-eyebrow">الفصل السابع · الربع القادم</div>
+    <h2 class="title">خطّة <em>الربع الثالث</em></h2>
+
+    <p class="lede">
+      أولويات الربع القادم مرتبطة بقرار تشغيل الإعلانات: إطلاق حملات Meta و TikTok و Snapchat عند اعتماد
+      العميل، توسيع الاستهداف لفرع النهضة، تفعيل قاعدة العملاء عبر الواتساب، وفصل تقارير الأداء لكل فرع.
+    </p>
+
+    <div class="num-block">
+      <div class="n">٠١</div>
+      <div class="b">
+        <h3>إطلاق حملات Meta و TikTok و Snapchat</h3>
+        <p>فور اعتماد العميل، إطلاق حملات Meta و TikTok و Snapchat لتغطية أوسع جمهور رجالي في الرياض، إلى جانب إعلانات جوجل العاملة، مع قياس الحجوزات لكل قناة.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٢</div>
+      <div class="b">
+        <h3>توسيع الاستهداف لفرع النهضة</h3>
+        <p>حملات مخصّصة باستهداف جغرافي حول حي النهضة، مع قياس الحجوزات لكل فرع على حدة لمقارنة أداء الفرعين.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٣</div>
+      <div class="b">
+        <h3>حملات واتساب للعملاء الحاليين</h3>
+        <p>تجزئة قاعدة العملاء التي تكوّنت خلال الربع حسب الفرع وآخر زيارة، وإرسال عروض وتذكيرات عبر قوالب رسمية معتمدة.</p>
+      </div>
+    </div>
+
+    <div class="num-block">
+      <div class="n">٠٤</div>
+      <div class="b">
+        <h3>تقارير أداء مفصولة لكل فرع</h3>
+        <p>فصل الحجوزات ومصادرها والخدمات الأكثر طلباً لكل فرع، وقياس عائد كل ريال إعلاني عند إعادة تشغيل الحملات.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pfooter">
+    <span class="brand-mini">Oilo · Eclipse</span>
+    <span class="num">09</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 10 — CLOSING ============== -->
+<section class="page closing cover">
+  <div class="cover-inner">
+    <div class="seal"><span>O</span></div>
+    <div class="ornament" style="margin-top:12mm"><span class="l"></span><span class="d s"></span><span class="d"></span><span class="d s"></span><span class="l"></span></div>
+    <h2>
+      الربع الثاني: فرعان نشطان،<br/>
+      ونموٌّ مقيس في الحجوزات.
+    </h2>
+    <p>
+      شكراً لثقتكم بفريق إكليبس. أضاف الربع الثاني فرع النهضة إلى المنظومة الرقمية، وأطلق إعلانات جوجل،
+      إلى جانب مصدرٍ عضويٍّ مستقرّ من بحث جوجل.
+    </p>
+    <p>
+      منصّتا Meta و TikTok جاهزتان وموثّقتان بانتظار اعتمادكم لإطلاقهما، مع حملات واتساب
+      وتقارير مفصولة لكل فرع في الربع القادم.
+    </p>
+    <div class="sig">
+      <div class="ornament" style="margin:0 auto 14px"><span class="d s"></span><span class="d"></span><span class="d s"></span></div>
+      <div><strong>Eclipse Agency</strong></div>
+      <div style="margin-top:8px;color:var(--whisper)">eclipseagency.net</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

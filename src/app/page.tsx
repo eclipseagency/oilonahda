@@ -1,0 +1,14 @@
+import type { Metadata } from 'next'
+import BranchPageClient from '@/components/BranchPageClient'
+
+// Site root = Al Nahda branch for this standalone branch build.
+export const metadata: Metadata = {
+  title: 'Oilo Spa فرع النهضة | مركز سبا واسترخاء فاخر في حي النهضة، الرياض',
+  description:
+    'أويلو سبا فرع النهضة، منتجع صحي وسبا واسترخاء فاخر في شرق الرياض. مساج واسترخاء، حمام مغربي، عناية، وباقات مميزة. احجز موعدك الآن.',
+  alternates: { canonical: 'https://oilo.sa' },
+}
+
+export default function Home() {
+  return <BranchPageClient branchId="al-nahda" />
+}

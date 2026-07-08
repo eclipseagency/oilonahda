@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<title>محضر اجتماع — استراتيجيّة الإعلانات والحضور الرقمي · أويلو سبا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --ink:#1a1a1a; --soft:#3a3a3a; --muted:#6b6b6b;
+    --line:#e2e2e2; --line-strong:#bdbdbd;
+    --accent:#1e3a5f; --accent-soft:#eaf0f8;
+    --bg:#ffffff; --paper:#fafafa;
+    --tag:#f0e9d8; --tag-ink:#7a5a1c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:#e8e8ea;
+    font-family:'IBM Plex Sans Arabic',sans-serif;
+    -webkit-font-smoothing:antialiased;color:var(--ink);
+  }
+  body{padding:24px 0}
+
+  .page{
+    width:210mm;height:297mm;margin:0 auto 24px;background:var(--bg);
+    position:relative;overflow:hidden;
+    box-shadow:0 8px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+    page-break-after:always;break-after:page;display:flex;flex-direction:column;
+  }
+  .page:last-child{page-break-after:auto}
+
+  .pad{padding:18mm 22mm}
+
+  .header{
+    padding:14mm 22mm 0;display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:1px solid var(--line);padding-bottom:6mm;margin-bottom:10mm
+  }
+  .header .brand{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:13pt;color:var(--ink);letter-spacing:.06em}
+  .header .meta{font-size:8.5pt;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;text-align:start}
+
+  .footer{
+    margin-top:auto;padding:6mm 22mm 12mm;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;font-size:8.5pt;color:var(--muted);letter-spacing:.04em
+  }
+  .footer .num{color:var(--soft);font-weight:500}
+
+  .cover{justify-content:center;align-items:center;text-align:center;padding:0 22mm}
+  .cover-eyebrow{font-size:9pt;letter-spacing:.42em;color:var(--accent);text-transform:uppercase;margin-bottom:18mm}
+  .cover h1{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:300;font-size:34pt;line-height:1.25;color:var(--ink);margin-bottom:6mm}
+  .cover .sub{font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:300;font-size:18pt;color:var(--muted);margin-bottom:14mm}
+  .cover .rule{width:60mm;height:2px;background:var(--accent);margin:0 auto 14mm}
+  .cover .badge{display:inline-block;padding:4mm 12mm;border:1px solid var(--accent);color:var(--accent);font-size:10pt;letter-spacing:.32em;text-transform:uppercase}
+  .cover .meta-grid{margin-top:30mm;display:grid;grid-template-columns:repeat(3,1fr);gap:10mm;text-align:center}
+  .cover .meta-grid .role{font-size:8.5pt;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-bottom:3mm}
+  .cover .meta-grid .nm{font-family:'IBM Plex Serif',serif;font-size:13pt;color:var(--ink);font-weight:500}
+
+  .section-num{font-family:'IBM Plex Serif',serif;font-size:9pt;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;margin-bottom:4mm}
+  h2.title{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:400;font-size:22pt;color:var(--ink);margin-bottom:7mm;line-height:1.3}
+  h3.subhead{font-weight:600;font-size:12pt;color:var(--ink);margin:6mm 0 3mm;letter-spacing:.02em}
+
+  p.body{font-size:10.5pt;line-height:1.95;color:var(--soft);margin-bottom:3mm}
+  p.body strong{color:var(--ink);font-weight:600}
+  p.lede{font-size:11pt;line-height:1.95;color:var(--soft);margin-bottom:6mm}
+
+  /* Decision card */
+  .decisions{display:grid;grid-template-columns:1fr 1fr;gap:4mm 6mm;margin:5mm 0}
+  .dec{
+    border:1px solid var(--line);background:var(--paper);
+    border-inline-start:3px solid var(--accent);
+    padding:4mm 5mm
+  }
+  .dec h4{font-size:10.5pt;font-weight:600;color:var(--ink);margin-bottom:2mm;line-height:1.5}
+  .dec p{font-size:9.5pt;line-height:1.7;color:var(--soft)}
+
+  /* Action items table */
+  .tbl{width:100%;border-collapse:collapse;margin:4mm 0 6mm}
+  .tbl th,.tbl td{padding:3mm 3mm;text-align:start;font-size:9.5pt;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{background:var(--paper);color:var(--ink);font-weight:600;letter-spacing:.04em;font-size:9pt;border-bottom:1px solid var(--line-strong)}
+  .tbl td{color:var(--soft);line-height:1.7}
+  .tbl td .who{color:var(--ink);font-weight:600;display:block;margin-bottom:1mm}
+  .tbl td .ts{font-family:'IBM Plex Serif',serif;color:var(--accent);font-size:9pt;font-weight:500}
+
+  /* Topic blocks */
+  .topic{margin-bottom:6mm}
+  .topic .head{display:flex;gap:4mm;align-items:baseline;margin-bottom:2mm}
+  .topic .ts{font-family:'IBM Plex Serif',serif;font-size:11pt;color:var(--accent);font-weight:600;min-width:14mm}
+  .topic h4{font-weight:600;font-size:11.5pt;color:var(--ink)}
+  .topic p{font-size:10pt;line-height:1.85;color:var(--soft);padding-inline-start:18mm}
+
+  /* Q&A */
+  .qa{margin-bottom:5mm;padding:4mm 5mm;background:var(--paper);border:1px solid var(--line);border-radius:1px}
+  .qa .q{font-weight:600;color:var(--ink);font-size:10.5pt;margin-bottom:2mm;line-height:1.6}
+  .qa .q::before{content:"س · ";color:var(--accent);font-family:'IBM Plex Serif',serif;font-weight:600}
+  .qa .a{color:var(--soft);font-size:10pt;line-height:1.8}
+  .qa .a::before{content:"ج · ";color:var(--accent);font-family:'IBM Plex Serif',serif;font-weight:600}
+
+  ul.simple{list-style:none;margin:3mm 0}
+  ul.simple li{position:relative;padding-inline-start:6mm;font-size:10.5pt;line-height:1.85;color:var(--soft);margin-bottom:2mm}
+  ul.simple li::before{content:"";position:absolute;inset-inline-start:0;top:8px;width:4px;height:4px;background:var(--accent);border-radius:50%}
+  ul.simple li strong{color:var(--ink);font-weight:600}
+
+  .pull{
+    border-inline-start:3px solid var(--accent);
+    padding:3mm 6mm;margin:5mm 0;
+    font-family:'IBM Plex Serif',serif;font-style:italic;font-size:11.5pt;line-height:1.6;
+    color:var(--soft);background:var(--paper)
+  }
+
+  .tag{display:inline-block;background:var(--tag);color:var(--tag-ink);font-size:8.5pt;padding:1mm 3mm;letter-spacing:.06em;border-radius:1px;margin-inline-end:1mm}
+</style>
+</head>
+<body>
+
+<!-- ====== COVER ====== -->
+<div class="page cover">
+  <div class="cover-eyebrow">محضر اجتماع</div>
+  <h1>استراتيجيّة الإعلانات<br>والحضور الرقمي</h1>
+  <div class="sub">أويلو سبا · مايو ٢٠٢٦</div>
+  <div class="rule"></div>
+  <div class="badge">ملخّص الاجتماع · ٥١ دقيقة</div>
+  <div class="meta-grid">
+    <div>
+      <div class="role">المنصّة</div>
+      <div class="nm">Read.ai</div>
+    </div>
+    <div>
+      <div class="role">المدّة</div>
+      <div class="nm">٥١ : ٠٧</div>
+    </div>
+    <div>
+      <div class="role">الحضور</div>
+      <div class="nm">إيكلبس × أويلو</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE 2 — EXECUTIVE SUMMARY ====== -->
+<div class="page">
+  <div class="header">
+    <div class="brand">أويلو سبا · إيكلبس</div>
+    <div class="meta">محضر اجتماع · مايو ٢٠٢٦</div>
+  </div>
+  <div class="pad" style="padding-top:0">
+    <div class="section-num">القسم الأول</div>
+    <h2 class="title">الملخّص التنفيذي</h2>
+
+    <p class="lede">
+      اجتمعت الفِرق لمناقشة إعداد وتشغيل حملات إعلانيّة مرتبطة بحسابات <strong>واتساب الأعمال</strong>
+      داخل بيئة <strong>ميتا</strong>، وربطها بحسابات الإعلان وصفحات فيسبوك وإنستجرام،
+      مع مراجعة حالة <strong>التحقّق التجاري (Business Verification)</strong> وخيارات الربط
+      وتسعير منصّة خارجيّة لإدارة الخدمة.
+    </p>
+
+    <p class="body">
+      استعرض الحاضرون مزايا واجهة تحكّم موحَّدة لاستقبال الرسائل والمكالمات وإدارة الكتالوج والحملات.
+      ونوقشت قيود التحقّق وتأخّر التواصل مع دعم ميتا، وحدود المستخدمين لكل حساب.
+    </p>
+
+    <div class="pull">
+      «التركيز الإعلاني على <strong>سناب شات وواتساب</strong>، وتقليل الإنفاق على إنستجرام لتراجع التفاعل،
+      مع الاستفادة من مرونة الاستهداف الجغرافي في سناب شات.»
+    </div>
+
+    <div class="section-num" style="margin-top:8mm">القرارات الرئيسيّة</div>
+
+    <div class="decisions">
+      <div class="dec">
+        <h4>تفعيل الاشتراك المدفوع لخدمة واتساب الأعمال</h4>
+        <p>اختيار الخطّة (شهريّة / سنويّة) والبدء فورًا.</p>
+      </div>
+      <div class="dec">
+        <h4>تركيز الميزانيّة على سناب شات + واتساب</h4>
+        <p>تقليل الإنفاق على إنستجرام بسبب ضعف التفاعل.</p>
+      </div>
+      <div class="dec">
+        <h4>إنتاج فيديو إعلاني احترافيّ واحد</h4>
+        <p>جلسة تصوير الأحد القادم، ومونتاج خلال الأسبوع.</p>
+      </div>
+      <div class="dec">
+        <h4>تجهيز سناب وجوجل وواتساب خلال أسبوع</h4>
+        <p>ربطها كلها بأدوات القياس قبل الإطلاق.</p>
+      </div>
+      <div class="dec">
+        <h4>الاستهداف الجغرافي ٢ – ٥ كم</h4>
+        <p>حول موقع المحلّ في سناب شات لتقليل التكلفة.</p>
+      </div>
+      <div class="dec">
+        <h4>قياس بعد شهر ثم قرار التمديد</h4>
+        <p>التمديد لـ ٣ أشهر أو سنة بناءً على البيانات.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>أويلو سبا × إيكلبس</span><span class="num">٠٢ / ٠٥</span></div>
+</div>
+
+<!-- ====== PAGE 3 — ACTION ITEMS ====== -->
+<div class="page">
+  <div class="header">
+    <div class="brand">أويلو سبا · إيكلبس</div>
+    <div class="meta">محضر اجتماع · مايو ٢٠٢٦</div>
+  </div>
+  <div class="pad" style="padding-top:0">
+    <div class="section-num">القسم الثاني</div>
+    <h2 class="title">المهامّ المتّفق عليها</h2>
+
+    <p class="lede">
+      قائمة المهامّ المتّفق على تنفيذها قبل إطلاق الحملة:
+    </p>
+
+    <ul class="simple">
+      <li>تفعيل الاشتراك لخطّة <strong>واتساب الأعمال المدفوعة</strong> بعد اختيار النوع (شهري / سنوي) وإعداد الحساب للتشغيل.</li>
+      <li>ربط الحملات بـ<strong>البكسل وأدوات القياس</strong> لمتابعة مصادر التحويل وإعداد تقارير أوّليّة.</li>
+      <li>مراجعة منصّة <strong>«فريشة»</strong> وطريقة العمل والتكاليف لتقييمها كبديل للحجز.</li>
+      <li>تقييم إمكانيّة <strong>تحويل الموقع إلى تطبيق</strong> + نفقات حساب مطوّر آبل + الجدول الزمني.</li>
+      <li>التواصل مع <strong>دعم ميتا</strong> لتسريع عمليّة التحقّق التجاري ومتابعة حالة Business Verification.</li>
+      <li>تهيئة واجهة التحكّم وربط <strong>الواتساب بصفحة الحجز</strong> ليحوّل الزوّار مباشرةً عند الضغط.</li>
+      <li>إنشاء <strong>مجموعة تواصل</strong> لمشاركة بيانات البايو وخطّة المحتوى ومراجعتها قبل إطلاق الحملة.</li>
+      <li>تجهيز ونقل <strong>محتوى الفيديو والصور</strong> الجاهز لاستخدامه في حملات واتساب وإنستجرام.</li>
+      <li>تقديم <strong>أرقام العملاء</strong> المتاحة لربط حملات واتساب وإرسالها للمسوّقين.</li>
+      <li>إعداد حسابات <strong>سناب شات</strong> وحملات اللوكيشن للمنطقة بنطاق ٢ – ٥ كم ومشاركة التكلفة المتوقَّعة.</li>
+      <li>تجهيز <strong>اقتراح ميزانيّة يوميّة</strong> لحملات سناب شات وواتساب بناءً على النطاقات.</li>
+      <li>تحديد <strong>الخرائط النطاقيّة</strong> حول المحلّ (يمين، شمال، جنوب، طريق الثمامة) لتطبيق استهداف ٥ كم.</li>
+      <li>تفعيل حسابات <strong>الواتساب والجوجل والسناب شات</strong> وربطها بالفرع استعدادًا للحملة.</li>
+      <li>إنتاج <strong>فيديو إعلاني احترافي</strong> واحد + جلسة تصوير مقصودة + مونتاج خلال الأسبوع.</li>
+      <li><strong>مراقبة وتقييم</strong> أداء الحملات بعد شهر، وجمع بيانات الاتّصالات والحجوزات والمتابعين لقرار التمديد.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>أويلو سبا × إيكلبس</span><span class="num">٠٣ / ٠٥</span></div>
+</div>
+
+<!-- ====== PAGE 4 — TOPICS ====== -->
+<div class="page">
+  <div class="header">
+    <div class="brand">أويلو سبا · إيكلبس</div>
+    <div class="meta">محضر اجتماع · مايو ٢٠٢٦</div>
+  </div>
+  <div class="pad" style="padding-top:0">
+    <div class="section-num">القسم الثالث</div>
+    <h2 class="title">محاور النقاش</h2>
+
+    <div class="topic">
+      <div class="head"><span class="ts">07:29</span><h4>بنية حسابات ميتا وربط الواتساب</h4></div>
+      <p>شرح هيكليّة Meta Business، ووجود Ad Account وصفحات إنستجرام وفيسبوك، وكيفيّة ربط حسابات WhatsApp Business، إضافةً إلى عمليّة التحقّق التجاري وأثرها على تفعيل واتساب الأعمال.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">10:08</span><h4>إعداد الحملات وإمكانيّات واتساب المدفوع</h4></div>
+      <p>عرض إنشاء الحملات في Ads Manager وتحديد الـ Placements لتشمل واتساب وإنستجرام وفيسبوك، وآليّات حملات واتساب المدفوعة التي تصل للمستخدمين دون قوائم يدويّة، وإمكان إنشاء جمهور مشابه (Lookalike) وإدارة الرسائل من واجهة موحَّدة.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">12:49</span><h4>التسعير ودخول عدّة مستخدمين</h4></div>
+      <p>مقارنة الاشتراك الشهري بالسنوي مع تفضيل الدفع السنوي. النظام يسمح بدخول عدّة مستخدمين على حساب واتساب أعمال واحد ضمن حدود محدَّدة.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">25:44</span><h4>اختيار قنوات الإعلان ومقارنتها</h4></div>
+      <p>توصية بعدم الإنفاق على إنستجرام والتركيز على سناب شات وواتساب. تيك توك أرخص لكن يجلب جمهورًا غير مستهدف من خارج السعوديّة، بينما سناب شات أفضل للاستهداف المحلّي.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">27:51</span><h4>الاستهداف الجغرافي وتكلفة الحملات</h4></div>
+      <p>قدرات سناب شات في تحديد نصف القُطر (٢ – ٥ كم) وأثره على التكلفة. مناقشة عمليّة لتقسيم النطاق حول الموقع وتقليل التكلفة بضغط دائرة الاستهداف.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">32:31</span><h4>قياس الأداء وخيارات الحجز والتطبيقات</h4></div>
+      <p>الاتّفاق على ربط الحملات بالبكسل وأدوات القياس لتتبّع التحويلات. دمج واتساب وجوجل مابس وحملات البحث، ومناقشة إمكانيّة تحويل الموقع إلى تطبيق أو استخدام منصّة جاهزة كـ«فريشة».</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">39:04</span><h4>تفعيل الحسابات والتحضير للحملة</h4></div>
+      <p>أهمّيّة تفعيل واتساب وجوجل وسناب شات وربطها بالفرع لقياس مصادر المكالمات والحجوزات. الصفحات يجب أن تظهر بمحتوى ومتابعين معقولين قبل الإطلاق.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">43:20</span><h4>مخاطر الاستهداف على تيك توك</h4></div>
+      <p>تيك توك يجذب أحيانًا جمهورًا أجنبيًّا منخفض التكلفة (بنغاليّين، باكستانيّين) ممّا يؤدّي إلى تفاعلات غير مفيدة وحتى تعليق الواتساب. شراء المتابعين خطأ يضرّ قصيرًا وطويلًا.</p>
+    </div>
+
+    <div class="topic">
+      <div class="head"><span class="ts">47:15</span><h4>المحتوى والتكاليف والجدول الزمني</h4></div>
+      <p>إنتاج فيديو إعلاني واحد جيّد، جلسة تصوير الأحد القادم ثم تعديل ونشر. حساب التكلفة وترتيب التحويلات وتشغيل الحملات خلال الأسبوع المقبل، ومراجعة الأداء بعد شهر.</p>
+    </div>
+  </div>
+  <div class="footer"><span>أويلو سبا × إيكلبس</span><span class="num">٠٤ / ٠٥</span></div>
+</div>
+
+<!-- ====== PAGE 5 — Q&A + CLOSING ====== -->
+<div class="page">
+  <div class="header">
+    <div class="brand">أويلو سبا · إيكلبس</div>
+    <div class="meta">محضر اجتماع · مايو ٢٠٢٦</div>
+  </div>
+  <div class="pad" style="padding-top:0">
+    <div class="section-num">القسم الرابع</div>
+    <h2 class="title">أسئلة وأجوبة</h2>
+
+    <div class="qa">
+      <div class="q">كيف نعرف أيّ منصّة تجلب الزبائن فعلًا؟</div>
+      <div class="a">بربط الحملات بالبكسل وأدوات القياس على الموقع لمعرفة عدد الضغطات والحجوزات الناتجة عن كلّ منصّة.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">هل تحويل الموقع إلى تطبيق عمليّة مكلفة ومعقَّدة؟</div>
+      <div class="a">يحتاج إلى حساب مطوّر آبل بتكلفة تقريبيّة <strong>٢٠٠ دولار</strong> ورفع التطبيق وانتظار القبول. ممكن لكنّه يتطلّب خطوات إداريّة وتقنيّة.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">هل توجد وسيلة تواصل مع دعم ميتا لتسريع التحقّق التجاري؟</div>
+      <div class="a">قيد المتابعة من قبل مصطفى — التواصل مباشرةً مع دعم ميتا لمحاولة تسريع المراجعة.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">هل حملات واتساب قادرة على جلب متابعين لإنستجرام وتحويلات للموقع؟</div>
+      <div class="a">نعم — الحملات المدفوعة على واتساب تُسهم في جذب متابعين لإنستجرام وتحويل زيارات للموقع.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">هل يتيح النظام دخول عدّة موظّفين على حساب واتساب واحد؟</div>
+      <div class="a">نعم، النظام يسمح لعدّة مستخدمين بالدخول لحساب واتساب أعمال واحد ضمن حدود محدَّدة، ممّا يُسهّل التشغيل اليومي.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">كم تكلّف حملات سناب شات اليوميّة تقريبًا؟</div>
+      <div class="a">تختلف حسب نصف القُطر والجمهور — كلّما ضاق النطاق الجغرافي قلّت التكلفة. سيتمّ تجهيز اقتراح ميزانيّة يوميّة لاحقًا.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">هل شراء المتابعين مفيد أم ضارّ للاستراتيجيّة؟</div>
+      <div class="a"><strong>ضارّ.</strong> يؤثّر سلبًا على جودة الحساب ومعدّل التفاعل، ويُربك الاستهداف الإعلاني.</div>
+    </div>
+
+    <p class="body" style="margin-top:10mm;color:var(--muted);font-size:9.5pt;text-align:center">
+      مُحرَّر بواسطة Read.ai · تنسيق وتصميم Eclipse Agency
+    </p>
+  </div>
+  <div class="footer"><span>أويلو سبا × إيكلبس</span><span class="num">٠٥ / ٠٥</span></div>
+</div>
+
+</body>
+</html>
