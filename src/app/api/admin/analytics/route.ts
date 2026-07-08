@@ -1,5 +1,6 @@
 import { getSupabase } from '@/lib/supabase'
 import { services } from '@/lib/services'
+import { nahdaServicesAsServices } from '@/lib/nahdaBranchData'
 import { requireAdmin, resolveBranch } from '@/lib/auth'
 
 export async function GET(request: Request) {
@@ -21,8 +22,9 @@ export async function GET(request: Request) {
   const gifts = giftsRes.data || []
   const memberships = membershipsRes.data || []
 
-  const priceByKey = new Map(services.map(s => [s.key, s.price || 0]))
-  const nameByKey = new Map(services.map(s => [s.key, { ar: s.nameAr, en: s.nameEn }]))
+  const serviceCatalog = [...services, ...nahdaServicesAsServices]
+  const priceByKey = new Map(serviceCatalog.map(s => [s.key, s.price || 0]))
+  const nameByKey = new Map(serviceCatalog.map(s => [s.key, { ar: s.nameAr, en: s.nameEn }]))
 
   // Revenue by service (completed + confirmed only)
   const revenueByService = new Map<string, { count: number; revenue: number }>()
