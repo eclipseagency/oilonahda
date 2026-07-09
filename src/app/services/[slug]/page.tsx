@@ -6,7 +6,7 @@ import { branches } from "@/lib/branches";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 
-const siteUrl = "https://oilo.sa";
+const siteUrl = "https://www.oilospa.com";
 
 export function generateStaticParams() {
   return SERVICE_LANDING_SLUGS.map((slug) => ({ slug }));

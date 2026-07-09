@@ -6,7 +6,8 @@ import { useI18n } from '@/lib/i18n'
 import SiteNav from '@/components/SiteNav'
 import SiteFooter from '@/components/SiteFooter'
 import { membershipTiers, type MembershipKey } from '@/lib/memberships'
-import { services, categories, type ServiceCategory } from '@/lib/services'
+import { type ServiceCategory } from '@/lib/services'
+import { nahdaServicesAsServices as services, nahdaCategoriesTabs as categories } from '@/lib/nahdaBranchData'
 
 const fmt = (n: number) => n.toLocaleString('en-US')
 

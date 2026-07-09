@@ -1437,7 +1437,7 @@ blogPosts.push(
 - **باقة VIP**: كل شيء في زيارة واحدة عند ضيق الوقت
 
 ### حجز رقمي بدون اتصالات
-احجز عبر [oilo.sa/booking](https://oilo.sa/booking) في أقل من دقيقة. ستصلك رسالة واتساب بالتأكيد ورقم الحجز.
+احجز عبر [oilospa.com/booking](https://www.oilospa.com/booking) في أقل من دقيقة. ستصلك رسالة واتساب بالتأكيد ورقم الحجز.
 
 ## كم تكلفة الزيارة الأولى
 
@@ -1460,7 +1460,7 @@ blogPosts.push(
 
 ## احجز جلستك
 
-[احجز الآن على oilo.sa](https://oilo.sa/booking): اختر الخدمة, الموعد, أدخل بياناتك, وستصلك رسالة تأكيد فورية على واتساب.`,
+[احجز الآن على oilospa.com](https://www.oilospa.com/booking): اختر الخدمة, الموعد, أدخل بياناتك, وستصلك رسالة تأكيد فورية على واتساب.`,
 
     contentEn: `## Why expats in Riyadh look for a different kind of spa
 
@@ -1489,7 +1489,7 @@ Al Nahda sits in north Riyadh, close to major offices and the residential pocket
 - **VIP package**: everything in one visit when time is tight
 
 ### Digital booking, no phone call needed
-Book at [oilo.sa/booking](https://oilo.sa/booking) in under a minute. You'll get a WhatsApp confirmation with your booking reference.
+Book at [oilospa.com/booking](https://www.oilospa.com/booking) in under a minute. You'll get a WhatsApp confirmation with your booking reference.
 
 ## What does a first visit cost?
 
@@ -1512,7 +1512,7 @@ All prices are inclusive. No separate service charge.
 
 ## Book your first visit
 
-[Reserve on oilo.sa](https://oilo.sa/booking): pick a service, pick a slot, enter your details, and a WhatsApp confirmation lands instantly.`,
+[Reserve on oilospa.com](https://www.oilospa.com/booking): pick a service, pick a slot, enter your details, and a WhatsApp confirmation lands instantly.`,
   },
   {
     slug: 'moroccan-bath-riyadh-first-time',
@@ -1573,7 +1573,7 @@ All prices are inclusive. No separate service charge.
 
 ## احجز حمامك المغربي
 
-[الحجز عبر oilo.sa/booking](https://oilo.sa/booking): اختر "حمام مغربي ملكي" أو "حمام مغربي كلاسيكي"، احجز موعدك، وستصلك رسالة تأكيد فورية.`,
+[الحجز عبر oilospa.com/booking](https://www.oilospa.com/booking): اختر "حمام مغربي ملكي" أو "حمام مغربي كلاسيكي"، احجز موعدك، وستصلك رسالة تأكيد فورية.`,
 
     contentEn: `## What is a Moroccan bath, exactly?
 
@@ -1620,7 +1620,7 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
 
 ## Book your first Moroccan bath
 
-[Reserve at oilo.sa/booking](https://oilo.sa/booking): pick "Royal Moroccan Bath" or "Classic Moroccan Bath" and a WhatsApp confirmation lands within seconds.`,
+[Reserve at oilospa.com/booking](https://www.oilospa.com/booking): pick "Royal Moroccan Bath" or "Classic Moroccan Bath" and a WhatsApp confirmation lands within seconds.`,
   },
   {
     slug: 'swedish-vs-deep-tissue-massage',
@@ -1690,7 +1690,7 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
 
 إن كنت لا تعرف من أين تبدأ، احجز مساج أويلو سبا الموقّع. هو الاختيار الأول لـ ٧٠٪ من زبائننا الجدد، ومصمم ليناسب أغلب الحالات.
 
-[احجز جلستك](https://oilo.sa/booking)`,
+[احجز جلستك](https://www.oilospa.com/booking)`,
 
     contentEn: `## The question we hear most
 
@@ -1746,7 +1746,7 @@ We offer five types. To simplify:
 
 If you can't decide, book the Oilo Spa Signature. It's the choice for 70% of our new clients and is designed to suit most cases.
 
-[Book your session](https://oilo.sa/booking)`,
+[Book your session](https://www.oilospa.com/booking)`,
   },
   {
     slug: 'spa-etiquette-saudi-arabia-expats',
@@ -1807,12 +1807,12 @@ If you can't decide, book the Oilo Spa Signature. It's the choice for 70% of our
 ## الحجز والإلغاء
 
 - احجز قبل يومين على الأقل في عطلة نهاية الأسبوع
-- يمكنك إلغاء أو تعديل حجزك قبل الموعد بساعتين على الأقل عبر [oilo.sa/booking/manage](https://oilo.sa/booking/manage)
+- يمكنك إلغاء أو تعديل حجزك قبل الموعد بساعتين على الأقل عبر [oilospa.com/booking/manage](https://www.oilospa.com/booking/manage)
 - لا توجد رسوم إلغاء
 
 ## احجز زيارتك الأولى
 
-[oilo.sa/booking](https://oilo.sa/booking)`,
+[oilospa.com/booking](https://www.oilospa.com/booking)`,
 
     contentEn: `## A calm, comfortable atmosphere
 
@@ -1859,12 +1859,12 @@ Silent or stored in the locker. The whole point of a spa is to disconnect for an
 ## Booking and cancellation
 
 - Book at least two days ahead for weekend slots
-- Cancel or reschedule online up to two hours before your appointment at [oilo.sa/booking/manage](https://oilo.sa/booking/manage)
+- Cancel or reschedule online up to two hours before your appointment at [oilospa.com/booking/manage](https://www.oilospa.com/booking/manage)
 - No cancellation fees
 
 ## Book your first visit
 
-[oilo.sa/booking](https://oilo.sa/booking)`,
+[oilospa.com/booking](https://www.oilospa.com/booking)`,
   },
   {
     slug: 'argan-oil-benefits-mens-skin',
@@ -1922,7 +1922,7 @@ Silent or stored in the locker. The whole point of a spa is to disconnect for an
 
 ## احجز حمامًا ملكيًا
 
-[oilo.sa/booking](https://oilo.sa/booking): اختر "حمام مغربي ملكي" واحجز موعدك.`,
+[oilospa.com/booking](https://www.oilospa.com/booking): اختر "حمام مغربي ملكي" واحجز موعدك.`,
 
     contentEn: `## Why it's called liquid gold
 
@@ -1966,7 +1966,7 @@ At Oilo we use argan oil sourced from a certified Moroccan cooperative. If you w
 
 ## Book a Royal bath
 
-[oilo.sa/booking](https://oilo.sa/booking): pick "Royal Moroccan Bath."`,
+[oilospa.com/booking](https://www.oilospa.com/booking): pick "Royal Moroccan Bath."`,
   },
   {
     slug: 'corporate-stress-massage-riyadh',
@@ -2025,7 +2025,7 @@ At Oilo we use argan oil sourced from a certified Moroccan cooperative. If you w
 
 ## احجز جلستك الأولى
 
-[oilo.sa/booking](https://oilo.sa/booking): جرّب جلسة, ولاحظ كيف تنام تلك الليلة.`,
+[oilospa.com/booking](https://www.oilospa.com/booking): جرّب جلسة, ولاحظ كيف تنام تلك الليلة.`,
 
     contentEn: `## A problem no one talks about
 
@@ -2070,7 +2070,7 @@ Oilo Spa offers a quiet environment for every client. The team protects your com
 
 ## Book your first session
 
-[oilo.sa/booking](https://oilo.sa/booking): try one session, notice how you sleep that night.`,
+[oilospa.com/booking](https://www.oilospa.com/booking): try one session, notice how you sleep that night.`,
   },
 )
 

@@ -17,7 +17,7 @@ function deriveSource(utmSource: string | null, referer: string | null): string 
   } catch {
     return 'direct'
   }
-  if (host.endsWith('oilo.sa')) return 'direct' // self-referral counts as direct
+  if (host.endsWith('oilospa.com') || host.endsWith('oilo.sa')) return 'direct' // self-referral counts as direct
   if (host.includes('tiktok')) return 'tiktok'
   if (host.includes('instagram')) return 'instagram'
   if (host.includes('snapchat')) return 'snapchat'

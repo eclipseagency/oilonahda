@@ -21,23 +21,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.descriptionAr,
     keywords: post.keywords,
     alternates: {
-      canonical: `https://oilo.sa/blog/${encodeURI(post.slug)}`,
+      canonical: `https://www.oilospa.com/blog/${encodeURI(post.slug)}`,
     },
     openGraph: {
       title: post.titleAr,
       description: post.descriptionAr,
-      url: `https://oilo.sa/blog/${post.slug}`,
+      url: `https://www.oilospa.com/blog/${post.slug}`,
       siteName: 'Oilo Spa',
       locale: 'ar_SA',
       type: 'article',
       publishedTime: post.date,
-      images: [{ url: `https://oilo.sa${post.image}`, width: 1200, height: 630, alt: post.titleAr }],
+      images: [{ url: `https://www.oilospa.com${post.image}`, width: 1200, height: 630, alt: post.titleAr }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.titleAr,
       description: post.descriptionAr,
-      images: [`https://oilo.sa${post.image}`],
+      images: [`https://www.oilospa.com${post.image}`],
     },
   }
 }
@@ -52,16 +52,16 @@ export default async function BlogPostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.titleAr,
     description: post.descriptionAr,
-    image: `https://oilo.sa${post.image}`,
+    image: `https://www.oilospa.com${post.image}`,
     datePublished: post.date,
     dateModified: post.date,
-    author: { '@type': 'Organization', name: 'Oilo Spa', url: 'https://oilo.sa' },
+    author: { '@type': 'Organization', name: 'Oilo Spa', url: 'https://www.oilospa.com' },
     publisher: {
       '@type': 'Organization',
       name: 'Oilo Spa',
-      logo: { '@type': 'ImageObject', url: 'https://oilo.sa/logo.png' },
+      logo: { '@type': 'ImageObject', url: 'https://www.oilospa.com/logo.png' },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://oilo.sa/blog/${post.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.oilospa.com/blog/${post.slug}` },
   }
 
   const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 2)

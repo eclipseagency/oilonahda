@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'المدونة | Oilo Spa، مقالات عن الصحة والاسترخاء والعناية',
   description: 'مقالات ونصائح من خبراء أويلو سبا حول المساج، الحمام المغربي، العناية بالبشرة، والاسترخاء. دليلك لحياة أكثر صحة وراحة.',
   alternates: {
-    canonical: 'https://oilo.sa/blog',
+    canonical: 'https://www.oilospa.com/blog',
   },
   openGraph: {
     title: 'المدونة | Oilo Spa',
     description: 'مقالات ونصائح حول المساج والاسترخاء والعناية من خبراء أويلو سبا',
-    url: 'https://oilo.sa/blog',
+    url: 'https://www.oilospa.com/blog',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',
     type: 'website',

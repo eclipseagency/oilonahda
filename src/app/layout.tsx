@@ -13,7 +13,7 @@ const GADS_ID_NAHDA = process.env.NEXT_PUBLIC_GADS_ID_NAHDA?.trim(); // Al Nahda
 const SNAP_PIXEL_ID = process.env.NEXT_PUBLIC_SNAP_PIXEL_ID?.trim();
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oilo.sa"),
+  metadataBase: new URL("https://www.oilospa.com"),
   title: "Oilo Spa فرع النهضة | منتجع صحي وسبا واسترخاء في حي النهضة",
   description:
     "أويلو سبا فرع النهضة، منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     title: "Oilo Spa | مركز سبا واسترخاء فاخر في الرياض",
     description:
       "تجربة استرخاء متكاملة. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة.",
-    url: "https://oilo.sa",
+    url: "https://www.oilospa.com",
     siteName: "Oilo Spa",
     locale: "ar_SA",
     type: "website",
     images: [
       {
-        url: "https://oilo.sa/og.png",
+        url: "https://www.oilospa.com/og.png",
         width: 1200,
         height: 630,
         alt: "Oilo Spa، مركز سبا واسترخاء فاخر في الرياض",
@@ -49,14 +49,14 @@ export const metadata: Metadata = {
     title: "Oilo Spa | مركز سبا واسترخاء فاخر في الرياض",
     description:
       "تجربة استرخاء متكاملة. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة.",
-    images: ["https://oilo.sa/og.png"],
+    images: ["https://www.oilospa.com/og.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: "https://oilo.sa",
+    canonical: "https://www.oilospa.com",
   },
   verification: {
     google: "NMhACYAy_--TdZlIkqD1x5nNP3ryKXqkfMScZcwPLRg",
@@ -82,24 +82,24 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "@id": "https://oilo.sa/#business",
+              "@id": "https://www.oilospa.com/#business",
               name: "Oilo Spa",
               description:
                 "منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة",
-              url: "https://oilo.sa",
-              email: "info@oilo.sa",
+              url: "https://www.oilospa.com",
+              email: "oilonahda@gmail.com",
               telephone: `+966${branches["al-nahda"].phone.slice(1)}`,
-              logo: "https://oilo.sa/icon-192.png",
-              image: "https://oilo.sa/og.png",
+              logo: "https://www.oilospa.com/icon-192.png",
+              image: "https://www.oilospa.com/og.png",
               knowsLanguage: ["ar", "en"],
               department: [
                 {
                   "@type": ["DaySpa", "HealthAndBeautyBusiness"],
-                  "@id": "https://oilo.sa/#branch-al-nahda",
+                  "@id": "https://www.oilospa.com/#branch-al-nahda",
                   name: "Oilo Spa | فرع النهضة",
-                  url: "https://oilo.sa",
+                  url: "https://www.oilospa.com",
                   telephone: `+966${branches["al-nahda"].phone.slice(1)}`,
-                  image: "https://oilo.sa/og.png",
+                  image: "https://www.oilospa.com/og.png",
                   priceRange: "SAR 150-850",
                   knowsLanguage: ["ar", "en"],
                   address: {

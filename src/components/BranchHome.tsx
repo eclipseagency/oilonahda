@@ -1040,13 +1040,13 @@ function Footer() {
               {branch.location?.phone ?? '0556733851'}
             </a>
             <span className="hidden sm:block w-px h-4" style={{ background: 'rgba(201,169,110,0.15)' }} />
-            <a href="mailto:info@oilo.sa"
+            <a href="mailto:oilonahda@gmail.com"
               className="flex items-center gap-2.5 text-sm font-medium transition-all hover:text-[#C9A96E] px-5 py-3 rounded-2xl hover:bg-white/[0.03]"
               style={{ color: 'rgba(255,255,255,0.4)' }}>
               <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
-              info@oilo.sa
+              oilonahda@gmail.com
             </a>
           </div>
 

@@ -81,7 +81,7 @@ export async function sendSnapConversion(input: SnapEventInput): Promise<void> {
       {
         event_name: input.eventName,
         action_source: 'website',
-        event_source_url: input.eventSourceUrl || 'https://oilo.sa',
+        event_source_url: input.eventSourceUrl || 'https://www.oilospa.com',
         event_time: Math.floor(Date.now() / 1000),
         user_data: userData,
         custom_data: customData,

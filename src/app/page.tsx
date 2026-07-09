@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Oilo Spa فرع النهضة | مركز سبا واسترخاء فاخر في حي النهضة، الرياض',
   description:
     'أويلو سبا فرع النهضة، منتجع صحي وسبا واسترخاء فاخر في شرق الرياض. مساج واسترخاء، حمام مغربي، عناية، وباقات مميزة. احجز موعدك الآن.',
-  alternates: { canonical: 'https://oilo.sa' },
+  alternates: { canonical: 'https://www.oilospa.com' },
 }
 
 export default function Home() {

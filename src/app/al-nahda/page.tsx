@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
   description:
     'احجز في أويلو سبا فرع النهضة بالرياض: مساج، حمام مغربي، عناية، وباقات استرخاء في حي النهضة شرق الرياض. اختر موعدك أونلاين أو تواصل واتساب.',
-  alternates: { canonical: 'https://oilo.sa/al-nahda' },
+  alternates: { canonical: 'https://www.oilospa.com/al-nahda' },
   openGraph: {
     title: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
     description:
       'فرع النهضة في شرق الرياض لخدمات المساج والحمام المغربي والباقات. احجز موعدك مباشرة.',
-    url: 'https://oilo.sa/al-nahda',
+    url: 'https://www.oilospa.com/al-nahda',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',
     type: 'website',
@@ -28,17 +28,17 @@ export default function AlNahdaPage() {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': 'https://oilo.sa/al-nahda#webpage',
-        url: 'https://oilo.sa/al-nahda',
+        '@id': 'https://www.oilospa.com/al-nahda#webpage',
+        url: 'https://www.oilospa.com/al-nahda',
         name: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
         description: metadata.description,
         inLanguage: 'ar-SA',
-        about: { '@id': 'https://oilo.sa/#branch-al-nahda' },
+        about: { '@id': 'https://www.oilospa.com/#branch-al-nahda' },
         potentialAction: {
           '@type': 'ReserveAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://oilo.sa/booking?branch=al-nahda',
+            urlTemplate: 'https://www.oilospa.com/booking?branch=al-nahda',
           },
           result: { '@type': 'Reservation', name: 'حجز موعد في فرع النهضة' },
         },
@@ -46,8 +46,8 @@ export default function AlNahdaPage() {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://oilo.sa/' },
-          { '@type': 'ListItem', position: 2, name: branch.nameAr, item: 'https://oilo.sa/al-nahda' },
+          { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://www.oilospa.com/' },
+          { '@type': 'ListItem', position: 2, name: branch.nameAr, item: 'https://www.oilospa.com/al-nahda' },
         ],
       },
     ],

@@ -59,9 +59,9 @@ const translations: Record<Locale, Record<string, string>> = {
     'hours.title': 'أوقات العمل',
     'hours.subtitle': 'ساعات العمل',
     'hours.daily': 'السبت – الخميس',
-    'hours.daily.time': '١٠ صباحًا – ٤ فجرًا',
+    'hours.daily.time': '١٠ صباحًا – ٦ صباحًا',
     'hours.friday': 'الجمعة',
-    'hours.friday.time': '١:٣٠ ظهرًا – ٤ فجرًا',
+    'hours.friday.time': '٤ عصرًا – ٦ صباحًا',
 
     // Booking
     'booking.title': 'احجز جلستك',
@@ -88,7 +88,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // Footer
     'footer.rights': 'جميع الحقوق محفوظة',
     'footer.phone': '0556733851',
-    'footer.email': 'info@oilo.sa',
+    'footer.email': 'oilonahda@gmail.com',
 
     // Categories
     'cat.massage': 'المساج',
@@ -231,9 +231,9 @@ const translations: Record<Locale, Record<string, string>> = {
     'hours.title': 'Working Hours',
     'hours.subtitle': 'Working Hours',
     'hours.daily': 'Sat – Thu',
-    'hours.daily.time': '10:00 AM – 4:00 AM',
+    'hours.daily.time': '10:00 AM – 6:00 AM',
     'hours.friday': 'Friday',
-    'hours.friday.time': '1:30 PM – 4:00 AM',
+    'hours.friday.time': '4:00 PM – 6:00 AM',
 
     'booking.title': 'Book Your Session',
     'booking.subtitle': 'Select your Al Nahda service and preferred time',
@@ -258,7 +258,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     'footer.rights': 'All rights reserved',
     'footer.phone': '0556733851',
-    'footer.email': 'info@oilo.sa',
+    'footer.email': 'oilonahda@gmail.com',
 
     'cat.massage': 'Massage',
     'cat.bath': 'Moroccan Bath',

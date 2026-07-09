@@ -3,7 +3,7 @@ import { blogPosts } from '@/lib/blog'
 import { SERVICE_LANDING_SLUGS } from '@/lib/serviceLanding'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://oilo.sa'
+  const baseUrl = 'https://www.oilospa.com'
 
   const blogEntries = blogPosts.map(post => ({
     url: `${baseUrl}/blog/${encodeURI(post.slug)}`,
@@ -43,6 +43,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/gallery`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/al-nahda`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/blog`,

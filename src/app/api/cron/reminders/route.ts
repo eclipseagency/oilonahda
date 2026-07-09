@@ -98,7 +98,7 @@ export async function GET(req: NextRequest) {
         `الخدمة: ${serviceAr}\n` +
         `التاريخ: ${b.date}\n` +
         `الوقت: ${b.time_slot}\n\n` +
-        `للتعديل أو الإلغاء: https://oilo.sa/booking/manage?ref=${ref}\n` +
+        `للتعديل أو الإلغاء: https://www.oilospa.com/booking/manage?ref=${ref}\n` +
         `للاستفسار: 0556733851`
       await sendWa(phoneIntl, text)
       await supabase.from('bookings').update({ reminded_24h: true }).eq('id', b.id)

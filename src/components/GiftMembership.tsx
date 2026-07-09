@@ -94,7 +94,7 @@ export default function GiftMembership() {
                     •••• •••• •••• 0042
                   </p>
                   <p className={`text-[10px] font-semibold tracking-[0.15em] uppercase ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(201,169,110,0.5)' }}>
-                    oilo.sa
+                    oilospa.com
                   </p>
                 </div>
               </div>

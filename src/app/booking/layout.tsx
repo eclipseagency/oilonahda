@@ -26,8 +26,8 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
         name: 'حجز مساج وسبا في الرياض | Oilo Spa',
         description: metadata.description,
         inLanguage: 'ar-SA',
-        isPartOf: { '@id': 'https://oilo.sa/#organization' },
-        about: { '@id': 'https://oilo.sa/#organization' },
+        isPartOf: { '@id': 'https://www.oilospa.com/#organization' },
+        about: { '@id': 'https://www.oilospa.com/#organization' },
         potentialAction: {
           '@type': 'ReserveAction',
           target: {
@@ -44,7 +44,7 @@ export default function BookingLayout({ children }: { children: React.ReactNode 
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://oilo.sa/' },
+          { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://www.oilospa.com/' },
           { '@type': 'ListItem', position: 2, name: 'الحجز', item: 'https://www.oilospa.com/booking' },
         ],
       },
