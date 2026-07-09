@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://oilo.sa/sitemap.xml
+Sitemap: https://www.oilospa.com/sitemap.xml
