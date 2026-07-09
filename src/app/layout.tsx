@@ -150,7 +150,9 @@ export default function RootLayout({
                 window.gtag = gtag;
                 gtag('js', new Date());
                 ${GA_ID ? `gtag('config', '${GA_ID}', { anonymize_ip: true });` : ""}
-                ${GADS_ID ? `gtag('config', '${GADS_ID}');` : ""}
+                ${/* Al Nahda standalone site: only configure the Al Nahda Google Ads
+                     account. The main (Al Rabie) tag is intentionally NOT configured
+                     here so Nahda traffic doesn't report to the Rabie account. */""}
                 ${GADS_ID_NAHDA ? `gtag('config', '${GADS_ID_NAHDA}');` : ""}
               `}
             </Script>

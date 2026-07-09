@@ -109,18 +109,8 @@ export default function Reviews() {
     <section id="reviews" ref={sectionRef} className="relative py-16 sm:py-24 md:py-36 lg:py-44 bg-section-a overflow-hidden">
       <div className="relative z-10">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
-          {/* Aggregate header — big social proof */}
+          {/* Aggregate header */}
           <div className="text-center mb-14 md:mb-20">
-            <div className="inline-flex items-center gap-3 mb-6 reveal">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={18} />)}
-              </div>
-              <span className="text-2xl font-bold font-display" style={{ color: '#C9A96E' }} dir="ltr">4.9</span>
-              <span className="h-4 w-px" style={{ background: 'rgba(201,169,110,0.3)' }} />
-              <span className={`text-sm ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(245,239,228,0.55)' }}>
-                {isAr ? '١٨٧ تقييم على جوجل' : '187 reviews on Google'}
-              </span>
-            </div>
             <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 heading-warm reveal reveal-delay-1 ${isAr ? 'font-ar' : 'font-display'}`}>
               {t('reviews.title')}
             </h2>
