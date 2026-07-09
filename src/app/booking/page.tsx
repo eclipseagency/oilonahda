@@ -1197,7 +1197,7 @@ export default function BookingPage() {
               : 'Book at Al Nahda in Riyadh, then select the service and appointment time. Booking supports massage, Moroccan hammam, hijama, manicure and pedicure, and spa packages with quick phone confirmation.'}
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link href="/booking?branch=al-nahda" className="rounded-full border border-[#C9A96E]/40 px-6 py-3 text-sm font-bold text-[#C9A96E]">
+            <Link href="/booking" className="rounded-full border border-[#C9A96E]/40 px-6 py-3 text-sm font-bold text-[#C9A96E]">
               {isAr ? 'حجز فرع النهضة' : 'Book Al Nahda'}
             </Link>
           </div>

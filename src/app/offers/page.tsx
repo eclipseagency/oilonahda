@@ -81,7 +81,7 @@ export default function OffersPage() {
           price: s.price ? String(s.price) : undefined,
           priceCurrency: "SAR",
           availability: "https://schema.org/InStock",
-          url: `${siteUrl}/booking?branch=al-nahda&service=${s.key}`,
+          url: `${siteUrl}/booking?service=${s.key}`,
         })),
       },
       {
@@ -125,7 +125,7 @@ export default function OffersPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
-                href="/booking?branch=al-nahda"
+                href="/booking"
                 className="inline-block px-8 py-4 font-bold rounded-full transition-opacity hover:opacity-90 text-lg"
                 style={{ background: gold, color: "#060608" }}
               >
@@ -171,7 +171,7 @@ export default function OffersPage() {
                 )}
                 <div className="flex gap-2">
                   <Link
-                    href={`/booking?branch=al-nahda&service=${s.key}`}
+                    href={`/booking?service=${s.key}`}
                     className="flex-1 text-center px-4 py-3 font-bold rounded-full text-sm"
                     style={{ background: gold, color: "#060608" }}
                   >
@@ -218,7 +218,7 @@ export default function OffersPage() {
                 )}
                 <div className="flex gap-2">
                   <Link
-                    href={`/booking?branch=al-nahda&service=${s.key}`}
+                    href={`/booking?service=${s.key}`}
                     className="flex-1 text-center px-4 py-3 font-bold rounded-full text-sm"
                     style={{ background: gold, color: "#060608" }}
                   >
@@ -272,7 +272,7 @@ export default function OffersPage() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">العروض متاحة الآن</h2>
             <p className="mb-6 text-lg">احجز جلستك في أويلو سبا فرع النهضة واستفد من الأسعار الخاصة</p>
             <Link
-              href="/booking?branch=al-nahda"
+              href="/booking"
               className="inline-block px-10 py-4 font-bold rounded-full transition-opacity hover:opacity-90 text-lg"
               style={{ background: "#060608", color: gold }}
             >

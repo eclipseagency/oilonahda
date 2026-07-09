@@ -39,9 +39,12 @@ const nahdaSendToFor: Partial<Record<TrackedEventName, string | undefined>> = {
 }
 
 function isNahdaBranch(): boolean {
-  if (typeof window === 'undefined') return false
-  const { pathname, search } = window.location
-  return pathname.startsWith('/al-nahda') || /[?&]branch=al-nahda\b/.test(search)
+  // This is the standalone Al Nahda site (oilospa.com) — every page and the
+  // booking flow (which hardcodes branch = 'al-nahda') is Nahda. So conversions
+  // always report to the Nahda Google Ads account. Previously this sniffed the
+  // URL for ?branch=al-nahda, but the booking links were cleaned to a bare
+  // /booking, so URL sniffing would miss them. Always true here.
+  return true
 }
 
 export function trackEvent(

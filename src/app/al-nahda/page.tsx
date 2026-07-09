@@ -67,7 +67,7 @@ export default function AlNahdaPage() {
             وحدد الخدمة والوقت، أو تواصل مباشرة مع واتساب الفرع.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link href="/booking?branch=al-nahda" className="rounded-full bg-[#C9A96E] px-7 py-3 font-semibold text-[#060608]">
+            <Link href="/booking" className="rounded-full bg-[#C9A96E] px-7 py-3 font-semibold text-[#060608]">
               حجز فرع النهضة
             </Link>
             <a href={`https://wa.me/${branch.whatsapp}`} className="rounded-full border border-[#C9A96E]/40 px-7 py-3 font-semibold text-[#C9A96E]">
