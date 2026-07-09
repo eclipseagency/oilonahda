@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 
 const amounts = [250, 500, 750, 1000, 1500, 2000]
 
@@ -62,16 +64,15 @@ export default function GiftPage() {
   }
 
   return (
+    <>
+    <SiteNav />
     <main className="min-h-screen relative overflow-hidden" style={{ background: '#060608' }}>
       <div className="glow-orb w-[500px] h-[500px] -top-[200px] start-1/4"
         style={{ background: 'rgba(201,169,110,0.05)' }} />
       <div className="glow-orb w-[300px] h-[300px] bottom-[20%] end-0"
         style={{ background: 'rgba(201,169,110,0.04)', animationDelay: '4s' }} />
 
-      <div className="relative z-10 pt-10 sm:pt-16 pb-8 text-center px-4">
-        <Link href="/" className="inline-block mb-10 group">
-          <img src="/logo.png" alt="Oilo Spa" className="h-10 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
-        </Link>
+      <div className="relative z-10 pt-28 sm:pt-32 pb-8 text-center px-4">
         <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gold-gradient mb-3 ${isAr ? 'font-ar' : 'font-display'}`}>
           {t('gift.form.title')}
         </h1>
@@ -199,5 +200,7 @@ export default function GiftPage() {
         )}
       </div>
     </main>
+    <SiteFooter />
+    </>
   )
 }

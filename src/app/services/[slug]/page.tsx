@@ -3,6 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SERVICE_LANDINGS, SERVICE_LANDING_SLUGS } from "@/lib/serviceLanding";
 import { branches } from "@/lib/branches";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const siteUrl = "https://oilo.sa";
 
@@ -87,6 +89,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <SiteNav />
       <main dir="rtl" lang="ar" className="min-h-screen" style={{ background: "#060608", color: "#e0ddd8" }}>
         {/* Hero */}
         <section className="relative h-[60vh] min-h-[460px] w-full overflow-hidden">
@@ -227,6 +230,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

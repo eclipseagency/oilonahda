@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import type { BlogPost } from '@/lib/blog'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 
 function markdownToHtml(md: string): string {
   return md
@@ -31,7 +33,7 @@ function markdownToHtml(md: string): string {
 }
 
 export default function BlogArticle({ post, related }: { post: BlogPost; related: BlogPost[] }) {
-  const { locale, toggleLocale } = useI18n()
+  const { locale } = useI18n()
   const isAr = locale === 'ar'
 
   const title = isAr ? post.titleAr : post.titleEn
@@ -40,26 +42,16 @@ export default function BlogArticle({ post, related }: { post: BlogPost; related
   const contentHtml = markdownToHtml(content)
 
   return (
+    <>
+    <SiteNav />
     <main className="min-h-screen pt-28 pb-20" style={{ background: '#060608' }}>
       <article className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between mb-12">
-          <Link href="/" className="group">
-            <img src="/logo.png" alt="Oilo Spa" className="h-10 w-auto transition-all duration-300 group-hover:brightness-125" />
+        <div className="flex items-center justify-end mb-10">
+          <Link href="/blog"
+            className={`text-[11px] font-semibold tracking-wider px-4 py-2 rounded-xl transition-all hover:bg-white/[0.06] ${isAr ? 'font-ar' : 'font-body'}`}
+            style={{ color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            {isAr ? 'جميع المقالات' : 'All Articles'}
           </Link>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleLocale}
-              className="text-[11px] font-semibold tracking-wider px-3 py-2 rounded-xl transition-all hover:bg-white/[0.06]"
-              style={{ color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              {isAr ? 'EN' : 'عربي'}
-            </button>
-            <Link href="/blog"
-              className={`text-[11px] font-semibold tracking-wider px-4 py-2 rounded-xl transition-all hover:bg-white/[0.06] ${isAr ? 'font-ar' : 'font-body'}`}
-              style={{ color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              {isAr ? 'جميع المقالات' : 'All Articles'}
-            </Link>
-          </div>
         </div>
 
         <div className="relative aspect-[16/9] rounded-3xl overflow-hidden mb-10" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
@@ -133,5 +125,7 @@ export default function BlogArticle({ post, related }: { post: BlogPost; related
         )}
       </article>
     </main>
+    <SiteFooter />
+    </>
   )
 }

@@ -3,24 +3,18 @@
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import type { BlogPost } from '@/lib/blog'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
-  const { locale, toggleLocale } = useI18n()
+  const { locale } = useI18n()
   const isAr = locale === 'ar'
 
   return (
+    <>
+    <SiteNav />
     <main className="min-h-screen pt-28 pb-20" style={{ background: '#060608' }}>
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-10">
-        <div className="absolute top-6 end-6 md:top-10 md:end-10 z-20">
-          <button
-            onClick={toggleLocale}
-            className="text-[11px] font-semibold tracking-wider px-3 py-2 rounded-xl transition-all hover:bg-white/[0.06]"
-            style={{ color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.08)' }}
-          >
-            {isAr ? 'EN' : 'عربي'}
-          </button>
-        </div>
-
         <div className="text-center mb-16">
           <Link href="/" className="inline-block mb-8 group">
             <img src="/logo.png" alt="Oilo Spa" className="h-12 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
@@ -93,5 +87,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
         </div>
       </div>
     </main>
+    <SiteFooter />
+    </>
   )
 }

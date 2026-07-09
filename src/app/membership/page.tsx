@@ -3,6 +3,8 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 import { membershipTiers, type MembershipKey } from '@/lib/memberships'
 import { services, categories, type ServiceCategory } from '@/lib/services'
 
@@ -74,14 +76,13 @@ export default function MembershipPage() {
   const coveredCats: ServiceCategory[] = ['massage', 'bath', 'grooming']
 
   return (
+    <>
+    <SiteNav />
     <main ref={pageRef} className="min-h-screen relative overflow-hidden" style={{ background: '#060608' }}>
       <div className="glow-orb w-[560px] h-[560px] -top-[220px] start-1/4" style={{ background: 'rgba(201,169,110,0.05)' }} />
 
       {/* ── Hero ── */}
-      <section className="relative z-10 pt-10 sm:pt-16 pb-6 text-center px-5">
-        <Link href="/" className="inline-block mb-10 group">
-          <img src="/logo.png" alt="Oilo Spa" className="h-10 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
-        </Link>
+      <section className="relative z-10 pt-28 sm:pt-32 pb-6 text-center px-5">
         <p className={`text-[11px] font-semibold tracking-[0.28em] uppercase mb-5 ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: '#C9A96E' }}>
           {isAr ? 'عضويات أويلو' : 'Oilo Memberships'}
         </p>
@@ -316,5 +317,7 @@ export default function MembershipPage() {
         </div>
       </section>
     </main>
+    <SiteFooter />
+    </>
   )
 }

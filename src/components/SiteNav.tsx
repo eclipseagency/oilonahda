@@ -7,11 +7,16 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 
+// Single source of truth for the site nav. Same items on every page.
+// Page links go to routes; section links (reviews/faq live on the homepage)
+// use "/#id" so they work from any page (navigate home, then scroll).
 const NAV_LINKS: { key: string; href: string }[] = [
   { key: 'nav.home', href: '/' },
   { key: 'nav.services', href: '/services' },
   { key: 'nav.offers', href: '/offers' },
   { key: 'gallery.title', href: '/gallery' },
+  { key: 'reviews.title', href: '/#reviews' },
+  { key: 'faq.title', href: '/#faq' },
   { key: 'nav.blog', href: '/blog' },
   { key: 'nav.contact', href: '/contact' },
 ]
