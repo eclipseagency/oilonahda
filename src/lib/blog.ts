@@ -1628,7 +1628,7 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
     titleEn: 'Swedish vs Deep Tissue Massage: Which One Should You Actually Book?',
     descriptionAr: 'مقارنة عملية بين المساج السويدي والمساج العميق لمساعدتك على اختيار النوع الصحيح حسب حالتك ومستوى التوتر العضلي',
     descriptionEn: 'A practical comparison of Swedish and deep-tissue massage. Pressure, purpose, who each is for, and how to know which to book at Oilo.',
-    image: '/services/swedish.webp',
+    image: '/services/swedish-massage.webp',
     date: '2026-04-28',
     readTimeAr: '٦ دقائق',
     readTimeEn: '6 min read',
