@@ -11,6 +11,7 @@ const NAV_LINKS: { key: string; href: string }[] = [
   { key: 'nav.home', href: '/' },
   { key: 'nav.services', href: '/services' },
   { key: 'nav.offers', href: '/offers' },
+  { key: 'gallery.title', href: '/gallery' },
   { key: 'nav.blog', href: '/blog' },
   { key: 'nav.contact', href: '/contact' },
 ]

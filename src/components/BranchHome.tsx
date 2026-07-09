@@ -111,7 +111,7 @@ function Navbar() {
     { label: t('nav.home'), id: 'top' },
     { label: t('nav.services'), id: 'services', href: '/services' },
     { label: t('nav.offers'), id: 'offers', href: '/offers' },
-    { label: t('gallery.title'), id: 'gallery' },
+    { label: t('gallery.title'), id: 'gallery', href: '/gallery' },
     { label: t('reviews.title'), id: 'reviews' },
     { label: t('faq.title'), id: 'faq' },
     { label: t('nav.blog'), id: 'blog', href: '/blog' },
