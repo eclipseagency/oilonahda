@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
 import { branches } from '@/lib/branches'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 
 const nahda = branches['al-nahda']
 const CONTACT_EMAIL = 'oilonahda@gmail.com'
@@ -79,6 +81,8 @@ export default function ContactPage() {
   ]
 
   return (
+    <>
+    <SiteNav />
     <main className="min-h-screen relative overflow-hidden" style={{ background: '#060608' }}>
       <div className="glow-orb w-[500px] h-[500px] -top-[200px] start-1/4"
         style={{ background: 'rgba(201,169,110,0.05)' }} />
@@ -86,10 +90,7 @@ export default function ContactPage() {
         style={{ background: 'rgba(201,169,110,0.04)', animationDelay: '3s' }} />
 
       {/* Header */}
-      <div className="relative z-10 pt-10 sm:pt-16 pb-8 text-center px-4">
-        <Link href="/" className="inline-block mb-10 group">
-          <img src="/logo.png" alt="Oilo Spa" className="h-10 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
-        </Link>
+      <div className="relative z-10 pt-28 sm:pt-32 pb-8 text-center px-4">
         <p className="text-[11px] font-bold tracking-[0.35em] uppercase text-[#C9A96E] mb-4">
           {isAr ? 'أويلو سبا · فرع النهضة' : 'Oilo Spa · Al Nahda'}
         </p>
@@ -329,5 +330,7 @@ export default function ContactPage() {
         </div>
       </div>
     </main>
+    <SiteFooter />
+    </>
   )
 }

@@ -5,9 +5,12 @@ import {
   NAHDA_MASSAGE_OPENING_DISCOUNT,
   NAHDA_HOUR_UPGRADE,
 } from "@/lib/nahdaServices";
+import { nahdaServiceImages } from "@/lib/nahdaBranchData";
 import { branches } from "@/lib/branches";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
-const siteUrl = "https://oilo.sa";
+const siteUrl = "https://www.oilospa.com";
 const pageUrl = `${siteUrl}/offers`;
 const heroImage = "/aamassage_13_1310x980.webp";
 
@@ -105,6 +108,7 @@ export default function OffersPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <SiteNav />
       <main dir="rtl" lang="ar" className="min-h-screen" style={{ background: "#060608", color: "#e0ddd8" }}>
         <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden">
           <Image
@@ -159,31 +163,51 @@ export default function OffersPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {nahdaOffers.map((s) => (
-              <div key={s.key} className="rounded-xl p-5 border flex flex-col" style={cardStyle}>
-                <h3 className="font-bold text-lg mb-2" style={{ color: "#F5EFE4" }}>{s.nameAr}</h3>
-                {s.descriptionAr && (
-                  <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#D8CFBF" }}>{s.descriptionAr}</p>
-                )}
-                {s.price !== undefined && (
-                  <p className="text-2xl font-bold mb-4" style={{ color: gold }}>
-                    {s.fromPrice ? "من " : ""}{s.price} <span className="text-sm font-normal">ريال</span>
-                  </p>
-                )}
-                <div className="flex gap-2">
-                  <Link
-                    href={`/booking?service=${s.key}`}
-                    className="flex-1 text-center px-4 py-3 font-bold rounded-full text-sm"
-                    style={{ background: gold, color: "#060608" }}
-                  >
-                    احجز الآن
-                  </Link>
-                  <a
-                    href={waHref(nahda.whatsapp, s.nameAr)}
-                    className="px-4 py-3 font-bold rounded-full text-sm border"
-                    style={{ borderColor: gold, color: gold }}
-                  >
-                    واتساب
-                  </a>
+              <div key={s.key} className="rounded-2xl overflow-hidden border flex flex-col" style={cardStyle}>
+                <div className="relative h-44 w-full overflow-hidden">
+                  <Image
+                    src={nahdaServiceImages[s.key]}
+                    alt={s.nameAr}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,6,8,0.85) 8%, transparent 70%)" }} />
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-lg mb-2" style={{ color: "#F5EFE4" }}>{s.nameAr}</h3>
+                  {s.descriptionAr && (
+                    <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#D8CFBF" }}>{s.descriptionAr}</p>
+                  )}
+                  <div className="flex items-end flex-wrap gap-x-4 gap-y-1 mb-4">
+                    {s.price !== undefined && (
+                      <p className="text-2xl font-bold" style={{ color: gold }}>
+                        {s.fromPrice ? "من " : ""}{s.price} <span className="text-sm font-normal">ريال</span>
+                        {s.bundlePrice && <span className="text-xs font-normal" style={{ color: "#D8CFBF" }}> / الجلسة</span>}
+                      </p>
+                    )}
+                    {s.bundlePrice && s.bundleCount && (
+                      <span className="px-3 py-1.5 rounded-full text-xs font-bold" style={{ background: "rgba(201,169,110,0.15)", color: "#dbb97a" }}>
+                        {s.bundleCount} جلسات بـ {s.bundlePrice} ريال
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-2 mt-auto">
+                    <Link
+                      href={`/booking?service=${s.key}`}
+                      className="flex-1 text-center px-4 py-3 font-bold rounded-full text-sm"
+                      style={{ background: gold, color: "#060608" }}
+                    >
+                      احجز الآن
+                    </Link>
+                    <a
+                      href={waHref(nahda.whatsapp, s.nameAr)}
+                      className="px-4 py-3 font-bold rounded-full text-sm border"
+                      style={{ borderColor: gold, color: gold }}
+                    >
+                      واتساب
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -281,6 +305,7 @@ export default function OffersPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

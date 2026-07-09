@@ -16,8 +16,10 @@ export interface NahdaService {
   descriptionEn: string
   durationAr?: string
   durationEn?: string
-  price?: number          // SAR
+  price?: number          // SAR (single session)
   fromPrice?: boolean     // "ابتداءً من" / "from"
+  bundleCount?: number    // sessions in a multi-session package (e.g. 3)
+  bundlePrice?: number    // total SAR for that package
   image?: string          // per-service image (filled in finishing pass)
   includes?: { ar: string; en: string }[]
 }
@@ -240,6 +242,13 @@ export const nahdaServices: NahdaService[] = [
     nameAr: 'مساج + بديكير', nameEn: 'Massage + Pedicure',
     descriptionAr: 'مساج للاسترخاء واستعادة النشاط مع بديكير اليدين والقدمين للعناية الكاملة.',
     descriptionEn: 'A relaxing, energising massage with a hands-and-feet pedicure for complete care.',
+  },
+  {
+    key: 'foot-crack-care', category: 'offer', price: 250,
+    bundleCount: 3, bundlePrice: 600,
+    nameAr: 'عناية تشققات القدمين', nameEn: 'Cracked Heel Care',
+    descriptionAr: 'علاج متخصص لتشققات وجفاف كعب القدمين، يزيل الجلد المتشقق ويعيد للقدمين النعومة والترطيب العميق. الجلسة 250 ريال، وباقة 3 جلسات بـ 600 ريال.',
+    descriptionEn: 'A specialised treatment for cracked, dry heels that removes rough skin and restores deep softness and hydration. Single session 250 SAR, or a 3-session package for 600 SAR.',
   },
 ]
 

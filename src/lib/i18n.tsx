@@ -21,6 +21,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'nav.location': 'الموقع',
     'nav.blog': 'المدونة',
     'nav.contact': 'تواصل معنا',
+    'nav.offers': 'العروض',
     'nav.lang': 'EN',
 
     // Hero
@@ -199,6 +200,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'nav.location': 'Location',
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
+    'nav.offers': 'Offers',
     'nav.lang': 'عربي',
 
     'hero.tagline': 'A Moment of Luxury… For Every Man',
