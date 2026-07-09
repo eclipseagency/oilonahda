@@ -241,8 +241,8 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* Full-bleed Video */}
-      <video autoPlay muted loop playsInline
+      {/* Full-bleed Video — poster shows instantly while the mp4 loads (no black flash) */}
+      <video autoPlay muted loop playsInline preload="metadata" poster="/services/nahda-hero.webp"
         className="absolute inset-0 w-full h-full object-cover">
         <source src="/hero.mp4" type="video/mp4" />
       </video>
