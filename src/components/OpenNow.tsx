@@ -11,12 +11,13 @@ function getRiyadhOpen() {
   const minutes = riyadh.getUTCMinutes()
   const time = hour + minutes / 60
 
+  // Al Nahda hours: Sat–Thu 10:00 AM – 6:00 AM, Friday 4:00 PM – 6:00 AM.
   // day: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
-  const close = 4 // 4:00 AM next day
-  const openHour = day === 5 ? 13.5 : 10 // Friday 1:30 PM, all other days 10:00 AM
+  const close = 6 // 6:00 AM next day
+  const openHour = day === 5 ? 16 : 10 // Friday 4:00 PM, all other days 10:00 AM
 
   const isOpen = time >= openHour || time < close
-  const closesAt = '4:00 AM'
+  const closesAt = '6:00 AM'
 
   return { isOpen, closesAt }
 }
