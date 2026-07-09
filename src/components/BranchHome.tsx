@@ -109,10 +109,12 @@ function Navbar() {
 
   const links = [
     { label: t('nav.home'), id: 'top' },
+    { label: t('nav.services'), id: 'services', href: '/services' },
     { label: t('gallery.title'), id: 'gallery' },
     { label: t('reviews.title'), id: 'reviews' },
     { label: t('faq.title'), id: 'faq' },
     { label: t('nav.blog'), id: 'blog', href: '/blog' },
+    { label: t('nav.contact'), id: 'contact', href: '/contact' },
   ]
 
   return (

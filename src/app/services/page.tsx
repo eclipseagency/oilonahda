@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SERVICE_LANDINGS, SERVICE_LANDING_SLUGS } from "@/lib/serviceLanding";
 
-const siteUrl = "https://oilo.sa";
+const siteUrl = "https://www.oilospa.com";
 const url = `${siteUrl}/services`;
 
 const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج، حمام مغربي، حجامة | Oilo Spa";
