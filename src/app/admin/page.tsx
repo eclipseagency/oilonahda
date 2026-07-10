@@ -59,6 +59,12 @@ interface Analytics {
   busiest_days: { day: number; count: number }[]
   gift: { total: number; pending: number; paid: number; revenue: number }
   membership: { total: number; pending: number; active: number }
+  outbound_clicks: {
+    total_30d: number
+    total_90d: number
+    by_type_30d: Record<string, number>
+    by_type_90d: Record<string, number>
+  }
 }
 interface Customer {
   phone: string
@@ -856,6 +862,32 @@ function AnalyticsTab({ analytics: a, loading, isAr, dayNames }: { analytics: An
           <span>{a.trend[Math.floor(a.trend.length / 2)]?.date.slice(5) || ''}</span>
           <span>{a.trend[a.trend.length - 1]?.date.slice(5) || ''}</span>
         </div>
+      </div>
+
+      {/* Outbound / exit-link clicks — off-site conversions */}
+      <div className="bg-[#1A1A1A] border border-[#333] rounded-2xl p-6">
+        <div className="flex items-baseline justify-between gap-3 mb-4 flex-wrap">
+          <h3 className="text-sm font-semibold text-[#C9A96E] uppercase tracking-wider">{tr('نقرات التواصل والخروج', 'Outbound / Contact Clicks')}</h3>
+          <span className="text-xs text-[#666]">{tr('آخر 30 يوم', 'last 30d')}: <span className="text-white font-semibold">{a.outbound_clicks.total_30d}</span> · {tr('90 يوم', '90d')}: {a.outbound_clicks.total_90d}</span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          {([
+            ['whatsapp', tr('واتساب', 'WhatsApp'), '#25D366'],
+            ['phone', tr('اتصال', 'Phone'), '#3b82f6'],
+            ['email', tr('إيميل', 'Email'), '#eab308'],
+            ['location', tr('الموقع', 'Location'), '#ef4444'],
+            ['social', tr('السوشيال', 'Social'), '#a855f7'],
+          ] as const).map(([key, label, color]) => (
+            <div key={key} className="bg-white/[0.03] rounded-xl p-4 border border-white/[0.04]">
+              <div className="text-2xl font-bold" style={{ color }}>{a.outbound_clicks.by_type_90d[key] || 0}</div>
+              <div className="text-xs text-[#888] mt-1">{label}</div>
+              <div className="text-[10px] text-[#666] mt-0.5">{a.outbound_clicks.by_type_30d[key] || 0} · {tr('آخر 30ي', 'last 30d')}</div>
+            </div>
+          ))}
+        </div>
+        {a.outbound_clicks.total_90d === 0 && (
+          <p className="text-xs text-[#666] mt-3">{tr('لا توجد نقرات مسجلة بعد — ستظهر فور نقر الزوار على واتساب أو الهاتف أو الموقع.', 'No clicks yet — they appear as soon as visitors tap WhatsApp, phone, email or location.')}</p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
