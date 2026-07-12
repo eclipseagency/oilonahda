@@ -9,7 +9,7 @@ import SiteFooter from '@/components/SiteFooter'
 
 const nahda = branches['al-nahda']
 const CONTACT_EMAIL = 'oilonahda@gmail.com'
-const WA_GREETING = 'السلام عليكم، تواصلت من موقع أويلو سبا فرع النهضة، أود الاستفسار عن الخدمات والحجز.'
+const WA_GREETING = 'السلام عليكم، تواصلت من موقع أويلو سبا، أود الاستفسار عن الخدمات والحجز.'
 const waHref = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent(WA_GREETING)}`
 const mapEmbed = nahda.geo
   ? `https://maps.google.com/maps?q=${nahda.geo.lat},${nahda.geo.lng}&z=15&output=embed`
@@ -92,7 +92,7 @@ export default function ContactPage() {
       {/* Header */}
       <div className="relative z-10 pt-28 sm:pt-32 pb-8 text-center px-4">
         <p className="text-[11px] font-bold tracking-[0.35em] uppercase text-[#C9A96E] mb-4">
-          {isAr ? 'أويلو سبا · فرع النهضة' : 'Oilo Spa · Al Nahda'}
+          {isAr ? 'أويلو سبا · النهضة' : 'Oilo Spa · Al Nahda'}
         </p>
         <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gold-gradient mb-3 ${isAr ? 'font-ar' : 'font-display'}`}>
           {isAr ? 'تواصل معنا' : 'Contact Us'}
@@ -246,7 +246,7 @@ export default function ContactPage() {
                 </svg>
               </span>
               <span className="flex-1 min-w-0">
-                <span className="block text-white font-semibold text-sm">{isAr ? 'واتساب النهضة' : 'WhatsApp Al Nahda'}</span>
+                <span className="block text-white font-semibold text-sm">{isAr ? 'واتساب' : 'WhatsApp'}</span>
                 <span className="block text-[#C9A96E] text-sm font-bold" dir="ltr" style={{ fontFamily: '"DM Sans", sans-serif' }}>0556733851</span>
               </span>
               <svg className={`w-5 h-5 text-[#C9A96E] transition-transform ${isAr ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -260,7 +260,7 @@ export default function ContactPage() {
                 <div className="relative h-52 w-full">
                   <iframe
                     src={mapEmbed}
-                    title={isAr ? 'موقع أويلو سبا فرع النهضة' : 'Oilo Spa Al Nahda location'}
+                    title={isAr ? 'موقع أويلو سبا' : 'Oilo Spa Al Nahda location'}
                     className="absolute inset-0 w-full h-full"
                     style={{ border: 0, filter: 'brightness(0.9) contrast(1.05)' }}
                     loading="lazy"

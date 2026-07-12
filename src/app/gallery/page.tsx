@@ -9,7 +9,7 @@ import SiteFooter from '@/components/SiteFooter'
 // Al Nahda ambience gallery. Real per-service Nahda shots (rooms, baths, oils,
 // candles) double as atmosphere photography for the branch.
 const PHOTOS: { src: string; alt: string }[] = [
-  { src: '/services/nahda-hero.webp', alt: 'أجواء ومدخل أويلو سبا فرع النهضة' },
+  { src: '/services/nahda-hero.webp', alt: 'أجواء ومدخل أويلو سبا' },
   { src: '/services/nahda-hammam.webp', alt: 'غرفة الحمام المغربي' },
   { src: '/services/nahda-candles.webp', alt: 'أجواء هادئة بالشموع' },
   { src: '/services/nahda-bath-royal.webp', alt: 'الحمام المغربي الملكي' },
@@ -52,14 +52,14 @@ export default function GalleryPage() {
         {/* Hero */}
         <section className="relative z-10 pt-36 pb-12 text-center px-5">
           <p className={`text-[11px] font-bold tracking-[0.35em] uppercase mb-5 ${isAr ? 'font-ar' : ''}`} style={{ color: '#C9A96E' }}>
-            {isAr ? 'أويلو سبا · فرع النهضة' : 'Oilo Spa · Al Nahda'}
+            {isAr ? 'أويلو سبا · النهضة' : 'Oilo Spa · Al Nahda'}
           </p>
           <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gold-gradient mb-4 ${isAr ? 'font-ar' : 'font-display'}`}>
             {t('gallery.title')}
           </h1>
           <p className={`text-sm sm:text-base max-w-xl mx-auto leading-loose ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(245,239,228,0.5)' }}>
             {isAr
-              ? 'جولة داخل فرع النهضة: غرف المساج، الحمام المغربي، والزوايا الهادئة الفاخرة في بيئة نظيفة ومريحة.'
+              ? 'جولة داخل الفرع: غرف المساج، الحمام المغربي، والزوايا الهادئة الفاخرة في بيئة نظيفة ومريحة.'
               : 'Inside Al Nahda: massage rooms, the Moroccan bath, and calm, refined corners in a clean, comfortable space.'}
           </p>
         </section>
@@ -99,7 +99,7 @@ export default function GalleryPage() {
           {/* CTA */}
           <div className="mt-14 text-center">
             <p className={`mb-5 text-sm ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(245,239,228,0.5)' }}>
-              {isAr ? 'عاش الأجواء بنفسك — احجز جلستك في فرع النهضة.' : 'Experience it yourself — book your session at Al Nahda.'}
+              {isAr ? 'عاش الأجواء بنفسك — احجز جلستك في النهضة.' : 'Experience it yourself — book your session at Al Nahda.'}
             </p>
             <Link href="/booking" className="btn-primary inline-block px-10 py-4 text-sm tracking-wider">
               {isAr ? 'احجز الآن' : 'Book Now'}

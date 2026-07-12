@@ -228,7 +228,7 @@ function notifyOwnerCancel(p: { reference: string; name: string; phone: string; 
 }
 function notifyCustomerCancel(p: { phoneIntl: string; name: string; reference: string }) {
   postWa(p.phoneIntl,
-    `أهلاً ${p.name},\nتم إلغاء حجزك في Oilo Spa فرع النهضة.\nرقم الحجز: ${p.reference}\n\nنتمنى رؤيتك قريبًا. للحجز مجددًا: https://www.oilospa.com/booking`)
+    `أهلاً ${p.name},\nتم إلغاء حجزك في Oilo Spa.\nرقم الحجز: ${p.reference}\n\nنتمنى رؤيتك قريبًا. للحجز مجددًا: https://www.oilospa.com/booking`)
 }
 function notifyOwnerReschedule(p: { reference: string; name: string; phone: string; oldDate: string; oldTime: string; newDate: string; newTime: string; serviceAr: string }) {
   postWa('966556733851',
@@ -236,5 +236,5 @@ function notifyOwnerReschedule(p: { reference: string; name: string; phone: stri
 }
 function notifyCustomerReschedule(p: { phoneIntl: string; name: string; reference: string; newDate: string; newTime: string }) {
   postWa(p.phoneIntl,
-    `أهلاً ${p.name},\nتم تعديل موعد حجزك في Oilo Spa فرع النهضة.\nرقم: ${p.reference}\nالموعد الجديد: ${p.newDate} ${p.newTime}\n\nنراك قريبًا.`)
+    `أهلاً ${p.name},\nتم تعديل موعد حجزك في Oilo Spa.\nرقم: ${p.reference}\nالموعد الجديد: ${p.newDate} ${p.newTime}\n\nنراك قريبًا.`)
 }

@@ -14,9 +14,9 @@ const SNAP_PIXEL_ID = process.env.NEXT_PUBLIC_SNAP_PIXEL_ID?.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oilospa.com"),
-  title: "Oilo Spa فرع النهضة | منتجع صحي وسبا واسترخاء في حي النهضة",
+  title: "Oilo Spa | منتجع صحي وسبا واسترخاء في حي النهضة",
   description:
-    "أويلو سبا فرع النهضة، منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
+    "أويلو سبا، منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
   keywords: [
     "سبا واسترخاء الرياض",
     "مساج الرياض",
@@ -96,7 +96,7 @@ export default function RootLayout({
                 {
                   "@type": ["DaySpa", "HealthAndBeautyBusiness"],
                   "@id": "https://www.oilospa.com/#branch-al-nahda",
-                  name: "Oilo Spa | فرع النهضة",
+                  name: "Oilo Spa",
                   url: "https://www.oilospa.com",
                   telephone: `+966${branches["al-nahda"].phone.slice(1)}`,
                   image: "https://www.oilospa.com/og.png",

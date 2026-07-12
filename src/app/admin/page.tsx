@@ -512,12 +512,12 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
           <div className="flex items-center justify-between gap-2 lg:justify-start lg:gap-4 min-w-0">
             <div className="flex items-center gap-2 sm:gap-4 min-w-0">
-            <h1 className="text-base sm:text-lg font-semibold tracking-wide text-[#C9A96E] truncate">{tr('لوحة تحكم فرع النهضة', 'Al Nahda Dashboard')}</h1>
+            <h1 className="text-base sm:text-lg font-semibold tracking-wide text-[#C9A96E] truncate">{tr('لوحة تحكم النهضة', 'Al Nahda Dashboard')}</h1>
             <span
               className="shrink-0 whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-bold tracking-wide"
               style={{ background: 'rgba(201,169,110,0.15)', color: '#C9A96E', border: '1px solid rgba(201,169,110,0.3)' }}
             >
-              {tr('فرع النهضة فقط', 'Al Nahda only')}
+              {tr('النهضة فقط', 'Al Nahda only')}
             </span>
             <nav className="hidden lg:flex items-center gap-1">
               {TABS.map(t => {

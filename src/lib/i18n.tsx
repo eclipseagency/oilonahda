@@ -65,7 +65,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Booking
     'booking.title': 'احجز جلستك',
-    'booking.subtitle': 'اختر خدمتك وموعدك في فرع النهضة',
+    'booking.subtitle': 'اختر خدمتك وموعدك في النهضة',
     'booking.service': 'اختر الخدمة',
     'booking.date': 'التاريخ',
     'booking.time': 'الوقت',

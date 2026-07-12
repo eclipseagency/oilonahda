@@ -13,7 +13,7 @@ const gold = "#C9A96E";
 
 const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج، حمام مغربي، حجامة | Oilo Spa";
 const descriptionSeo =
-  "خدمات أويلو سبا فرع النهضة بالرياض: مساج واسترخاء احترافي، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة بأسعار واضحة. اختر خدمتك واحجز الآن.";
+  "خدمات أويلو سبا بالرياض: مساج واسترخاء احترافي، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة بأسعار واضحة. اختر خدمتك واحجز الآن.";
 
 export async function generateMetadata() {
   return {
@@ -41,14 +41,14 @@ export default function ServicesIndexPage() {
     .map((c) => ({ ...c, items: nahdaServices.filter((s) => s.category === c.id) }))
     .filter((c) => c.items.length > 0);
 
-  const waHref = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent("السلام عليكم، أود الاستفسار عن خدمات فرع النهضة والحجز")}`;
+  const waHref = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent("السلام عليكم، أود الاستفسار عن خدماتنا والحجز")}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "OfferCatalog",
-        name: "خدمات أويلو سبا فرع النهضة",
+        name: "خدمات أويلو سبا",
         url,
         itemListElement: nahdaServices.map((s, i) => ({
           "@type": "Offer",
@@ -81,7 +81,7 @@ export default function ServicesIndexPage() {
           <div className="glow-orb w-[520px] h-[520px] -top-[220px] start-1/3" style={{ background: "rgba(201,169,110,0.06)" }} />
           <div className="relative z-10 max-w-3xl mx-auto">
             <p className="text-[11px] font-bold tracking-[0.35em] uppercase mb-5 font-ar" style={{ color: gold }}>
-              أويلو سبا · فرع النهضة
+              أويلو سبا · النهضة
             </p>
             <h1 className="font-ar text-3xl sm:text-5xl font-bold leading-[1.25] mb-5 text-gold-gradient">
               قائمة الخدمات والأسعار
@@ -198,7 +198,7 @@ export default function ServicesIndexPage() {
         <section className="py-14 mt-4" style={{ background: "linear-gradient(135deg, #C9A96E, #a8883f)" }}>
           <div className="max-w-3xl mx-auto px-6 text-center" style={{ color: "#060608" }}>
             <h2 className="font-ar text-2xl sm:text-3xl font-bold mb-3">جاهز للاسترخاء؟</h2>
-            <p className="mb-6 text-lg font-ar">اختر خدمتك واحجز موعدك في أويلو سبا فرع النهضة</p>
+            <p className="mb-6 text-lg font-ar">اختر خدمتك واحجز موعدك في أويلو سبا</p>
             <Link href="/booking" className="inline-block px-10 py-4 font-bold rounded-full transition-opacity hover:opacity-90 text-lg font-ar" style={{ background: "#060608", color: gold }}>
               احجز الآن
             </Link>
