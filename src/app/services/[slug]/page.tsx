@@ -177,7 +177,7 @@ export default async function ServiceLandingPage({ params }: { params: Promise<{
         {/* Branch */}
         <section className="max-w-3xl mx-auto px-6 pb-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6" style={{ color: "#C9A96E" }}>
-            النهضة في الرياض
+            موقعنا في الرياض
           </h2>
           <div className="grid grid-cols-1 gap-4">
             {(() => {

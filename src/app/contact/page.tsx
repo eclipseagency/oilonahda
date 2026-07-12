@@ -92,7 +92,7 @@ export default function ContactPage() {
       {/* Header */}
       <div className="relative z-10 pt-28 sm:pt-32 pb-8 text-center px-4">
         <p className="text-[11px] font-bold tracking-[0.35em] uppercase text-[#C9A96E] mb-4">
-          {isAr ? 'أويلو سبا · النهضة' : 'Oilo Spa · Al Nahda'}
+          {isAr ? 'أويلو سبا' : 'Oilo Spa · Al Nahda'}
         </p>
         <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gold-gradient mb-3 ${isAr ? 'font-ar' : 'font-display'}`}>
           {isAr ? 'تواصل معنا' : 'Contact Us'}

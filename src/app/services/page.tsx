@@ -81,7 +81,7 @@ export default function ServicesIndexPage() {
           <div className="glow-orb w-[520px] h-[520px] -top-[220px] start-1/3" style={{ background: "rgba(201,169,110,0.06)" }} />
           <div className="relative z-10 max-w-3xl mx-auto">
             <p className="text-[11px] font-bold tracking-[0.35em] uppercase mb-5 font-ar" style={{ color: gold }}>
-              أويلو سبا · النهضة
+              أويلو سبا
             </p>
             <h1 className="font-ar text-3xl sm:text-5xl font-bold leading-[1.25] mb-5 text-gold-gradient">
               قائمة الخدمات والأسعار
