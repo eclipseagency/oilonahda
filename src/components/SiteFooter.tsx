@@ -8,7 +8,7 @@ import { branches } from '@/lib/branches'
 
 const nahda = branches['al-nahda']
 const CONTACT_EMAIL = 'oilonahda@gmail.com'
-const waLink = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent('السلام عليكم، تواصلت من موقع أويلو سبا فرع النهضة')}`
+const waLink = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent('السلام عليكم، تواصلت من موقع أويلو سبا')}`
 
 const primaryLinks: { key: string; href: string }[] = [
   { key: 'nav.services', href: '/services' },
@@ -38,7 +38,7 @@ export default function SiteFooter() {
             <img src="/logo.png" alt="Oilo Spa" className="h-14 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
           </Link>
           <p className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-10 ${isAr ? 'font-ar' : ''}`} style={{ color: 'rgba(201,169,110,0.7)' }}>
-            {isAr ? 'فرع النهضة · الرياض' : 'Al Nahda · Riyadh'}
+            {isAr ? 'النهضة · الرياض' : 'Al Nahda · Riyadh'}
           </p>
 
           {/* Primary nav */}

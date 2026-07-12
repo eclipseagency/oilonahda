@@ -14,9 +14,9 @@ const siteUrl = "https://www.oilospa.com";
 const pageUrl = `${siteUrl}/offers`;
 const heroImage = "/aamassage_13_1310x980.webp";
 
-const titleSeo = "عروض وباقات أويلو سبا فرع النهضة، مساج وحمام مغربي بأسعار خاصة | Oilo Spa";
+const titleSeo = "عروض وباقات أويلو سبا، مساج وحمام مغربي بأسعار خاصة | Oilo Spa";
 const descriptionSeo =
-  "العروض الحالية في أويلو سبا فرع النهضة بالرياض: عروض مجمعة مساج وحمام مغربي وبديكير من 310 ريال، وباقات متكاملة، وخصم افتتاح على جلسات المساج. احجز عرضك الآن.";
+  "العروض الحالية في أويلو سبا بالرياض: عروض مجمعة مساج وحمام مغربي وبديكير من 310 ريال، وباقات متكاملة، وخصم افتتاح على جلسات المساج. احجز عرضك الآن.";
 
 export const metadata = {
   title: titleSeo,
@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Oilo Spa",
     locale: "ar_SA",
     type: "website",
-    images: [{ url: `${siteUrl}${heroImage}`, width: 1200, height: 630, alt: "عروض أويلو سبا فرع النهضة" }],
+    images: [{ url: `${siteUrl}${heroImage}`, width: 1200, height: 630, alt: "عروض أويلو سبا" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -47,18 +47,18 @@ const cardStyle = {
 
 function waHref(whatsapp: string, offerNameAr: string) {
   return `https://wa.me/${whatsapp}?text=${encodeURIComponent(
-    `السلام عليكم، أبغى أحجز ${offerNameAr} في فرع النهضة`
+    `السلام عليكم، أبغى أحجز ${offerNameAr} في النهضة`
   )}`;
 }
 
 const faqs = [
   {
-    q: "هل العروض متاحة في فرع النهضة؟",
-    a: "نعم، العروض والباقات المعروضة هنا خاصة بفرع النهضة، وتشمل عروض المساج والحمام المغربي والبديكير والباقات المتكاملة.",
+    q: "هل العروض متاحة في النهضة؟",
+    a: "نعم، العروض والباقات المعروضة هنا خاصة بالنهضة، وتشمل عروض المساج والحمام المغربي والبديكير والباقات المتكاملة.",
   },
   {
     q: "كيف أحجز عرضًا؟",
-    a: "تقدر تحجز مباشرة من صفحة الحجز في الموقع باختيار العرض، أو ترسل لنا واتساب على رقم فرع النهضة ونأكد لك الموعد.",
+    a: "تقدر تحجز مباشرة من صفحة الحجز في الموقع باختيار العرض، أو ترسل لنا واتساب على رقمنا ونأكد لك الموعد.",
   },
   {
     q: "هل يوجد عرض افتتاح على المساج؟",
@@ -76,7 +76,7 @@ export default function OffersPage() {
     "@graph": [
       {
         "@type": "OfferCatalog",
-        name: "عروض وباقات أويلو سبا فرع النهضة",
+        name: "عروض وباقات أويلو سبا",
         url: pageUrl,
         itemListElement: [...nahdaOffers, ...nahdaPackages].map((s) => ({
           "@type": "Offer",
@@ -113,7 +113,7 @@ export default function OffersPage() {
         <section className="relative h-[55vh] min-h-[420px] w-full overflow-hidden">
           <Image
             src={heroImage}
-            alt="عروض أويلو سبا فرع النهضة"
+            alt="عروض أويلو سبا"
             fill
             priority
             className="object-cover opacity-50"
@@ -122,7 +122,7 @@ export default function OffersPage() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #060608 5%, rgba(6,6,8,0.6) 50%, transparent 100%)" }} />
           <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto">
             <h1 className="font-display text-3xl sm:text-5xl font-bold leading-tight mb-4" style={{ color: "#F5EFE4" }}>
-              عروض وباقات أويلو سبا فرع النهضة
+              عروض وباقات أويلو سبا
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl" style={{ color: "#D8CFBF" }}>
               عروض مجمعة وباقات متكاملة بأسعار خاصة في حي النهضة
@@ -156,7 +156,7 @@ export default function OffersPage() {
 
         <section className="max-w-5xl mx-auto px-6 py-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2" style={{ color: gold }}>
-            عروض فرع النهضة
+            عروض النهضة
           </h2>
           <p className="mb-8" style={{ color: "#D8CFBF" }}>
             عرض الافتتاح: خصم {NAHDA_MASSAGE_OPENING_DISCOUNT} ريال على جميع أنواع المساج، وترقية أي جلسة 40 دقيقة إلى 60 دقيقة بإضافة {NAHDA_HOUR_UPGRADE} ريال فقط.
@@ -216,7 +216,7 @@ export default function OffersPage() {
 
         <section className="max-w-5xl mx-auto px-6 pb-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2" style={{ color: gold }}>
-            الباقات المتكاملة، فرع النهضة
+            الباقات المتكاملة، النهضة
           </h2>
           <p className="mb-8" style={{ color: "#D8CFBF" }}>
             باقات سبا كاملة تشمل المساج والحمام المغربي والعناية، حسب اختيارك.
@@ -277,7 +277,7 @@ export default function OffersPage() {
 
         <section className="max-w-3xl mx-auto px-6 pb-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6" style={{ color: gold }}>
-            فرع النهضة في الرياض
+            النهضة في الرياض
           </h2>
           <div className="rounded-xl p-5 border" style={cardStyle}>
             <Link href="/" className="font-bold text-lg hover:underline underline-offset-4" style={{ color: "#F5EFE4" }}>
@@ -294,7 +294,7 @@ export default function OffersPage() {
         <section className="py-12" style={{ background: "linear-gradient(135deg, #C9A96E, #a8883f)" }}>
           <div className="max-w-3xl mx-auto px-6 text-center" style={{ color: "#060608" }}>
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">العروض متاحة الآن</h2>
-            <p className="mb-6 text-lg">احجز جلستك في أويلو سبا فرع النهضة واستفد من الأسعار الخاصة</p>
+            <p className="mb-6 text-lg">احجز جلستك في أويلو سبا واستفد من الأسعار الخاصة</p>
             <Link
               href="/booking"
               className="inline-block px-10 py-4 font-bold rounded-full transition-opacity hover:opacity-90 text-lg"
