@@ -400,7 +400,7 @@ function nahdaCtx(): BranchCtx {
     serviceHref: (key: string) => `/booking?service=${key}`,
     location: { ...nahdaLocation },
     branchName: { ar: 'النهضة', en: 'Al Nahda' },
-    heroBadge: { ar: 'منتجع صحي وسبا · النهضة', en: 'Wellness & Spa Resort · Al Nahda' },
+    heroBadge: { ar: 'منتجع صحي وسبا', en: 'Wellness & Spa Resort · Al Nahda' },
     heroTagline: { ar: 'استرخاء وعافية باحترافية في حي النهضة', en: 'Professional Relaxation & Wellness in Al Nahda' },
     heroSubtitle: { ar: 'جلسات مساج واسترخاء وحمام مغربي وعناية، على يد معالجين محترفين مؤهلين في بيئة راقية ونظيفة.', en: 'Massage, Moroccan bath and grooming by qualified professional therapists in a refined, hygienic setting.' },
     servicesSubtitle: { ar: 'جلسات استرخاء وعناية احترافية', en: 'Professional relaxation & wellness treatments' },

@@ -52,7 +52,7 @@ export default function GalleryPage() {
         {/* Hero */}
         <section className="relative z-10 pt-36 pb-12 text-center px-5">
           <p className={`text-[11px] font-bold tracking-[0.35em] uppercase mb-5 ${isAr ? 'font-ar' : ''}`} style={{ color: '#C9A96E' }}>
-            {isAr ? 'أويلو سبا · النهضة' : 'Oilo Spa · Al Nahda'}
+            {isAr ? 'أويلو سبا' : 'Oilo Spa · Al Nahda'}
           </p>
           <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gold-gradient mb-4 ${isAr ? 'font-ar' : 'font-display'}`}>
             {t('gallery.title')}
@@ -99,7 +99,7 @@ export default function GalleryPage() {
           {/* CTA */}
           <div className="mt-14 text-center">
             <p className={`mb-5 text-sm ${isAr ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(245,239,228,0.5)' }}>
-              {isAr ? 'عاش الأجواء بنفسك — احجز جلستك في النهضة.' : 'Experience it yourself — book your session at Al Nahda.'}
+              {isAr ? 'عاش الأجواء بنفسك — احجز جلستك.' : 'Experience it yourself — book your session at Al Nahda.'}
             </p>
             <Link href="/booking" className="btn-primary inline-block px-10 py-4 text-sm tracking-wider">
               {isAr ? 'احجز الآن' : 'Book Now'}

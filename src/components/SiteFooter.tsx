@@ -38,7 +38,7 @@ export default function SiteFooter() {
             <img src="/logo.png" alt="Oilo Spa" className="h-14 w-auto mx-auto transition-all duration-300 group-hover:brightness-125" />
           </Link>
           <p className={`text-[11px] font-bold tracking-[0.3em] uppercase mb-10 ${isAr ? 'font-ar' : ''}`} style={{ color: 'rgba(201,169,110,0.7)' }}>
-            {isAr ? 'النهضة · الرياض' : 'Al Nahda · Riyadh'}
+            {isAr ? 'الرياض' : 'Al Nahda · Riyadh'}
           </p>
 
           {/* Primary nav */}

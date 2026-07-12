@@ -47,14 +47,14 @@ const cardStyle = {
 
 function waHref(whatsapp: string, offerNameAr: string) {
   return `https://wa.me/${whatsapp}?text=${encodeURIComponent(
-    `السلام عليكم، أبغى أحجز ${offerNameAr} في النهضة`
+    `السلام عليكم، أبغى أحجز ${offerNameAr}`
   )}`;
 }
 
 const faqs = [
   {
-    q: "هل العروض متاحة في النهضة؟",
-    a: "نعم، العروض والباقات المعروضة هنا خاصة بالنهضة، وتشمل عروض المساج والحمام المغربي والبديكير والباقات المتكاملة.",
+    q: "هل العروض متاحة حاليًا؟",
+    a: "نعم، العروض والباقات المعروضة هنا تشمل عروض المساج والحمام المغربي والبديكير والباقات المتكاملة.",
   },
   {
     q: "كيف أحجز عرضًا؟",
@@ -156,7 +156,7 @@ export default function OffersPage() {
 
         <section className="max-w-5xl mx-auto px-6 py-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2" style={{ color: gold }}>
-            عروض النهضة
+            عروضنا
           </h2>
           <p className="mb-8" style={{ color: "#D8CFBF" }}>
             عرض الافتتاح: خصم {NAHDA_MASSAGE_OPENING_DISCOUNT} ريال على جميع أنواع المساج، وترقية أي جلسة 40 دقيقة إلى 60 دقيقة بإضافة {NAHDA_HOUR_UPGRADE} ريال فقط.
@@ -216,7 +216,7 @@ export default function OffersPage() {
 
         <section className="max-w-5xl mx-auto px-6 pb-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-2" style={{ color: gold }}>
-            الباقات المتكاملة، النهضة
+            الباقات المتكاملة
           </h2>
           <p className="mb-8" style={{ color: "#D8CFBF" }}>
             باقات سبا كاملة تشمل المساج والحمام المغربي والعناية، حسب اختيارك.
@@ -277,7 +277,7 @@ export default function OffersPage() {
 
         <section className="max-w-3xl mx-auto px-6 pb-12">
           <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6" style={{ color: gold }}>
-            النهضة في الرياض
+            موقعنا في الرياض
           </h2>
           <div className="rounded-xl p-5 border" style={cardStyle}>
             <Link href="/" className="font-bold text-lg hover:underline underline-offset-4" style={{ color: "#F5EFE4" }}>
