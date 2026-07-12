@@ -798,69 +798,6 @@ function Experience() {
 }
 
 // ═══════════════════════════════════════════
-// OFFERS
-// ═══════════════════════════════════════════
-function Offers() {
-  const { locale, t } = useI18n()
-  const sectionRef = useRevealAll()
-  const branch = useBranch()
-  const offer = branch.services.find(s => s.key === 'offer-massage-bath')
-  if (!offer) return null
-
-  return (
-    <section id="offers" ref={sectionRef} className="relative py-16 sm:py-24 md:py-36 lg:py-44 bg-section-a overflow-hidden">
-      {/* Big glow behind card */}
-      <div className="glow-orb w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ background: 'rgba(201,169,110,0.06)' }} />
-
-      <div className="relative z-10 mx-auto max-w-3xl px-5 sm:px-6 lg:px-10">
-        <SectionHeader title={t('offers.title')} subtitle={t('offers.subtitle') || ''} locale={locale} />
-
-        {/* Offer card with image */}
-        <div className="reveal reveal-delay-2 relative rounded-3xl overflow-hidden gradient-border">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Image side */}
-            <div className="relative h-64 md:h-auto md:min-h-[400px]">
-              <img src={images.offerBanner} alt={locale === 'ar' ? offer.nameAr : offer.nameEn}
-                className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 md:hidden" style={{
-                background: 'linear-gradient(to top, rgba(6,6,8,1), rgba(6,6,8,0.3))'
-              }} />
-              <div className="absolute inset-0 hidden md:block" style={{
-                background: locale === 'ar'
-                  ? 'linear-gradient(to right, rgba(6,6,8,0.95), rgba(6,6,8,0.2))'
-                  : 'linear-gradient(to left, rgba(6,6,8,0.95), rgba(6,6,8,0.2))'
-              }} />
-            </div>
-            {/* Text side */}
-            <div className="relative p-8 sm:p-10 md:p-12 flex flex-col justify-center"
-              style={{ background: 'rgba(6,6,8,0.95)' }}>
-              <span className="badge mb-6 self-start">
-                <span className="w-2 h-2 rounded-full bg-[#C9A96E] animate-pulse" />
-                {locale === 'ar' ? 'عرض خاص' : 'Special Offer'}
-              </span>
-
-              <h3 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 ${locale === 'ar' ? 'font-ar' : 'font-display'}`}>
-                {locale === 'ar' ? offer.nameAr : offer.nameEn}
-              </h3>
-              <p className={`text-sm md:text-base leading-[2] mb-8 ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.5)' }}>
-                {locale === 'ar' ? offer.descriptionAr : offer.descriptionEn}
-              </p>
-              <div>
-                <Link href={branch.serviceHref(offer.key, offer.nameAr, offer.nameEn)}
-                  className="btn-primary px-10 py-4 text-sm tracking-[0.08em] uppercase">
-                  {t('offers.book')}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════
 // LOCATION + HOURS
 // ═══════════════════════════════════════════
 function Location() {
@@ -1179,7 +1116,6 @@ export default function BranchHome() {
         {branch.showExperience && <Experience />}
         <WhatToExpect />
         <Reviews />
-        <Offers />
         <GiftMembership />
         <FAQ />
         <ContactSection whatsapp={branch.location?.whatsapp ?? '966556733851'} />
