@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
 
   const {
     name, phone: phoneRaw, service_key, date, time_slot, consent, website,
-    utm_source, utm_medium, utm_campaign, utm_term, utm_content, referer,
+    utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, gbraid, wbraid, landing_page, referer,
   } = body as {
     name?: string
     phone?: string
@@ -133,6 +133,10 @@ export async function POST(request: NextRequest) {
     utm_campaign?: string
     utm_term?: string
     utm_content?: string
+    gclid?: string
+    gbraid?: string
+    wbraid?: string
+    landing_page?: string
     referer?: string
   }
 
@@ -233,8 +237,15 @@ export async function POST(request: NextRequest) {
   // tiny window where the row exists without source is acceptable here.
   const utmSrc = cap(utm_source)
   const ref = cap(referer)
+  const clickIds = [
+    gclid ? `gclid=${cap(gclid)}` : null,
+    gbraid ? `gbraid=${cap(gbraid)}` : null,
+    wbraid ? `wbraid=${cap(wbraid)}` : null,
+    landing_page ? `landing_page=${cap(landing_page)}` : null,
+  ].filter(Boolean).join('; ')
+  const utmContent = [cap(utm_content), clickIds || null].filter(Boolean).join(' | ') || null
   const userAgent = cap(request.headers.get('user-agent'))
-  const sourceLabel = deriveSource(utmSrc, ref)
+  const sourceLabel = gclid || gbraid || wbraid ? 'google' : deriveSource(utmSrc, ref)
   await supabase
     .from('bookings')
     .update({
@@ -244,7 +255,7 @@ export async function POST(request: NextRequest) {
       utm_medium: cap(utm_medium),
       utm_campaign: cap(utm_campaign),
       utm_term: cap(utm_term),
-      utm_content: cap(utm_content),
+      utm_content: utmContent,
       referer: ref,
       ip,
       user_agent: userAgent,

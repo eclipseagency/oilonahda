@@ -43,7 +43,7 @@ export const branches: Record<BranchId, Branch> = {
     slug: 'al-nahda',
     nameAr: 'فرع النهضة', nameEn: 'Al Nahda Branch',
     districtAr: 'حي النهضة', districtEn: 'Al Nahda',
-    taglineAr: 'فرعنا الجديد في حي النهضة', taglineEn: 'Our new branch in Al Nahda',
+    taglineAr: 'فرعنا الجديد', taglineEn: 'Our new branch',
     heroImage: '/services/nahda-hero.webp',
     cardImage: '/services/nahda-hero.webp',
     addressAr: 'شارع سلمان الفارسي، حي النهضة، الرياض ١٠٠١١',

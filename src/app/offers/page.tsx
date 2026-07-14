@@ -125,7 +125,7 @@ export default function OffersPage() {
               عروض وباقات أويلو سبا فرع النهضة
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl" style={{ color: "#D8CFBF" }}>
-              عروض مجمعة وباقات متكاملة بأسعار خاصة في حي النهضة
+              عروض مجمعة وباقات متكاملة بأسعار خاصة
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link

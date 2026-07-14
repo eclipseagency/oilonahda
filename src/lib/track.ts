@@ -6,6 +6,7 @@
 
 export type TrackedEventName =
   | 'whatsapp_click'
+  | 'booking_cta_click'
   | 'view_booking_page'
   | 'phone_click'
   | 'select_branch'
@@ -17,9 +18,12 @@ type Win = {
   gtag?: (cmd: string, name: string, params?: Record<string, unknown>) => void
 }
 
+const nahdaAdsId = process.env.NEXT_PUBLIC_GADS_ID_NAHDA?.trim()
+
 // Main account send_to labels.
 const sendToFor: Record<TrackedEventName, string | undefined> = {
   whatsapp_click: process.env.NEXT_PUBLIC_GADS_CONV_WA?.trim(),
+  booking_cta_click: process.env.NEXT_PUBLIC_GADS_CONV_BOOKING_VIEW?.trim(),
   view_booking_page: process.env.NEXT_PUBLIC_GADS_CONV_BOOKING_VIEW?.trim(),
   phone_click: process.env.NEXT_PUBLIC_GADS_CONV_PHONE?.trim(),
   select_branch: process.env.NEXT_PUBLIC_GADS_CONV_SELECT_BRANCH?.trim(),
@@ -29,11 +33,12 @@ const sendToFor: Record<TrackedEventName, string | undefined> = {
 }
 
 // Al Nahda runs a SEPARATE Google Ads account (AW-18247209948), so its lead
-// events must report there. When a _NAHDA
-// label is configured we use it on the Nahda branch; otherwise we fall back to
-// the main label, so nothing changes until the Nahda labels are set.
+// events must report there. Soft funnel events only report as Ads conversions
+// when a dedicated _NAHDA label exists; the generic lead label is reserved for
+// real booking submits in the booking flow.
 const nahdaSendToFor: Partial<Record<TrackedEventName, string | undefined>> = {
   whatsapp_click: process.env.NEXT_PUBLIC_GADS_CONV_WA_NAHDA?.trim(),
+  booking_cta_click: process.env.NEXT_PUBLIC_GADS_CONV_BOOKING_VIEW_NAHDA?.trim(),
   view_booking_page: process.env.NEXT_PUBLIC_GADS_CONV_BOOKING_VIEW_NAHDA?.trim(),
   phone_click: process.env.NEXT_PUBLIC_GADS_CONV_PHONE_NAHDA?.trim(),
 }
@@ -47,6 +52,11 @@ function isNahdaBranch(): boolean {
   return true
 }
 
+function validNahdaSendTo(sendTo: string | undefined): string | undefined {
+  if (!sendTo || !nahdaAdsId) return undefined
+  return sendTo.startsWith(`${nahdaAdsId}/`) ? sendTo : undefined
+}
+
 export function trackEvent(
   name: TrackedEventName,
   params: Record<string, unknown> = {},
@@ -55,8 +65,9 @@ export function trackEvent(
   const w = window as unknown as Win
   try {
     w.gtag?.('event', name, params)
-    const sendTo =
-      (isNahdaBranch() && nahdaSendToFor[name]) || sendToFor[name]
+    const sendTo = isNahdaBranch()
+      ? validNahdaSendTo(nahdaSendToFor[name])
+      : sendToFor[name]
     if (sendTo) {
       w.gtag?.('event', 'conversion', { send_to: sendTo, ...params })
     }

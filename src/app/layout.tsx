@@ -11,26 +11,33 @@ const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID?.trim();
 const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID?.trim();
 const GADS_ID_NAHDA = process.env.NEXT_PUBLIC_GADS_ID_NAHDA?.trim(); // Al Nahda's separate Google Ads account tag
 const SNAP_PIXEL_ID = process.env.NEXT_PUBLIC_SNAP_PIXEL_ID?.trim();
+const GTAG_LOADER_ID = GA_ID || GADS_ID_NAHDA || GADS_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oilospa.com"),
-  title: "Oilo Spa فرع النهضة | منتجع صحي وسبا واسترخاء في حي النهضة",
+  title: "Oilo Spa فرع النهضة | مساج وحمام مغربي في حي النهضة",
   description:
-    "أويلو سبا فرع النهضة، منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
+    "أويلو سبا فرع النهضة بالرياض: مساج رجالي، حمام مغربي، حجامة، بديكير، عناية بالبشرة وباقات سبا في شرق الرياض. احجز موعدك الآن.",
   keywords: [
-    "سبا واسترخاء الرياض",
     "مساج الرياض",
+    "مساج رجال الرياض",
     "حمام مغربي الرياض",
+    "حمام مغربي رجالي الرياض",
+    "سبا رجالي الرياض",
+    "سبا حي النهضة",
+    "مساج حي النهضة",
+    "حجامة الرياض",
+    "بديكير رجال الرياض",
     "Oilo Spa",
-    "spa Riyadh",
-    "massage Riyadh",
-    "مركز سبا الرياض",
+    "men massage Riyadh",
+    "moroccan bath Riyadh",
+    "wellness Riyadh",
     "أويلو سبا",
   ],
   openGraph: {
-    title: "Oilo Spa | مركز سبا واسترخاء فاخر في الرياض",
+    title: "Oilo Spa فرع النهضة | مساج وحمام مغربي في الرياض",
     description:
-      "تجربة استرخاء متكاملة. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة.",
+      "مساج رجالي، حمام مغربي، حجامة، بديكير وباقات سبا في حي النهضة بالرياض.",
     url: "https://www.oilospa.com",
     siteName: "Oilo Spa",
     locale: "ar_SA",
@@ -40,15 +47,15 @@ export const metadata: Metadata = {
         url: "https://www.oilospa.com/og.png",
         width: 1200,
         height: 630,
-        alt: "Oilo Spa، مركز سبا واسترخاء فاخر في الرياض",
+        alt: "Oilo Spa فرع النهضة، مساج وحمام مغربي في الرياض",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oilo Spa | مركز سبا واسترخاء فاخر في الرياض",
+    title: "Oilo Spa فرع النهضة | مساج وحمام مغربي في الرياض",
     description:
-      "تجربة استرخاء متكاملة. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة.",
+      "مساج رجالي، حمام مغربي، حجامة، بديكير وباقات سبا في حي النهضة بالرياض.",
     images: ["https://www.oilospa.com/og.png"],
   },
   robots: {
@@ -85,7 +92,7 @@ export default function RootLayout({
               "@id": "https://www.oilospa.com/#business",
               name: "Oilo Spa",
               description:
-                "منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة",
+                "مركز سبا رجالي في حي النهضة بالرياض يقدم المساج، الحمام المغربي، الحجامة، البديكير وباقات الاسترخاء",
               url: "https://www.oilospa.com",
               email: "oilonahda@gmail.com",
               telephone: `+966${branches["al-nahda"].phone.slice(1)}`,
@@ -137,10 +144,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full" style={{ background: "#060608", color: "#e0ddd8" }}>
-        {(GA_ID || GADS_ID || GADS_ID_NAHDA) && (
+        {GTAG_LOADER_ID && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID || GADS_ID || GADS_ID_NAHDA}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_LOADER_ID}`}
               strategy="afterInteractive"
             />
             <Script id="gtag-init" strategy="afterInteractive">

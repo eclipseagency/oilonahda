@@ -12,6 +12,9 @@ import { trackEvent } from '@/lib/track'
 
 type ClickType = 'whatsapp' | 'phone' | 'email' | 'location' | 'social'
 
+const ATTR_STORAGE_KEY = 'oilo_ad_attribution'
+const ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'] as const
+
 function classify(href: string): ClickType | null {
   if (!href) return null
   if (href.includes('wa.me') || href.startsWith('whatsapp:')) return 'whatsapp'
@@ -24,12 +27,40 @@ function classify(href: string): ClickType | null {
 
 export default function AnalyticsListeners() {
   useEffect(() => {
+    try {
+      const sp = new URLSearchParams(window.location.search)
+      const captured: Record<string, string> = {}
+      ATTR_KEYS.forEach((key) => {
+        const value = sp.get(key)
+        if (value) captured[key] = value
+      })
+      if (Object.keys(captured).length > 0) {
+        const prev = JSON.parse(window.localStorage.getItem(ATTR_STORAGE_KEY) || '{}') as Record<string, string>
+        window.localStorage.setItem(ATTR_STORAGE_KEY, JSON.stringify({
+          ...prev,
+          ...captured,
+          landing_page: `${window.location.pathname}${window.location.search}`,
+          captured_at: new Date().toISOString(),
+          referer: document.referrer || prev.referer,
+        }))
+      }
+    } catch {
+      /* attribution persistence is best effort */
+    }
+
     const handler = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null
       if (!target) return
       const anchor = target.closest('a') as HTMLAnchorElement | null
       if (!anchor) return
       const href = anchor.getAttribute('href') || ''
+      if (anchor.pathname === '/booking') {
+        trackEvent('booking_cta_click', {
+          link_url: href,
+          source_path: window.location.pathname,
+        })
+      }
+
       const type = classify(href)
       if (!type) return
 

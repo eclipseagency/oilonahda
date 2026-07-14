@@ -412,24 +412,40 @@ function BookingContent() {
     utm_campaign?: string
     utm_term?: string
     utm_content?: string
+    gclid?: string
+    gbraid?: string
+    wbraid?: string
+    landing_page?: string
     referer?: string
   }>({})
 
   useEffect(() => {
     if (typeof window === 'undefined') return
     const sp = new URLSearchParams(window.location.search)
+    let stored: Record<string, string> = {}
+    try {
+      stored = JSON.parse(window.localStorage.getItem('oilo_ad_attribution') || '{}') as Record<string, string>
+    } catch {
+      stored = {}
+    }
+    const fromUrlOrStore = (key: string) => sp.get(key) || stored[key] || undefined
     setAttribution({
-      utm_source: sp.get('utm_source') || undefined,
-      utm_medium: sp.get('utm_medium') || undefined,
-      utm_campaign: sp.get('utm_campaign') || undefined,
-      utm_term: sp.get('utm_term') || undefined,
-      utm_content: sp.get('utm_content') || undefined,
-      referer: document.referrer || undefined,
+      utm_source: fromUrlOrStore('utm_source'),
+      utm_medium: fromUrlOrStore('utm_medium'),
+      utm_campaign: fromUrlOrStore('utm_campaign'),
+      utm_term: fromUrlOrStore('utm_term'),
+      utm_content: fromUrlOrStore('utm_content'),
+      gclid: fromUrlOrStore('gclid'),
+      gbraid: fromUrlOrStore('gbraid'),
+      wbraid: fromUrlOrStore('wbraid'),
+      landing_page: stored.landing_page || `${window.location.pathname}${window.location.search}`,
+      referer: document.referrer || stored.referer || undefined,
     })
     trackEvent('view_booking_page', {
-      utm_source: sp.get('utm_source') || undefined,
-      utm_campaign: sp.get('utm_campaign') || undefined,
-      referer: document.referrer || undefined,
+      utm_source: fromUrlOrStore('utm_source'),
+      utm_campaign: fromUrlOrStore('utm_campaign'),
+      gclid: fromUrlOrStore('gclid'),
+      referer: document.referrer || stored.referer || undefined,
     })
   }, [])
 
@@ -519,7 +535,16 @@ function BookingContent() {
           w.ttq?.track('CompleteRegistration')
           w.fbq?.('track', 'Lead', { content_name: 'Booking', currency: 'SAR', value: total })
           w.fbq?.('track', 'Schedule')
-          w.gtag?.('event', 'booking_submit', { currency: 'SAR', value: total })
+          w.gtag?.('set', 'user_data', {
+            phone_number: '+966' + phone.trim().replace(/^0/, ''),
+          })
+          w.gtag?.('event', 'booking_submit', {
+            currency: 'SAR',
+            value: total,
+            transaction_id: data.booking_id,
+            event_id: data.booking_id,
+            service_key: selectedServices[0]?.key,
+          })
           // Snap advanced matching: re-init with the customer's phone so Snap
           // can match this booking to the Snapchatter who saw the ad. Without
           // an identifier the conversion scores "Poor" match quality and
@@ -537,12 +562,15 @@ function BookingContent() {
           w.snaptr?.('track', 'SIGN_UP', { client_dedup_id: data.booking_id })
           // Al Nahda has its own separate Google Ads account, so its booking
           // conversion must report to the Al Nahda account.
+          const nahdaAdsId = process.env.NEXT_PUBLIC_GADS_ID_NAHDA?.trim()
           const gadsConv = process.env.NEXT_PUBLIC_GADS_CONVERSION_NAHDA?.trim()
-          if (gadsConv) {
+          if (gadsConv && nahdaAdsId && gadsConv.startsWith(`${nahdaAdsId}/`)) {
             w.gtag?.('event', 'conversion', {
               send_to: gadsConv,
               value: total,
               currency: 'SAR',
+              transaction_id: data.booking_id,
+              event_id: data.booking_id,
             })
           }
         } catch {
@@ -1186,19 +1214,19 @@ export default function BookingPage() {
 
         <section className="mt-20 rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-6 text-center sm:p-8 md:p-10">
           <p className="mb-3 text-xs font-bold tracking-[0.35em] uppercase text-[#C9A96E]">
-            {isAr ? 'حجز سبا في الرياض' : 'Spa Booking in Riyadh'}
+            {isAr ? 'اويلو سبا' : 'Oilo Spa'}
           </p>
           <h2 className={`text-2xl font-bold text-white sm:text-3xl ${isAr ? 'font-ar' : 'font-display'}`}>
-            {isAr ? 'احجز مساج أو حمام مغربي في فرع النهضة' : 'Book massage or hammam at Oilo Spa Al Nahda'}
+            {isAr ? 'احجز مساجًا أو حمامًا مغربيًا في فرع النهضة' : 'Book a massage or Moroccan bath at Oilo Spa Al Nahda'}
           </h2>
           <p className={`mx-auto mt-4 max-w-3xl leading-8 text-white/60 ${isAr ? 'font-body' : 'font-ar'}`}>
             {isAr
-              ? 'احجز في فرع النهضة بالرياض، ثم حدد الخدمة والموعد المناسب. صفحة الحجز تدعم المساج، الحمام المغربي، الحجامة، البديكير والمنكير، وباقات الاسترخاء، مع تأكيد سريع عبر رقم الجوال.'
-              : 'Book at Al Nahda in Riyadh, then select the service and appointment time. Booking supports massage, Moroccan hammam, hijama, manicure and pedicure, and spa packages with quick phone confirmation.'}
+              ? 'اختر من خدمات أويلو سبا: المساج، الحمام المغربي، البديكير والمنكير، وباقات السبا. حدّد الموعد المناسب وستصلك رسالة تأكيد سريعة على رقم جوالك.'
+              : 'Choose from Oilo Spa services: massage, Moroccan bath, manicure and pedicure, and spa packages. Select a suitable appointment time and receive a quick confirmation on your phone.'}
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link href="/booking" className="rounded-full border border-[#C9A96E]/40 px-6 py-3 text-sm font-bold text-[#C9A96E]">
-              {isAr ? 'حجز فرع النهضة' : 'Book Al Nahda'}
+              {isAr ? 'حجز' : 'Book'}
             </Link>
           </div>
         </section>

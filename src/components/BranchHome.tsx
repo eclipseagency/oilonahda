@@ -400,14 +400,22 @@ function nahdaCtx(): BranchCtx {
     serviceHref: (key: string) => `/booking?service=${key}`,
     location: { ...nahdaLocation },
     branchName: { ar: 'فرع النهضة', en: 'Al Nahda' },
-    heroBadge: { ar: 'منتجع صحي وسبا · فرع النهضة', en: 'Wellness & Spa Resort · Al Nahda' },
-    heroTagline: { ar: 'استرخاء وعافية باحترافية في حي النهضة', en: 'Professional Relaxation & Wellness in Al Nahda' },
-    heroSubtitle: { ar: 'جلسات مساج واسترخاء وحمام مغربي وعناية، على يد معالجين محترفين مؤهلين في بيئة راقية ونظيفة.', en: 'Massage, Moroccan bath and grooming by qualified professional therapists in a refined, hygienic setting.' },
-    servicesSubtitle: { ar: 'جلسات استرخاء وعناية احترافية', en: 'Professional relaxation & wellness treatments' },
+    heroBadge: { ar: 'مركز عافية وعناية · فرع النهضة', en: 'Wellness & Grooming Center · Al Nahda' },
+    heroTagline: { ar: 'استرخاء وعافية باحترافية', en: 'Professional Relaxation & Wellness' },
+    heroSubtitle: { ar: 'جلسات عافية وعناية مغربية وخدمات تجميلية، على يد فريق محترف مؤهل في بيئة راقية ونظيفة.', en: 'Wellness sessions, Moroccan body care and grooming services by qualified professionals in a refined, hygienic setting.' },
+    servicesSubtitle: { ar: 'خدمات عافية وعناية احترافية', en: 'Professional wellness & grooming services' },
   }
 }
 export const BRANCH_CTX: Record<BranchId, () => BranchCtx> = {
   'al-nahda': nahdaCtx,
+}
+
+function serviceDetailHref(s: Service) {
+  if (s.category === 'massage') return '/services/massage-riyadh'
+  if (s.category === 'bath') return '/services/moroccan-bath-riyadh'
+  if (s.category === 'grooming') return '/services/manicure-pedicure-riyadh'
+  if (s.category === 'package' || s.category === 'offer') return '/services/spa-riyadh'
+  return '/services'
 }
 
 function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar' | 'en'; t: (k: string) => string }) {
@@ -417,6 +425,7 @@ function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar
   const img = branch.serviceImages[s.key] || images.massage
   const hasVariants = variants.length > 1
   const bookHref = branch.serviceHref(s.key, s.nameAr, s.nameEn)
+  const detailsHref = serviceDetailHref(s)
 
   return (
     <div className="glass-card group relative overflow-hidden block">
@@ -497,14 +506,21 @@ function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar
               </span>
             </div>
           )}
-          <Link href={bookHref}
-            className="text-xs tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#C9A96E] inline-flex items-center gap-1.5"
-            style={{ color: 'rgba(245,239,228,0.65)' }}>
-            {t('services.book')}
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={locale === 'ar' ? 'rotate-180' : ''}>
-              <path d="M3 2L7 5L3 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+          <div className="flex flex-col items-end gap-2">
+            <Link href={bookHref}
+              className="text-xs tracking-[0.1em] uppercase transition-all duration-300 hover:text-[#C9A96E] inline-flex items-center gap-1.5"
+              style={{ color: 'rgba(245,239,228,0.65)' }}>
+              {t('services.book')}
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={locale === 'ar' ? 'rotate-180' : ''}>
+                <path d="M3 2L7 5L3 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <Link href={detailsHref}
+              className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`}
+              style={{ color: 'rgba(245,239,228,0.38)' }}>
+              {locale === 'ar' ? 'تفاصيل الخدمة' : 'Service details'}
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -1018,9 +1034,6 @@ function Footer() {
             </Link>
             <Link href="/services/moroccan-bath-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
               {locale === 'ar' ? 'حمام مغربي الرياض' : 'Moroccan Bath Riyadh'}
-            </Link>
-            <Link href="/services/hijama-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
-              {locale === 'ar' ? 'حجامة الرياض' : 'Hijama Riyadh'}
             </Link>
             <Link href="/services/manicure-pedicure-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
               {locale === 'ar' ? 'بديكير ومنكير الرياض' : 'Mani & Pedi Riyadh'}

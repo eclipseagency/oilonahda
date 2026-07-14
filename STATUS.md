@@ -38,6 +38,9 @@ npx vercel --prod --yes
 ## 4. Pages
 `/` (home) · `/services` (full menu) · `/offers` · `/gallery` (الأجواء) · `/contact` · `/blog` + `/blog/[slug]` · `/gift` · `/membership` · `/booking` + `/booking/manage` · `/al-nahda` (renders the homepage; canonicalizes to `/`) · `/services/[slug]` (SEO landing pages) · `/admin`, `/dashboard` (internal).
 
+## 5b. Done 2026-07-10
+- **Outbound / "exit" click tracking → admin.** New `src/app/api/track/click/route.ts` persists every WhatsApp/phone/email/location/social link click to Supabase `outbound_clicks` (branch `al-nahda`, service-role insert). `AnalyticsListeners.tsx` now classifies those hrefs and `navigator.sendBeacon`s them (still fires the gtag WA/phone events too). `/api/admin/analytics` rolls them up (30d/90d, by type); the admin dashboard (Analytics view) shows an **"Outbound / Contact Clicks"** card. Ported from oilo-spa (same shared Supabase `ooltmgblbnuoutandexv`; `outbound_clicks` table already existed). Deployed + live-tested (204 + row landed as al-nahda, test rows deleted). ⚠ this deploy also shipped the still-uncommitted massage→wellness working-tree changes (already live before — no regression; see §6).
+
 ## 5. Done in the 2026-07-09 session
 - **Booking URL cleaned** → `/booking` (dropped redundant `?branch=al-nahda` from all links; `isNahdaBranch()` in `track.ts` returns true).
 - **Contact page** rebuilt (form + Nahda location panel: embedded map, address, hours, WhatsApp/call).

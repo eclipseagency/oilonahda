@@ -11,7 +11,7 @@ const siteUrl = "https://www.oilospa.com";
 const url = `${siteUrl}/services`;
 const gold = "#C9A96E";
 
-const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج، حمام مغربي، حجامة | Oilo Spa";
+const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج وحمام مغربي | Oilo Spa";
 const descriptionSeo =
   "خدمات أويلو سبا فرع النهضة بالرياض: مساج واسترخاء احترافي، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة بأسعار واضحة. اختر خدمتك واحجز الآن.";
 
@@ -88,7 +88,7 @@ export default function ServicesIndexPage() {
             </h1>
             <p className="text-base sm:text-lg leading-loose mx-auto max-w-2xl font-ar" style={{ color: "#C7BEAE" }}>
               مساج واسترخاء، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة، على يد معالجين محترفين
-              في بيئة هادئة ونظيفة بحي النهضة. الأسعار واضحة، والحجز في دقيقة.
+              في بيئة هادئة ونظيفة. الأسعار واضحة، والحجز في دقيقة.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/booking" className="inline-block px-8 py-4 font-bold rounded-full transition-opacity hover:opacity-90 text-base font-ar" style={{ background: gold, color: "#060608" }}>

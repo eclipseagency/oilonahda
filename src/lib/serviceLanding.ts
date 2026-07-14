@@ -74,7 +74,6 @@ export const SERVICE_LANDINGS: Record<string, ServiceLanding> = {
     related: [
       { slug: "moroccan-bath-riyadh", label: "حمام مغربي" },
       { slug: "spa-riyadh", label: "باقات السبا" },
-      { slug: "hijama-riyadh", label: "حجامة" },
     ],
   },
   "moroccan-bath-riyadh": {
@@ -142,7 +141,6 @@ export const SERVICE_LANDINGS: Record<string, ServiceLanding> = {
     related: [
       { slug: "massage-riyadh", label: "منتجع صحي ومساج" },
       { slug: "spa-riyadh", label: "باقات السبا" },
-      { slug: "hijama-riyadh", label: "حجامة" },
     ],
   },
   "hijama-riyadh": {
@@ -277,7 +275,6 @@ export const SERVICE_LANDINGS: Record<string, ServiceLanding> = {
     related: [
       { slug: "massage-riyadh", label: "منتجع صحي ومساج" },
       { slug: "moroccan-bath-riyadh", label: "حمام مغربي" },
-      { slug: "hijama-riyadh", label: "حجامة" },
     ],
   },
   "manicure-pedicure-riyadh": {
@@ -341,4 +338,6 @@ export const SERVICE_LANDINGS: Record<string, ServiceLanding> = {
   },
 };
 
-export const SERVICE_LANDING_SLUGS = Object.keys(SERVICE_LANDINGS);
+export const SERVICE_LANDING_SLUGS = Object.keys(SERVICE_LANDINGS).filter(
+  (slug) => slug !== "hijama-riyadh",
+);

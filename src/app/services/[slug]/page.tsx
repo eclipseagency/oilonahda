@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const data = SERVICE_LANDINGS[slug];
-  if (!data) return {};
+  if (!data || slug === "hijama-riyadh") return {};
   const url = `${siteUrl}/services/${slug}`;
   return {
     title: data.titleSeo,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ServiceLandingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const data = SERVICE_LANDINGS[slug];
-  if (!data) notFound();
+  if (!data || slug === "hijama-riyadh") notFound();
 
   const url = `${siteUrl}/services/${slug}`;
   const jsonLd = {

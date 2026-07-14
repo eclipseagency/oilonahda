@@ -46,7 +46,11 @@ const nextConfig: NextConfig = {
     return [
       { source: "/al-rabie", destination: "/", permanent: true },
       { source: "/al-nahda", destination: "/", permanent: true },
+      { source: "/النهضة", destination: "/", permanent: true },
+      { source: "/ar/النهضة", destination: "/", permanent: true },
       { source: "/bookings", destination: "/booking", permanent: true },
+      { source: "/النهضة/حجز", destination: "/booking", permanent: true },
+      { source: "/ar/النهضة/حجز", destination: "/booking", permanent: true },
     ];
   },
 };

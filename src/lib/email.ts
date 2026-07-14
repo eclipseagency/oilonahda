@@ -40,6 +40,7 @@ function getTransporter() {
 const GOLD = '#C9A96E'
 const INK = '#0a0a0d'
 const CREAM = '#F5EFE4'
+const SITE_DOMAIN = 'oilospa.com'
 
 function escape(s: string) {
   return s.replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]!))
@@ -93,7 +94,7 @@ function shell(opts: { tag: string; tagColor?: string; title: string; intro: str
     </td></tr>
     <tr><td style="padding:0 32px 28px">${opts.bodyHtml}</td></tr>
     <tr><td style="background:#faf8f4;padding:18px 32px;text-align:center;font-size:12px;color:#9a9a9a;border-top:1px solid #efeae0">
-      Sent from oilo.sa &middot; ${escape(new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', dateStyle: 'medium', timeStyle: 'short' }))} Riyadh<br>
+      Sent from ${SITE_DOMAIN} &middot; ${escape(new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', dateStyle: 'medium', timeStyle: 'short' }))} Riyadh<br>
       <span style="font-size:11px">Reply to this email to reach <a href="mailto:${REPLY_TO}" style="color:${GOLD};text-decoration:none">${REPLY_TO}</a></span>
     </td></tr>
   </table>
@@ -165,7 +166,7 @@ export async function emailNewBooking(p: {
   const branchTag = p.branchEn ? ` · ${p.branchEn}` : ''
   await send(`[Oilo] New Booking${branchTag} · ${p.date} ${p.time} · ${p.name}`,
     shell({ tag: 'New Booking', title: `New booking from ${p.name}`,
-      intro: `A new booking has just been confirmed on oilo.sa${branchLabel ? ` for the ${p.branchEn} branch` : ''}. Please review the details below and prepare for the appointment.`,
+      intro: `A new booking has just been confirmed on ${SITE_DOMAIN}${branchLabel ? ` for the ${p.branchEn} branch` : ''}. Please review the details below and prepare for the appointment.`,
       bodyHtml: body }),
     BOOKING_NOTIFY_TO)
 }
@@ -233,6 +234,6 @@ export async function emailContactMessage(p: {
     <div style="margin-top:18px;padding:18px 20px;background:#faf8f4;border-left:3px solid ${GOLD};border-radius:6px;font-size:14px;color:#1a1a1a;line-height:1.8;white-space:pre-wrap">${escape(p.message)}</div>`
   await send(`[Oilo] Contact: ${p.subject?.trim() || 'New message'} · from ${p.name}`,
     shell({ tag: 'Contact Form', tagColor: '#a08454', title: p.subject?.trim() || `Message from ${p.name}`,
-      intro: `A new message arrived through the contact form on oilo.sa.`,
+      intro: `A new message arrived through the contact form on ${SITE_DOMAIN}.`,
       bodyHtml: body }))
 }

@@ -3,11 +3,15 @@ import { branches } from '@/lib/branches'
 
 export const metadata: Metadata = {
   title: 'حجز مساج وسبا في الرياض | احجز موعدك في Oilo Spa',
-  description: 'احجز جلسة مساج، حمام مغربي، حجامة أو باقة عناية في أويلو سبا فرع النهضة بالرياض. اختر الخدمة، التاريخ والوقت المناسب لك.',
+  description: 'احجز مساجًا، حمامًا مغربيًا، بديكير ومنكير أو باقة سبا في أويلو سبا فرع النهضة بالرياض. اختر الخدمة، التاريخ والوقت المناسب لك.',
   alternates: { canonical: 'https://www.oilospa.com/booking' },
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     title: 'حجز مساج وسبا في الرياض | Oilo Spa',
-    description: 'احجز جلسة مساج أو حمام مغربي أو حجامة في أويلو سبا فرع النهضة بالرياض.',
+    description: 'احجز مساجًا أو حمامًا مغربيًا أو باقة سبا في أويلو سبا فرع النهضة بالرياض.',
     url: 'https://www.oilospa.com/booking',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',

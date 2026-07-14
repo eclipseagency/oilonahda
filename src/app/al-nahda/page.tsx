@@ -5,14 +5,14 @@ import { branches } from '@/lib/branches'
 
 // Legacy Al Nahda path; production redirects this slug to the root.
 export const metadata: Metadata = {
-  title: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
+  title: 'Oilo Spa فرع النهضة | مساج وحمام مغربي في شرق الرياض',
   description:
-    'احجز في أويلو سبا فرع النهضة بالرياض: مساج، حمام مغربي، عناية، وباقات استرخاء في حي النهضة شرق الرياض. اختر موعدك أونلاين أو تواصل واتساب.',
+    'احجز في أويلو سبا فرع النهضة بالرياض: مساج رجالي، حمام مغربي، حجامة، بديكير وباقات استرخاء في حي النهضة شرق الرياض. اختر موعدك أونلاين أو واتساب.',
   alternates: { canonical: 'https://www.oilospa.com/al-nahda' },
   openGraph: {
-    title: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
+    title: 'Oilo Spa فرع النهضة | مساج وحمام مغربي في شرق الرياض',
     description:
-      'فرع النهضة في شرق الرياض لخدمات المساج والحمام المغربي والباقات. احجز موعدك مباشرة.',
+      'فرع النهضة في شرق الرياض لخدمات المساج والحمام المغربي والحجامة والباقات. احجز موعدك مباشرة.',
     url: 'https://www.oilospa.com/al-nahda',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',
@@ -30,7 +30,7 @@ export default function AlNahdaPage() {
         '@type': 'WebPage',
         '@id': 'https://www.oilospa.com/al-nahda#webpage',
         url: 'https://www.oilospa.com/al-nahda',
-        name: 'Oilo Spa فرع النهضة | حجز مساج وسبا في شرق الرياض',
+        name: 'Oilo Spa فرع النهضة | مساج وحمام مغربي في شرق الرياض',
         description: metadata.description,
         inLanguage: 'ar-SA',
         about: { '@id': 'https://www.oilospa.com/#branch-al-nahda' },
@@ -59,7 +59,7 @@ export default function AlNahdaPage() {
       <BranchPageClient branchId="al-nahda" />
       <section className="bg-[#060608] px-6 py-20 text-center text-white">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 md:p-10">
-          <p className="mb-3 text-xs font-semibold tracking-[0.35em] text-[#C9A96E]">OILO SPA · حي النهضة</p>
+          <p className="mb-3 text-xs font-semibold tracking-[0.35em] text-[#C9A96E]">OILO SPA</p>
           <h2 className="text-3xl font-bold md:text-4xl">احجز موعدك في فرع النهضة بالرياض</h2>
           <p className="mx-auto mt-4 max-w-2xl leading-8 text-white/70">
             فرع النهضة مناسب لسكان شرق وجنوب الرياض الباحثين عن مساج، حمام مغربي،
