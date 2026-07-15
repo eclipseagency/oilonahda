@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERVICE_LANDINGS, SERVICE_LANDING_SLUGS } from "@/lib/serviceLanding";
-import { nahdaServices, nahdaCategories, NAHDA_MASSAGE_OPENING_DISCOUNT, NAHDA_HOUR_UPGRADE } from "@/lib/nahdaServices";
+import { nahdaServices, nahdaCategories } from "@/lib/nahdaServices";
 import { nahdaServiceImages } from "@/lib/nahdaBranchData";
 import { branches } from "@/lib/branches";
 import SiteNav from "@/components/SiteNav";
@@ -11,7 +11,7 @@ const siteUrl = "https://www.oilospa.com";
 const url = `${siteUrl}/services`;
 const gold = "#C9A96E";
 
-const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج، حمام مغربي، حجامة | Oilo Spa";
+const titleSeo = "خدمات السبا والاسترخاء في الرياض، مساج، حمام مغربي، بديكير وعناية بالبشرة | Oilo Spa";
 const descriptionSeo =
   "خدمات أويلو سبا بالرياض: مساج واسترخاء احترافي، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة بأسعار واضحة. اختر خدمتك واحجز الآن.";
 
@@ -87,7 +87,7 @@ export default function ServicesIndexPage() {
               قائمة الخدمات والأسعار
             </h1>
             <p className="text-base sm:text-lg leading-loose mx-auto max-w-2xl font-ar" style={{ color: "#C7BEAE" }}>
-              مساج واسترخاء، حمام مغربي، بديكير ومنكير، عناية القدمين، وباقات متكاملة، على يد معالجين محترفين
+              مساج واسترخاء، حمام مغربي، بديكير، حمام زيت، عناية بالبشرة، وباقات متكاملة، على يد معالجين محترفين
               في بيئة هادئة ونظيفة بالرياض. الأسعار واضحة، والحجز في دقيقة.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -98,9 +98,6 @@ export default function ServicesIndexPage() {
                 استفسر على واتساب
               </a>
             </div>
-            <p className="mt-6 text-sm font-ar" style={{ color: "#8f877a" }}>
-              عرض الافتتاح: خصم {NAHDA_MASSAGE_OPENING_DISCOUNT} ريال على كل أنواع المساج · ترقية أي جلسة 40 دقيقة إلى 60 دقيقة بـ {NAHDA_HOUR_UPGRADE} ريال.
-            </p>
           </div>
         </section>
 

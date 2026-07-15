@@ -7,17 +7,18 @@
 // per-service Al Nahda images are the pending "image review" task.
 // ════════════════════════════════════════════════════════════════
 import type { Service, ServiceCategory } from '@/lib/services'
-import { nahdaServices } from '@/lib/nahdaServices'
+import { nahdaServices, type NahdaCategory } from '@/lib/nahdaServices'
 import { branches } from '@/lib/branches'
 
 const b = branches['al-nahda']
 
 // Map the Nahda category set onto the homepage's ServiceCategory tabs.
-const CATEGORY_MAP: Record<string, ServiceCategory> = {
+const CATEGORY_MAP: Record<NahdaCategory, ServiceCategory> = {
   massage: 'massage',
-  addon: 'grooming',
-  pedicure: 'grooming',
   bath: 'bath',
+  pedicure: 'grooming',
+  oilBath: 'grooming',
+  facial: 'grooming',
   package: 'package',
   offer: 'offer',
 }
@@ -39,17 +40,35 @@ export const nahdaServicesAsServices: Service[] = nahdaServices.map(s => ({
   includes: s.includes,
 }))
 
-// Each Al Nahda service has its OWN unique spa image (free-license Pexels,
-// object/ambience shots — no people). One file per service key.
+const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
+  'warm-olive-oil-60': '/services/nahda-addon-warm-oil.webp',
+  'foot-peeling': '/services/nahda-pedi.webp',
+  'paraffin-hand-mask': '/services/nahda-mani.webp',
+  'paraffin-foot-mask': '/services/nahda-pedi.webp',
+  'oil-bath-steam': '/services/nahda-oil.webp',
+  'oil-bath-protein-keratin': '/services/nahda-oil.webp',
+  'charcoal-mask': '/services/nahda-care.webp',
+  'face-scrub': '/services/nahda-care.webp',
+  'moroccan-clay-mask': '/services/nahda-care.webp',
+  'regular-facial-cleansing': '/services/nahda-care.webp',
+  'vitamin-c-facial': '/services/nahda-care.webp',
+  'senior-facial-cleansing': '/services/nahda-care.webp',
+  'combination-skin-cleansing': '/services/nahda-care.webp',
+  'mix-facial-cleansing': '/services/nahda-care.webp',
+  'nose-strip': '/services/nahda-care.webp',
+}
+
+// Each service prefers its own branch image where one exists, with intentional
+// fallbacks for new menu items that share the same care area.
 export const nahdaServiceImages: Record<string, string> = Object.fromEntries(
-  nahdaServices.map(s => [s.key, `/services/nahda-${s.key}.webp`]),
+  nahdaServices.map(s => [s.key, SERVICE_IMAGE_OVERRIDES[s.key] ?? `/services/nahda-${s.key}.webp`]),
 )
 
 // Tabs to show on the Nahda services section (same component, branch tabs).
 export const nahdaCategoriesTabs: { key: ServiceCategory; nameAr: string; nameEn: string }[] = [
   { key: 'massage', nameAr: 'المساج', nameEn: 'Massage' },
   { key: 'bath', nameAr: 'الحمامات المغربية', nameEn: 'Moroccan Baths' },
-  { key: 'grooming', nameAr: 'البديكير والإضافات', nameEn: 'Pedicure & Add-ons' },
+  { key: 'grooming', nameAr: 'العناية والبديكير', nameEn: 'Care & Pedicure' },
   { key: 'package', nameAr: 'الباقات', nameEn: 'Packages' },
   { key: 'offer', nameAr: 'العروض', nameEn: 'Offers' },
 ]

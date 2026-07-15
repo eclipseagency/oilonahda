@@ -63,7 +63,7 @@ export default function AlNahdaPage() {
           <h2 className="text-3xl font-bold md:text-4xl">احجز موعدك في أويلو سبا بالرياض</h2>
           <p className="mx-auto mt-4 max-w-2xl leading-8 text-white/70">
             فرعنا مناسب لسكان شرق وجنوب الرياض الباحثين عن مساج، حمام مغربي،
-            حجامة، أو باقة استرخاء في موقع قريب وساعات عمل ممتدة. احجز أونلاين
+            بديكير، حمام زيت، عناية بالبشرة، أو باقة استرخاء في موقع قريب وساعات عمل ممتدة. احجز أونلاين
             وحدد الخدمة والوقت، أو تواصل مباشرة مع واتساب الفرع.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">

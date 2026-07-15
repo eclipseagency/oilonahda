@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
 ## خدمات أويلو سبا المميزة
 
 ### المساج الاحترافي
-نقدم خمسة أنواع من المساج، كل نوع مصمم لتلبية حاجة مختلفة. سواء كنت تبحث عن استرخاء عميق مع المساج السويدي, أو تخفيف آلام مع مساج الأحجار الساخنة, أو تنشيط الجسم مع المساج التايلاندي, ستجد ما يناسبك.
+نقدم مجموعة متنوعة من أنواع المساج، كل نوع مصمم لتلبية حاجة مختلفة. سواء كنت تبحث عن استرخاء مع المساج السويدي، أو تخفيف توتر مع مساج الأحجار الساخنة، أو توازن وراحة مع الشياتسو، ستجد ما يناسبك.
 
 ### الحمام المغربي
 تجربة تنظيف وتقشير عميقة للبشرة باستخدام مكونات طبيعية. الحمام المغربي الملكي بزيت الأرجان هو الأكثر طلبًا لدينا، حيث يجمع بين التقشير والترطيب العميق.
@@ -93,7 +93,7 @@ A convenient location makes visits easier and more comfortable. Oilo Spa is loca
 ## Oilo Spa's Distinguished Services
 
 ### Professional Massage
-We offer five types of massage, each designed to meet a different need. Whether you're looking for deep relaxation with Swedish massage, pain relief with hot stone massage, or body rejuvenation with Thai massage, you'll find what suits you.
+We offer several massage types, each designed to meet a different need. Whether you're looking for relaxation with Swedish massage, tension relief with hot stone massage, or deep balance with Shiatsu, you'll find what suits you.
 
 ### Moroccan Bath
 A deep cleansing and exfoliation experience using natural ingredients. The Royal Moroccan Bath with argan oil is our most requested service, combining exfoliation with deep moisturizing.
@@ -1297,10 +1297,10 @@ We offer facial sessions that account for the beard.`,
 - **الوقت المناسب:** يوم بعد التمرين الثقيل
 - **المدة:** ٦٠ دقيقة
 
-### المساج التايلاندي
-- **الهدف:** تمديد ومرونة
+### مساج الزيوت العطرية
+- **الهدف:** راحة واسترخاء
 - **الوقت المناسب:** في يوم راحة بين التمارين
-- **المدة:** ٦٠ دقيقة
+- **المدة:** حسب الجلسة المختارة
 
 ### شياتسو
 - **الهدف:** توازن الطاقة
@@ -1363,7 +1363,7 @@ From "exercise and stress" to "recovery and growth."
 
 - **Swedish:** general relaxation, 1-3 hours post-workout
 - **Hot Stone:** deep tension relief, day after heavy workout
-- **Thai:** stretching and flexibility, rest day
+- **Aromatic Oil:** relaxation and recovery, rest day
 - **Shiatsu:** energy balance, after intense strength training
 
 ## Ideal Timing
@@ -1623,22 +1623,22 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
 [Reserve at oilospa.com/booking](https://www.oilospa.com/booking): pick "Royal Moroccan Bath" or "Classic Moroccan Bath" and a WhatsApp confirmation lands within seconds.`,
   },
   {
-    slug: 'swedish-vs-deep-tissue-massage',
-    titleAr: 'المساج السويدي مقابل العميق: أيّهما تحتاج فعلًا؟',
-    titleEn: 'Swedish vs Deep Tissue Massage: Which One Should You Actually Book?',
-    descriptionAr: 'مقارنة عملية بين المساج السويدي والمساج العميق لمساعدتك على اختيار النوع الصحيح حسب حالتك ومستوى التوتر العضلي',
-    descriptionEn: 'A practical comparison of Swedish and deep-tissue massage. Pressure, purpose, who each is for, and how to know which to book at Oilo.',
+    slug: 'swedish-vs-hot-stone-massage',
+    titleAr: 'المساج السويدي مقابل الأحجار الساخنة: أيّهما تحتاج فعلًا؟',
+    titleEn: 'Swedish vs Hot Stone Massage: Which One Should You Actually Book?',
+    descriptionAr: 'مقارنة عملية بين المساج السويدي ومساج الأحجار الساخنة لمساعدتك على اختيار النوع الصحيح حسب حالتك ومستوى التوتر العضلي',
+    descriptionEn: 'A practical comparison of Swedish and hot stone massage. Pressure, purpose, who each is for, and how to know which to book at Oilo.',
     image: '/services/swedish-massage.webp',
     date: '2026-04-28',
     readTimeAr: '٦ دقائق',
     readTimeEn: '6 min read',
     keywords: [
-      'Swedish massage Riyadh', 'deep tissue massage Riyadh', 'best massage type',
-      'massage for back pain', 'مساج سويدي مقابل عميق', 'massage comparison',
+      'Swedish massage Riyadh', 'hot stone massage Riyadh', 'best massage type',
+      'massage for back pain', 'مساج سويدي مقابل أحجار ساخنة', 'massage comparison',
     ],
     contentAr: `## السؤال المتكرر
 
-أكثر سؤال نسمعه عند الحجز: "أيهما أفضل لي، السويدي أم العميق؟" الجواب القصير: يعتمد على ما تريد إصلاحه. الجواب الطويل في هذا الدليل.
+أكثر سؤال نسمعه عند الحجز: "أيهما أفضل لي، السويدي أم الأحجار الساخنة؟" الجواب القصير: يعتمد على ما تريد إصلاحه. الجواب الطويل في هذا الدليل.
 
 ## المساج السويدي: للاسترخاء العام
 
@@ -1654,10 +1654,10 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
 ### النتيجة
 تخرج من الجلسة بشعور خفيف، النوم يتحسّن، التوتر العام ينخفض.
 
-## المساج العميق: للألم العضلي المحدّد
+## مساج الأحجار الساخنة: للتوتر العضلي المحدّد
 
 ### الضغط
-متوسط إلى قوي. يصل إلى الطبقات العميقة من العضلات والأنسجة الضامة.
+متوسط مع حرارة مريحة. تساعد الأحجار الساخنة على تهدئة العضلات قبل الضغط.
 
 ### مَن يحتاجه
 - ألم مزمن في الظهر، الرقبة، الكتفين
@@ -1670,31 +1670,31 @@ In the Royal package, finishing oil is genuine argan, long-lasting hydration tha
 
 ## مقارنة سريعة
 
-| البند | السويدي | العميق |
+| البند | السويدي | الأحجار الساخنة |
 |-------|---------|--------|
-| الضغط | خفيف-متوسط | متوسط-قوي |
-| الغرض الأساسي | استرخاء | علاج ألم |
+| الضغط | خفيف-متوسط | متوسط مع حرارة |
+| الغرض الأساسي | استرخاء | تخفيف توتر |
 | الوقت الأمثل | مساء بعد العمل | يوم إجازة |
-| الزيت | معطر | محايد |
-| ألم بعد الجلسة | لا | ممكن |
+| الزيت | معطر | حسب الجلسة |
+| ألم بعد الجلسة | لا | غالبا لا |
 
 ## كيف تختار في أويلو
 
-نقدّم خمسة أنواع. للتبسيط:
-- لأول زيارة: **مساج أويلو سبا (60د)**, جلسة موقّعة خاصة بنا توازن بين الاسترخاء والعلاج
-- للاسترخاء فقط: **سويدي 60 دقيقة**
+نقدّم عدة أنواع. للتبسيط:
+- لأول زيارة: **مساج سويدي** إذا كنت تبحث عن بداية هادئة ومريحة
+- للاسترخاء بالزيوت: **مساج الزيوت العطرية**
 - لألم عضلي: **مساج الأحجار الساخنة** (بديل مهم للمساج العميق، الحرارة تليّن العضلة قبل الضغط)
-- لتنشيط الجسم بالكامل: **التايلاندي 60 دقيقة**
+- لتوازن وراحة عميقة: **مساج شياتسو**
 
 ## نصيحة عملية
 
-إن كنت لا تعرف من أين تبدأ، احجز مساج أويلو سبا الموقّع. هو الاختيار الأول لـ ٧٠٪ من زبائننا الجدد، ومصمم ليناسب أغلب الحالات.
+إن كنت لا تعرف من أين تبدأ، احجز المساج السويدي أو اسأل فريقنا عن الأنسب حسب احتياجك.
 
 [احجز جلستك](https://www.oilospa.com/booking)`,
 
     contentEn: `## The question we hear most
 
-When clients book, the most common question is: "Which is better for me, Swedish or deep tissue?" Short answer: it depends on what you want to fix. The long answer is below.
+When clients book, the most common question is: "Which is better for me, Swedish or hot stone?" Short answer: it depends on what you want to fix. The long answer is below.
 
 ## Swedish: for general relaxation
 
@@ -1710,10 +1710,10 @@ Light to medium. Long, flowing strokes that focus on circulation.
 ### What you walk out with
 A light, almost weightless feeling. Sleep improves that night, baseline stress drops.
 
-## Deep tissue: for specific muscle pain
+## Hot stone: for specific muscle tension
 
 ### Pressure
-Medium to firm. Reaches the deeper layers of muscle and connective tissue.
+Medium pressure with comforting heat. Warm stones help soften tense muscles before pressure is applied.
 
 ### Who it's for
 - Chronic back, neck, or shoulder pain
@@ -1726,25 +1726,25 @@ You may feel some next-day soreness similar to a workout, but movement and postu
 
 ## Quick comparison
 
-| Factor | Swedish | Deep Tissue |
+| Factor | Swedish | Hot Stone |
 |--------|---------|-------------|
-| Pressure | Light–medium | Medium–firm |
-| Main purpose | Relaxation | Pain relief |
+| Pressure | Light-medium | Medium with heat |
+| Main purpose | Relaxation | Tension relief |
 | Best timing | Evening after work | A day off |
-| Oil | Scented | Neutral |
-| Soreness after | None | Possible |
+| Oil | Scented | Depends on the session |
+| Soreness after | None | Usually none |
 
 ## How to choose at Oilo
 
-We offer five types. To simplify:
-- **First visit**: Oilo Spa Signature (60 min), our signature blend, balanced between relaxation and therapy
-- **Pure relaxation**: Swedish 60 min
-- **Specific muscle pain**: Hot Stone (a strong alternative to deep tissue; heat softens the muscle before pressure)
-- **Full-body energising**: Thai 60 min
+We offer several types. To simplify:
+- **First visit**: Swedish massage, a calm and comfortable starting point
+- **Oil relaxation**: Aromatic oil massage
+- **Specific muscle tension**: Hot stone massage, where heat softens the muscle before pressure
+- **Deep balance**: Shiatsu massage
 
 ## Practical tip
 
-If you can't decide, book the Oilo Spa Signature. It's the choice for 70% of our new clients and is designed to suit most cases.
+If you can't decide, book Swedish massage or ask our team which option best fits your needs.
 
 [Book your session](https://www.oilospa.com/booking)`,
   },
@@ -2003,7 +2003,7 @@ At Oilo we use argan oil sourced from a certified Moroccan cooperative. If you w
 - **الخميس مساءً**: مساج سويدي ٦٠ دقيقة. ينهي ضغط الأسبوع ويبدأ عطلة نهاية الأسبوع بحالة مختلفة.
 
 ### بعد سفر طويل
-- **في يوم الوصول**: مساج تايلاندي ٦٠ دقيقة. يساعد الجسم على التكيّف مع منطقة زمنية جديدة.
+- **في يوم الوصول**: مساج الزيوت العطرية. يساعد الجسم على الهدوء بعد السفر الطويل.
 
 ### قبل اجتماع كبير
 - **الليلة السابقة**: مساج الأحجار الساخنة ٦٠ دقيقة. ينام التنفيذي بسلام، ويستيقظ صافي الذهن.
@@ -2048,7 +2048,7 @@ Our executive clients consistently report better sleep quality the night followi
 - **Thursday evening**: Swedish 60 min. Closes out the work week and starts the weekend in a different state.
 
 ### After long travel
-- **Day of arrival**: Thai 60 min. Helps the body adapt to a new time zone.
+- **Day of arrival**: Aromatic oil massage. Helps the body settle after travel.
 
 ### Before a major meeting
 - **Night before**: Hot Stone 60 min. The executive sleeps soundly and wakes mentally clear.

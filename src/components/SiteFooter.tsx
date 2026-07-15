@@ -21,7 +21,6 @@ const primaryLinks: { key: string; href: string }[] = [
 const seoLinks: { href: string; ar: string; en: string }[] = [
   { href: '/services/massage-riyadh', ar: 'مساج رجال الرياض', en: "Men's Massage Riyadh" },
   { href: '/services/moroccan-bath-riyadh', ar: 'حمام مغربي الرياض', en: 'Moroccan Bath Riyadh' },
-  { href: '/services/hijama-riyadh', ar: 'حجامة الرياض', en: 'Hijama Riyadh' },
   { href: '/services/manicure-pedicure-riyadh', ar: 'بديكير ومنكير الرياض', en: 'Mani & Pedi Riyadh' },
   { href: '/services/spa-riyadh', ar: 'سبا واسترخاء الرياض', en: 'Wellness Spa Riyadh' },
 ]
