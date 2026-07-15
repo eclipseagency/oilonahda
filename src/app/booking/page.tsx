@@ -1193,8 +1193,8 @@ export default function BookingPage() {
           </h2>
           <p className={`mx-auto mt-4 max-w-3xl leading-8 text-white/60 ${isAr ? 'font-body' : 'font-ar'}`}>
             {isAr
-              ? 'احجز موعدك بسهولة، ثم حدد الخدمة والوقت المناسب. صفحة الحجز تدعم المساج، الحمام المغربي، الحجامة، البديكير والمنكير، وباقات الاسترخاء، مع تأكيد سريع عبر رقم الجوال.'
-              : 'Book at Al Nahda in Riyadh, then select the service and appointment time. Booking supports massage, Moroccan hammam, hijama, manicure and pedicure, and spa packages with quick phone confirmation.'}
+              ? 'احجز موعدك بسهولة، ثم حدد الخدمة والوقت المناسب. صفحة الحجز تدعم المساج، الحمام المغربي، البديكير، حمام الزيت، العناية بالبشرة، وباقات الاسترخاء، مع تأكيد سريع عبر رقم الجوال.'
+              : 'Book in Riyadh, then select the service and appointment time. Booking supports massage, Moroccan hammam, pedicure, oil bath, facials, and spa packages with quick phone confirmation.'}
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link href="/booking" className="rounded-full border border-[#C9A96E]/40 px-6 py-3 text-sm font-bold text-[#C9A96E]">

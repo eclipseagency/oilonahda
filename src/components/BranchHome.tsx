@@ -955,9 +955,6 @@ function Footer() {
             <Link href="/services/moroccan-bath-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
               {locale === 'ar' ? 'حمام مغربي الرياض' : 'Moroccan Bath Riyadh'}
             </Link>
-            <Link href="/services/hijama-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
-              {locale === 'ar' ? 'حجامة الرياض' : 'Hijama Riyadh'}
-            </Link>
             <Link href="/services/manicure-pedicure-riyadh" className={`text-[11px] transition-all hover:text-[#C9A96E] ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(255,255,255,0.25)' }}>
               {locale === 'ar' ? 'بديكير ومنكير الرياض' : 'Mani & Pedi Riyadh'}
             </Link>

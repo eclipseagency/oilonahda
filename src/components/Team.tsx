@@ -16,8 +16,8 @@ const team: Therapist[] = [
   {
     nameAr: 'المعالج أحمد',
     nameEn: 'Ahmed',
-    specialtyAr: 'المساج السويدي والتايلاندي',
-    specialtyEn: 'Swedish & Thai Massage',
+    specialtyAr: 'المساج السويدي والزيوت العطرية',
+    specialtyEn: 'Swedish & Aromatic Oil Massage',
     years: 8,
     initial: 'A',
   },

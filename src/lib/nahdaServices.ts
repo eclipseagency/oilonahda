@@ -1,11 +1,14 @@
-// ════════════════════════════════════════════════════════════════
-// Branch service menu
-// Source: Al Nahda branch management price list.
-// All massages are 40 min unless stated; +40 SAR upgrades a massage to
-// 60 min.
-// ════════════════════════════════════════════════════════════════
+// Branch service menu.
+// Source: menu oilo 26.pdf, May 2026.
 
-export type NahdaCategory = 'massage' | 'addon' | 'pedicure' | 'bath' | 'package' | 'offer'
+export type NahdaCategory =
+  | 'massage'
+  | 'bath'
+  | 'pedicure'
+  | 'oilBath'
+  | 'facial'
+  | 'package'
+  | 'offer'
 
 export interface NahdaService {
   key: string
@@ -16,176 +19,256 @@ export interface NahdaService {
   descriptionEn: string
   durationAr?: string
   durationEn?: string
-  price?: number          // SAR (single session)
-  fromPrice?: boolean     // "ابتداءً من" / "from"
-  bundleCount?: number    // sessions in a multi-session package (e.g. 3)
-  bundlePrice?: number    // total SAR for that package
-  image?: string          // per-service image (filled in finishing pass)
+  price?: number
+  fromPrice?: boolean
+  bundleCount?: number
+  bundlePrice?: number
+  image?: string
   includes?: { ar: string; en: string }[]
 }
 
-// Legacy opening-offer value retained for older integrations.
-export const NAHDA_MASSAGE_OPENING_DISCOUNT = 20
-// Upcharge to extend any 40-min massage to a full hour (SAR).
-export const NAHDA_HOUR_UPGRADE = 40
-
 export const nahdaCategories: { id: NahdaCategory; titleAr: string; titleEn: string }[] = [
-  { id: 'massage', titleAr: 'منيو المساج', titleEn: 'Massage Menu' },
-  { id: 'addon', titleAr: 'خدمات إضافية', titleEn: 'Add-on Services' },
-  { id: 'pedicure', titleAr: 'منيو البديكير', titleEn: 'Manicure & Pedicure' },
-  { id: 'bath', titleAr: 'الحمامات المغربية', titleEn: 'Moroccan Baths' },
+  { id: 'massage', titleAr: 'المساج', titleEn: 'Massage' },
+  { id: 'bath', titleAr: 'أنواع حمام المغربي', titleEn: 'Moroccan Baths' },
+  { id: 'pedicure', titleAr: 'البديكير', titleEn: 'Pedicure' },
+  { id: 'oilBath', titleAr: 'حمام زيت', titleEn: 'Oil Bath' },
+  { id: 'facial', titleAr: 'البشرة', titleEn: 'Facials' },
   { id: 'package', titleAr: 'الباقات', titleEn: 'Packages' },
   { id: 'offer', titleAr: 'العروض الخاصة', titleEn: 'Special Offers' },
 ]
 
 export const nahdaServices: NahdaService[] = [
-  // ── MASSAGE (40 min, opening offer -20 SAR each) ──
+  // MASSAGE
   {
-    key: 'dry-massage', category: 'massage', price: 175,
-    nameAr: 'المساج الجاف', nameEn: 'Dry Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'يركز على الضغط على نقاط التوتر باستخدام اليدين والأصابع والمرفقين لتحفيز الدورة الدموية وتخفيف الشد العضلي، ويُطبّق من خلال الملابس أو بمنشفة. خيار مناسب لمن يعانون من حساسية الجلد أو لا يفضلون الزيوت.',
-    descriptionEn: 'Focuses on pressure over tension points using hands, fingers and elbows to boost circulation and relieve muscle tightness, applied through clothing or a towel. Ideal for sensitive skin or anyone who prefers no oils.',
+    key: 'dry-massage', category: 'massage', price: 180,
+    nameAr: 'مساج جاف', nameEn: 'Dry Massage',
+    descriptionAr: 'يركز هذا النوع من المساج على الضغط على نقاط التوتر باستخدام اليدين والأصابع والمرفقين لتحفيز الدورة الدموية وتخفيف الشد العضلي، ويتم تطبيقه من خلال الملابس أو باستخدام منشفة. خيار ممتاز لمن يعانون من حساسية الجلد أو لا يفضلون الزيوت.',
+    descriptionEn: 'A no-oil massage focused on pressure points using hands, fingers and elbows to stimulate circulation and ease muscle tension. Applied through clothing or with a towel, ideal for sensitive skin or guests who prefer no oils.',
   },
   {
-    key: 'chinese-massage', category: 'massage', price: 200,
-    nameAr: 'المساج الصيني', nameEn: 'Chinese Massage',
+    key: 'shiatsu-massage', category: 'massage', price: 190,
+    nameAr: 'مساج شياتسو', nameEn: 'Shiatsu Massage',
     durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'تقنيات متخصصة يستخدم فيها المعالج راحة اليد وأطراف الأصابع والمفاصل للعجن واللف والفرك والضغط على الجسم على طول مسارات الطاقة ونقاط الوخز.',
-    descriptionEn: 'Specialised techniques where the therapist uses the palm, fingertips and joints to knead, roll, rub and press along the body energy pathways and acupressure points.',
+    descriptionAr: 'تدليك ياباني تقليدي يركز على نقاط الطاقة في الجسم باستخدام الضغط بالأصابع والكفين. تساعد هذه التقنية على تحفيز الجسم على الشفاء الذاتي وتعزيز التوازن الداخلي، ومناسبة لمن يبحثون عن الاسترخاء العميق وتجديد النشاط.',
+    descriptionEn: 'A traditional Japanese massage using finger and palm pressure on energy points to support deep relaxation, balance and renewed energy.',
   },
   {
-    key: 'shiatsu-massage', category: 'massage', price: 175,
-    nameAr: 'مساج شياتسو الياباني', nameEn: 'Japanese Shiatsu Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'تدليك ياباني تقليدي يركز على نقاط الطاقة في الجسم بالضغط بالأصابع والكفين لتحفيز الشفاء الذاتي وتعزيز التوازن الداخلي. مثالي للباحثين عن استرخاء عميق وتجديد للنشاط.',
-    descriptionEn: 'A traditional Japanese massage focusing on the body energy points with finger and palm pressure to stimulate self-healing and inner balance. Ideal for deep relaxation and renewed energy.',
+    key: 'chinese-massage', category: 'massage', price: 220,
+    nameAr: 'التدليك الصيني', nameEn: 'Chinese Massage',
+    descriptionAr: 'يستخدم المعالجون راحة أيديهم وأطراف أصابعهم ومفاصلها للعجن واللف والفرك والضغط على الجسم على طول مسارات الطاقة ونقاط الوخز.',
+    descriptionEn: 'A specialised massage where the therapist uses palms, fingertips and joints for kneading, rolling, rubbing and pressure along body energy pathways and acupressure points.',
   },
   {
-    key: 'aroma-oil-massage', category: 'massage', price: 210,
+    key: 'aroma-oil-massage', category: 'massage', price: 250,
     nameAr: 'مساج الزيوت العطرية', nameEn: 'Aromatic Oil Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'نوع من المساج يستخدم الزيوت العطرية لتعزيز الشعور بالراحة والاسترخاء.',
-    descriptionEn: 'A massage that uses aromatic oils to deepen the sense of comfort and relaxation.',
+    descriptionAr: 'من أنواع المساج للرجال التي تستخدم الزيوت العطرية لتعزيز الشعور بالراحة والاسترخاء. يمكن اختيار الزيوت العطرية بناء على التفضيلات الشخصية والفوائد العلاجية المرغوبة.',
+    descriptionEn: 'A relaxing massage using aromatic oils selected around your preferences and desired wellness benefits.',
   },
   {
-    key: 'swedish-massage', category: 'massage', price: 175,
-    nameAr: 'المساج السويدي', nameEn: 'Swedish Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'من أشهر أنواع المساج، يتميز بتقنيات متنوعة لتعزيز الاسترخاء وتخفيف التوتر العضلي وتحسين الدورة الدموية.',
-    descriptionEn: 'One of the most popular massages, using varied techniques to boost relaxation, ease muscle tension and improve circulation.',
+    key: 'swedish-massage', category: 'massage', price: 170,
+    nameAr: 'مساج سويدي', nameEn: 'Swedish Massage',
+    descriptionAr: 'مساج يساعد على الاسترخاء وتخفيف التوتر العضلي وتحسين الدورة الدموية بحركات هادئة ومتوازنة.',
+    descriptionEn: 'A calm, balanced massage designed to relax the body, ease muscle tension and support circulation.',
   },
   {
-    key: 'hot-stone-massage', category: 'massage', price: 140,
+    key: 'addon-warm-oil', category: 'massage', price: 180,
+    nameAr: 'مساج زيت الزيتون الدافئ', nameEn: 'Warm Olive Oil Massage',
+    durationAr: '40 دقيقة', durationEn: '40 min',
+    descriptionAr: 'مساج بزيت الزيتون الدافئ يساعد على الاسترخاء وتخفيف التوتر العضلي والعصبي وتحسين تدفق الدم.',
+    descriptionEn: 'A warm olive oil massage that helps relaxation, eases muscular and nervous tension and improves blood flow.',
+  },
+  {
+    key: 'warm-olive-oil-60', category: 'massage', price: 220,
+    nameAr: 'مساج زيت الزيتون الدافئ', nameEn: 'Warm Olive Oil Massage',
+    durationAr: '60 دقيقة', durationEn: '60 min',
+    descriptionAr: 'جلسة أطول بزيت الزيتون الدافئ لمزيد من الراحة والاسترخاء العميق.',
+    descriptionEn: 'A longer warm olive oil session for deeper comfort and relaxation.',
+  },
+  {
+    key: 'addon-compress', category: 'massage', price: 250,
+    nameAr: 'مساج الكمادات الدافئة', nameEn: 'Warm Compress Massage',
+    descriptionAr: 'مساج بالكمادات الدافئة يساعد على توسعة الأوعية الدموية وتعزيز تدفق الدم وإرخاء العضلات المتشنجة.',
+    descriptionEn: 'A warm compress massage that helps improve circulation and relax tense muscles.',
+  },
+  {
+    key: 'addon-wood', category: 'massage', price: 250,
+    nameAr: 'مساج الأخشاب', nameEn: 'Wood Therapy Massage',
+    descriptionAr: 'مساج بأدوات خشبية مصممة لتدليك الجسم وتحفيز الأنسجة العميقة وتعزيز الشعور بالراحة.',
+    descriptionEn: 'A massage using purpose-made wooden tools to stimulate deeper layers and support body relaxation.',
+  },
+  {
+    key: 'addon-foot', category: 'massage', price: 150,
+    nameAr: 'المساج الإنعكاسي للأقدام', nameEn: 'Foot Reflexology',
+    descriptionAr: 'تدليك انعكاسي للأقدام يركز على نقاط الراحة ويمنح القدمين إحساسا بالاسترخاء والتجدد.',
+    descriptionEn: 'Foot reflexology focused on comfort points to refresh tired feet and support relaxation.',
+  },
+  {
+    key: 'hot-stone-massage', category: 'massage', price: 250,
     nameAr: 'مساج الأحجار الساخنة', nameEn: 'Hot Stone Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'تقنية تدليك بأحجار بركانية ساخنة تساعد على تنشيط الدورة الدموية وتخفيف التوتر والقلق والآلام.',
-    descriptionEn: 'A massage technique using warm volcanic stones that activates circulation and relieves tension, anxiety and aches.',
+    durationAr: 'ساعة', durationEn: '60 min',
+    descriptionAr: 'مساج باستخدام أحجار ساخنة يساعد على تهدئة العضلات وتخفيف التوتر وتعزيز الاسترخاء.',
+    descriptionEn: 'A hot stone massage that soothes muscles, eases tension and supports deep relaxation.',
   },
   {
-    key: 'mix-massage', category: 'massage', price: 375,
-    nameAr: 'مساج مكس (المنوّع)', nameEn: 'Mix Massage',
-    durationAr: '40 دقيقة', durationEn: '40 min',
-    descriptionAr: 'مزيج متنوّع من تقنيات المساج في جلسة واحدة لتجربة متكاملة.',
-    descriptionEn: 'A varied blend of massage techniques in a single session for a complete experience.',
-  },
-
-  // ── ADD-ONS (cannot be booked alone; added to any massage) ──
-  {
-    key: 'addon-warm-oil', category: 'addon', price: 100,
-    nameAr: 'إضافة مساج الزيت الدافئ والساخن', nameEn: 'Warm & Hot Oil Add-on',
-    descriptionAr: 'يساعد على الاسترخاء وتخفيف التوتر العضلي والعصبي وتحسين تدفق الدم.',
-    descriptionEn: 'Helps relaxation, eases muscular and nervous tension and improves blood flow.',
+    key: 'addon-cupping', category: 'massage', price: 250,
+    nameAr: 'مساج كاسات الهواء', nameEn: 'Cupping Massage',
+    durationAr: 'ساعة', durationEn: '60 min',
+    descriptionAr: 'مساج كاسات الهواء يساعد على تنشيط الدورة الدموية وتخفيف الشد في الجسم.',
+    descriptionEn: 'A cupping massage designed to stimulate circulation and ease body tightness.',
   },
   {
-    key: 'addon-compress', category: 'addon', price: 100,
-    nameAr: 'إضافة مساج الكمادات', nameEn: 'Herbal Compress Add-on',
-    descriptionAr: 'تساعد على توسعة الأوعية الدموية وتعزيز تدفق الدم وإرخاء العضلات المتشنجة.',
-    descriptionEn: 'Helps widen blood vessels, boost circulation and relax tense muscles.',
-  },
-  {
-    key: 'addon-wood', category: 'addon', price: 100,
-    nameAr: 'إضافة مساج الأخشاب', nameEn: 'Wood Therapy Add-on',
-    descriptionAr: 'يُطبّق بأدوات خشبية مصممة خصيصًا لتدليك الجسم وتحفيز الأنسجة العميقة وتقوية العضلات وتحفيز إنتاج الكولاجين.',
-    descriptionEn: 'Uses purpose-made wooden tools to massage the body, stimulate deep tissue, strengthen muscles and encourage collagen production.',
-  },
-  {
-    key: 'addon-cupping', category: 'addon', price: 100,
-    nameAr: 'إضافة مساج كاسات الهواء', nameEn: 'Cupping Add-on',
-    descriptionAr: 'يحفّز تدفق الدم ويساعد على طرد السموم من الجسم.',
-    descriptionEn: 'Stimulates blood flow and helps the body release toxins.',
-  },
-  {
-    key: 'addon-foot', category: 'addon', price: 100,
-    nameAr: 'إضافة مساج الأقدام', nameEn: 'Foot Massage Add-on',
-    descriptionAr: 'تدليك للأقدام يضاف إلى جلستك لمزيد من الاسترخاء.',
-    descriptionEn: 'A foot massage added to your session for extra relaxation.',
+    key: 'mix-massage', category: 'massage', price: 475,
+    nameAr: 'مساج مكس', nameEn: 'Mix Massage',
+    descriptionAr: 'مزيج من تقنيات المساج في جلسة واحدة لتجربة متكاملة ومريحة.',
+    descriptionEn: 'A combined massage session blending multiple techniques for a complete relaxation experience.',
   },
 
-  // ── MANICURE / PEDICURE ──
+  // MOROCCAN BATHS
   {
-    key: 'mani', category: 'pedicure', price: 80,
-    nameAr: 'بديكير يد', nameEn: 'Manicure (Hands)',
-    descriptionAr: 'عناية كاملة بأظافر وبشرة اليدين.',
-    descriptionEn: 'Complete care for the nails and skin of the hands.',
+    key: 'bath-classic', category: 'bath', price: 160,
+    nameAr: 'حمام مغربي عادي', nameEn: 'Classic Moroccan Bath',
+    descriptionAr: 'حمام مغربي عادي لتنظيف وتجديد البشرة باستخدام الطقوس المغربية الأساسية.',
+    descriptionEn: 'A classic Moroccan bath for cleansing and refreshing the skin with the essential hammam ritual.',
   },
   {
-    key: 'pedi', category: 'pedicure', price: 100,
-    nameAr: 'بديكير أقدام', nameEn: 'Pedicure (Feet)',
-    descriptionAr: 'عناية كاملة بأظافر وبشرة القدمين.',
-    descriptionEn: 'Complete care for the nails and skin of the feet.',
+    key: 'bath-herbal', category: 'bath', price: 250,
+    nameAr: 'حمام الأعشاب المغربية', nameEn: 'Moroccan Herbal Bath',
+    descriptionAr: 'حمام مغربي بالأعشاب المغربية للعناية بالجسم وتعزيز الإحساس بالنظافة والانتعاش.',
+    descriptionEn: 'A Moroccan herbal bath for body care, cleansing and a refreshed feeling.',
   },
   {
-    key: 'mani-pedi', category: 'pedicure', price: 175,
-    nameAr: 'بديكير يد وقدم عادي', nameEn: 'Manicure & Pedicure',
-    descriptionAr: 'عناية متكاملة لليدين والقدمين.',
-    descriptionEn: 'Full care for both hands and feet.',
-  },
-  {
-    key: 'mani-pedi-vip', category: 'pedicure', price: 250,
-    nameAr: 'بديكير VIP يد وقدم مع قناع البارافين', nameEn: 'VIP Manicure & Pedicure with Paraffin Mask',
-    descriptionAr: 'بديكير متكامل لليدين والقدمين مع قناع البارافين المرطّب.',
-    descriptionEn: 'A full hands-and-feet treatment finished with a hydrating paraffin mask.',
-  },
-
-  // ── MOROCCAN BATHS ──
-  {
-    key: 'bath-classic', category: 'bath', price: 140,
-    nameAr: 'حمام مغربي تقليدي', nameEn: 'Traditional Moroccan Bath',
-    descriptionAr: 'حمام مغربي بالصابون المغربي فقط.',
-    descriptionEn: 'A Moroccan bath with authentic Moroccan black soap.',
-  },
-  {
-    key: 'bath-herbal', category: 'bath', price: 200,
-    nameAr: 'حمام الأعشاب', nameEn: 'Herbal Bath',
-    descriptionAr: 'حمام بالأعشاب المخلوطة بزيت الأرجان مع حمام زيت للشعر.',
-    descriptionEn: 'A bath with herbs blended with argan oil, plus a hair oil treatment.',
-  },
-  {
-    key: 'bath-vip', category: 'bath', price: 250,
+    key: 'bath-vip', category: 'bath', price: 350,
     nameAr: 'حمام VIP', nameEn: 'VIP Bath',
-    descriptionAr: 'حمام صابون مع طين البحر الميت الغني بالمعادن وصنفرة للوجه.',
-    descriptionEn: 'A soap bath with mineral-rich Dead Sea mud and a facial scrub.',
+    descriptionAr: 'حمام VIP بتجربة عناية أكثر تكاملا للجسم والبشرة.',
+    descriptionEn: 'A VIP bath with a more complete body and skin care experience.',
   },
   {
-    key: 'bath-royal', category: 'bath', price: 400,
+    key: 'bath-royal', category: 'bath', price: 550,
     nameAr: 'حمام ملكي', nameEn: 'Royal Bath',
-    descriptionAr: 'حمام صابون مغربي مع طين البحر الميت وحمام الأعشاب بالزيوت العطرية وسنفرة للجسم.',
-    descriptionEn: 'A Moroccan soap bath with Dead Sea mud, an aromatic herbal bath and a full-body scrub.',
+    descriptionAr: 'حمام ملكي فاخر يجمع العناية العميقة بالاسترخاء للحصول على تجربة حمام مغربي مميزة.',
+    descriptionEn: 'A luxurious royal Moroccan bath combining deep care with relaxation.',
   },
 
-  // ── PACKAGES ──
+  // PEDICURE
+  {
+    key: 'mani', category: 'pedicure', price: 90,
+    nameAr: 'بدكير يد', nameEn: 'Hand Pedicure',
+    descriptionAr: 'عناية وتنظيف لليدين والأظافر.',
+    descriptionEn: 'Care and grooming for hands and nails.',
+  },
+  {
+    key: 'pedi', category: 'pedicure', price: 120,
+    nameAr: 'بدكير قدم', nameEn: 'Foot Pedicure',
+    descriptionAr: 'عناية وتنظيف للقدمين والأظافر.',
+    descriptionEn: 'Care and grooming for feet and nails.',
+  },
+  {
+    key: 'foot-peeling', category: 'pedicure', price: 80,
+    nameAr: 'تقشير القدم', nameEn: 'Foot Peeling',
+    descriptionAr: 'تقشير للقدم يساعد على إزالة الخشونة وتجديد نعومة الجلد.',
+    descriptionEn: 'Foot peeling to remove roughness and refresh skin softness.',
+  },
+  {
+    key: 'paraffin-hand-mask', category: 'pedicure', price: 50,
+    nameAr: 'قناع البرافين لليد', nameEn: 'Paraffin Hand Mask',
+    descriptionAr: 'قناع برافين مرطب لليد.',
+    descriptionEn: 'A hydrating paraffin mask for the hands.',
+  },
+  {
+    key: 'paraffin-foot-mask', category: 'pedicure', price: 50,
+    nameAr: 'قناع البرافين للقدم', nameEn: 'Paraffin Foot Mask',
+    descriptionAr: 'قناع برافين مرطب للقدم.',
+    descriptionEn: 'A hydrating paraffin mask for the feet.',
+  },
+  {
+    key: 'mani-pedi-vip', category: 'pedicure', price: 300,
+    nameAr: 'بدكير يد وقدم VIP', nameEn: 'VIP Hand & Foot Pedicure',
+    descriptionAr: 'بدكير VIP متكامل لليدين والقدمين.',
+    descriptionEn: 'A complete VIP pedicure experience for hands and feet.',
+  },
+
+  // OIL BATH
+  {
+    key: 'oil-bath-steam', category: 'oilBath', price: 50,
+    nameAr: 'حمام زيت بالبخار', nameEn: 'Steam Oil Bath',
+    descriptionAr: 'حمام زيت بالبخار للعناية والترطيب.',
+    descriptionEn: 'A steam oil bath for care and hydration.',
+  },
+  {
+    key: 'oil-bath-protein-keratin', category: 'oilBath', price: 80,
+    nameAr: 'حمام زيت بالبروتين أو الكرياتين', nameEn: 'Protein or Keratin Oil Bath',
+    descriptionAr: 'حمام زيت بالبروتين أو الكرياتين للعناية بالشعر.',
+    descriptionEn: 'An oil bath with protein or keratin for hair care.',
+  },
+
+  // FACIALS
+  {
+    key: 'charcoal-mask', category: 'facial', price: 60,
+    nameAr: 'قناع الفحم', nameEn: 'Charcoal Mask',
+    descriptionAr: 'قناع الفحم لتنقية البشرة.',
+    descriptionEn: 'A charcoal mask for skin purification.',
+  },
+  {
+    key: 'face-scrub', category: 'facial', price: 30,
+    nameAr: 'صنفرة الوجه', nameEn: 'Face Scrub',
+    descriptionAr: 'صنفرة للوجه تساعد على تنعيم البشرة وتجديدها.',
+    descriptionEn: 'A face scrub to smooth and refresh the skin.',
+  },
+  {
+    key: 'moroccan-clay-mask', category: 'facial', price: 50,
+    nameAr: 'قناع الطين المغربي + المنشفة المعطرة', nameEn: 'Moroccan Clay Mask with Scented Towel',
+    descriptionAr: 'قناع الطين المغربي مع منشفة معطرة، حارة أو باردة حسب نوع البشرة.',
+    descriptionEn: 'A Moroccan clay mask with a scented towel, warm or cool depending on skin type.',
+  },
+  {
+    key: 'regular-facial-cleansing', category: 'facial', price: 150,
+    nameAr: 'تنظيف البشرة العادي', nameEn: 'Regular Facial Cleansing',
+    descriptionAr: 'تنظيف عادي للبشرة لإزالة الشوائب وإنعاش الوجه.',
+    descriptionEn: 'Regular facial cleansing to remove impurities and refresh the face.',
+  },
+  {
+    key: 'vitamin-c-facial', category: 'facial', price: 250,
+    nameAr: 'تنظيف بشرة فيتامين سي', nameEn: 'Vitamin C Facial Cleansing',
+    descriptionAr: 'تنظيف بشرة بفيتامين سي لدعم الإشراق والنضارة.',
+    descriptionEn: 'Vitamin C facial cleansing to support radiance and freshness.',
+  },
+  {
+    key: 'senior-facial-cleansing', category: 'facial', price: 250,
+    nameAr: 'تنظيف بشرة لكبار السن', nameEn: 'Senior Facial Cleansing',
+    descriptionAr: 'تنظيف بشرة مخصص لكبار السن.',
+    descriptionEn: 'A facial cleansing treatment tailored for mature skin.',
+  },
+  {
+    key: 'combination-skin-cleansing', category: 'facial', price: 300,
+    nameAr: 'تنظيف البشرة المختلطة', nameEn: 'Combination Skin Cleansing',
+    descriptionAr: 'تنظيف للبشرة المختلطة التي تجمع بين الدهون في الجبهة والذقن والأنف والجفاف في الخدين.',
+    descriptionEn: 'Facial cleansing for combination skin, where the T-zone is oilier while cheeks tend to be dry.',
+  },
+  {
+    key: 'mix-facial-cleansing', category: 'facial', price: 650,
+    nameAr: 'تنظيف بشرة مكس', nameEn: 'Mix Facial Cleansing',
+    descriptionAr: 'تنظيف بشرة مكس لتجربة عناية أوسع وأكثر تكاملا.',
+    descriptionEn: 'A mix facial cleansing service for a broader, more complete care session.',
+  },
+  {
+    key: 'nose-strip', category: 'facial', price: 10,
+    nameAr: 'لصقة أنف', nameEn: 'Nose Strip',
+    descriptionAr: 'لصقة أنف لإزالة الشوائب من منطقة الأنف.',
+    descriptionEn: 'A nose strip for removing impurities from the nose area.',
+  },
+
+  // PACKAGES
   {
     key: 'pkg-royal', category: 'package', price: 690,
     nameAr: 'الباقة الملكية', nameEn: 'Royal Package',
     descriptionAr: 'تجربة فاخرة متكاملة من أويلو سبا.',
     descriptionEn: 'A complete luxury experience by Oilo Spa.',
     includes: [
-      { ar: 'مساج أويلو سبا مع الأحجار الساخنة (ساعة كاملة)', en: 'Oilo Spa massage with hot stones (full hour)' },
-      { ar: 'حمام مغربي ملكي بزيت الأرجان', en: 'Royal Moroccan bath with argan oil' },
-      { ar: 'بديكير اليدين والقدمين', en: 'Hands and feet pedicure' },
-      { ar: 'تنظيف بشرة', en: 'Facial cleansing' },
-      { ar: 'جاكوزي ومشروبات ساخنة وباردة', en: 'Jacuzzi with hot and cold drinks' },
+      { ar: 'مساج الأحجار الساخنة ساعة', en: 'Hot stone massage, 60 min' },
+      { ar: 'حمام ملكي', en: 'Royal bath' },
+      { ar: 'بدكير يد وقدم VIP', en: 'VIP hand and foot pedicure' },
+      { ar: 'تنظيف بشرة فيتامين سي', en: 'Vitamin C facial cleansing' },
+      { ar: 'مشروبات ساخنة وباردة', en: 'Hot and cold drinks' },
     ],
   },
   {
@@ -194,11 +277,11 @@ export const nahdaServices: NahdaService[] = [
     descriptionAr: 'تجربة متكاملة من أويلو سبا.',
     descriptionEn: 'A complete experience by Oilo Spa.',
     includes: [
-      { ar: 'مساج أويلو سبا (40 دقيقة)', en: 'Oilo Spa massage (40 min)' },
-      { ar: 'حمام مغربي بطين البحر الميت والأعشاب العطرية', en: 'Moroccan bath with Dead Sea mud and aromatic herbs' },
-      { ar: 'بديكير اليدين والقدمين', en: 'Hands and feet pedicure' },
-      { ar: 'تنظيف بشرة', en: 'Facial cleansing' },
-      { ar: 'جاكوزي ومشروبات ساخنة وباردة', en: 'Jacuzzi with hot and cold drinks' },
+      { ar: 'مساج سويدي', en: 'Swedish massage' },
+      { ar: 'حمام VIP', en: 'VIP bath' },
+      { ar: 'بدكير يد وقدم', en: 'Hand and foot pedicure' },
+      { ar: 'تنظيف البشرة العادي', en: 'Regular facial cleansing' },
+      { ar: 'مشروبات ساخنة وباردة', en: 'Hot and cold drinks' },
     ],
   },
   {
@@ -207,12 +290,12 @@ export const nahdaServices: NahdaService[] = [
     descriptionAr: 'استعداد متكامل ليومك المميز في تجربة يوم واحد.',
     descriptionEn: 'Complete grooming for your special day in a single-day experience.',
     includes: [
-      { ar: 'مساج فاخر', en: 'Luxury massage' },
-      { ar: 'حمام مغربي ملكي', en: 'Royal Moroccan bath' },
-      { ar: 'حمام بخار', en: 'Steam room' },
-      { ar: 'بديكير VIP', en: 'VIP pedicure' },
+      { ar: 'مساج مكس', en: 'Mix massage' },
+      { ar: 'حمام ملكي', en: 'Royal bath' },
+      { ar: 'حمام زيت بالبخار', en: 'Steam oil bath' },
+      { ar: 'بدكير يد وقدم VIP', en: 'VIP hand and foot pedicure' },
       { ar: 'قناع وجه وتنظيف وسنفرة للبشرة', en: 'Facial mask, cleansing and scrub' },
-      { ar: 'جاكوزي ومشروبات ساخنة وباردة', en: 'Jacuzzi with hot and cold drinks' },
+      { ar: 'مشروبات ساخنة وباردة', en: 'Hot and cold drinks' },
     ],
   },
   {
@@ -221,31 +304,23 @@ export const nahdaServices: NahdaService[] = [
     descriptionAr: 'برنامج تجهيز متكامل على مدى 3 أسابيع.',
     descriptionEn: 'A complete grooming program over three weeks.',
     includes: [
-      { ar: '3 جلسات حمام مغربي ملكي', en: '3 royal Moroccan bath sessions' },
+      { ar: '3 جلسات حمام ملكي', en: '3 royal bath sessions' },
       { ar: '3 جلسات مساج', en: '3 massage sessions' },
-      { ar: 'بديكير VIP مع قناع البارافين', en: 'VIP pedicure with paraffin mask' },
-      { ar: 'حمام بخار بالزيوت المعطرة', en: 'Steam room with scented oils' },
+      { ar: 'بدكير يد وقدم VIP', en: 'VIP hand and foot pedicure' },
+      { ar: 'حمام زيت بالبخار', en: 'Steam oil bath' },
       { ar: 'قناع وتنظيف للبشرة', en: 'Facial mask and cleansing' },
-      { ar: 'جاكوزي ومشروبات ساخنة وباردة', en: 'Jacuzzi with hot and cold drinks' },
+      { ar: 'مشروبات ساخنة وباردة', en: 'Hot and cold drinks' },
     ],
   },
 
-  // ── SPECIAL OFFERS ──
+  // SPECIAL OFFERS
   {
     key: 'offer-massage-pedi', category: 'offer', price: 310, fromPrice: true,
-    nameAr: 'مساج + بديكير', nameEn: 'Massage + Pedicure',
-    descriptionAr: 'مساج للاسترخاء واستعادة النشاط مع بديكير اليدين والقدمين للعناية الكاملة.',
-    descriptionEn: 'A relaxing, energising massage with a hands-and-feet pedicure for complete care.',
-  },
-  {
-    key: 'foot-crack-care', category: 'offer', price: 250,
-    bundleCount: 3, bundlePrice: 600,
-    nameAr: 'عناية تشققات القدمين', nameEn: 'Cracked Heel Care',
-    descriptionAr: 'علاج متخصص لتشققات وجفاف كعب القدمين، يزيل الجلد المتشقق ويعيد للقدمين النعومة والترطيب العميق. الجلسة 250 ريال، وباقة 3 جلسات بـ 600 ريال.',
-    descriptionEn: 'A specialised treatment for cracked, dry heels that removes rough skin and restores deep softness and hydration. Single session 250 SAR, or a 3-session package for 600 SAR.',
+    nameAr: 'مساج + بدكير', nameEn: 'Massage + Pedicure',
+    descriptionAr: 'مساج للاسترخاء واستعادة النشاط مع بدكير للعناية الكاملة.',
+    descriptionEn: 'A relaxing massage with pedicure care.',
   },
 ]
 
-// Bridal preparation with a dedicated barber, by advance booking only.
 export const nahdaBridalNoteAr = 'تتوفر خدمة تجهيز العرسان مع حلاق خاص (يلزم حجز مسبق).'
 export const nahdaBridalNoteEn = 'Groom preparation with a dedicated barber is available by advance booking.'

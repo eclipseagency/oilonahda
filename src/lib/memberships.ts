@@ -23,7 +23,7 @@ export interface MembershipTier {
   perksEn: string[]
 }
 
-// Anchor: 1 session = 240 SAR (Oilo Spa / Swedish / Thai 60-min massage).
+// Anchor: 1 session = 240 SAR (legacy membership valuation).
 const SESSION_VALUE = 240
 
 export const membershipTiers: MembershipTier[] = [
