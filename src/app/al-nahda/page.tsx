@@ -7,12 +7,12 @@ import { branches } from '@/lib/branches'
 export const metadata: Metadata = {
   title: 'Oilo Spa | حجز مساج وسبا في شرق الرياض',
   description:
-    'احجز في أويلو سبا بالرياض: مساج، حمام مغربي، عناية، وباقات استرخاء في حي النهضة شرق الرياض. اختر موعدك أونلاين أو تواصل واتساب.',
+    'احجز في أويلو سبا بالرياض: مساج، حمام مغربي، عناية، وباقات استرخاء. اختر موعدك أونلاين أو تواصل واتساب.',
   alternates: { canonical: 'https://www.oilospa.com/al-nahda' },
   openGraph: {
     title: 'Oilo Spa | حجز مساج وسبا في شرق الرياض',
     description:
-      'النهضة في شرق الرياض لخدمات المساج والحمام المغربي والباقات. احجز موعدك مباشرة.',
+      'أويلو سبا في الرياض لخدمات المساج والحمام المغربي والباقات. احجز موعدك مباشرة.',
     url: 'https://www.oilospa.com/al-nahda',
     siteName: 'Oilo Spa',
     locale: 'ar_SA',
@@ -40,7 +40,7 @@ export default function AlNahdaPage() {
             '@type': 'EntryPoint',
             urlTemplate: 'https://www.oilospa.com/booking?branch=al-nahda',
           },
-          result: { '@type': 'Reservation', name: 'حجز موعد في النهضة' },
+          result: { '@type': 'Reservation', name: 'حجز موعد في Oilo Spa' },
         },
       },
       {
@@ -59,8 +59,8 @@ export default function AlNahdaPage() {
       <BranchPageClient branchId="al-nahda" />
       <section className="bg-[#060608] px-6 py-20 text-center text-white">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 md:p-10">
-          <p className="mb-3 text-xs font-semibold tracking-[0.35em] text-[#C9A96E]">OILO SPA · حي النهضة</p>
-          <h2 className="text-3xl font-bold md:text-4xl">احجز موعدك في النهضة بالرياض</h2>
+          <p className="mb-3 text-xs font-semibold tracking-[0.35em] text-[#C9A96E]">OILO SPA · الرياض</p>
+          <h2 className="text-3xl font-bold md:text-4xl">احجز موعدك في أويلو سبا بالرياض</h2>
           <p className="mx-auto mt-4 max-w-2xl leading-8 text-white/70">
             فرعنا مناسب لسكان شرق وجنوب الرياض الباحثين عن مساج، حمام مغربي،
             حجامة، أو باقة استرخاء في موقع قريب وساعات عمل ممتدة. احجز أونلاين

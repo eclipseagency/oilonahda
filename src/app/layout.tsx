@@ -14,9 +14,9 @@ const SNAP_PIXEL_ID = process.env.NEXT_PUBLIC_SNAP_PIXEL_ID?.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.oilospa.com"),
-  title: "Oilo Spa | منتجع صحي وسبا واسترخاء في حي النهضة",
+  title: "Oilo Spa | منتجع صحي وسبا واسترخاء في الرياض",
   description:
-    "أويلو سبا، منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
+    "أويلو سبا، منتجع صحي وسبا واسترخاء فاخر في الرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة. احجز جلستك الآن.",
   keywords: [
     "سبا واسترخاء الرياض",
     "مساج الرياض",
@@ -85,7 +85,7 @@ export default function RootLayout({
               "@id": "https://www.oilospa.com/#business",
               name: "Oilo Spa",
               description:
-                "منتجع صحي وسبا واسترخاء فاخر في حي النهضة بالرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة",
+                "منتجع صحي وسبا واسترخاء فاخر في الرياض. مساج واسترخاء، حمام مغربي، عناية بالبشرة، وباقات فاخرة",
               url: "https://www.oilospa.com",
               email: "oilonahda@gmail.com",
               telephone: `+966${branches["al-nahda"].phone.slice(1)}`,
@@ -104,7 +104,7 @@ export default function RootLayout({
                   knowsLanguage: ["ar", "en"],
                   address: {
                     "@type": "PostalAddress",
-                    streetAddress: "شارع سلمان الفارسي، حي النهضة",
+                    streetAddress: "شارع سلمان الفارسي",
                     addressLocality: "الرياض",
                     addressRegion: "منطقة الرياض",
                     postalCode: "10011",

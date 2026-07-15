@@ -295,7 +295,7 @@ export async function POST(request: NextRequest) {
     time: time_slot,
     price: service.price,
     branchEn: 'Al Nahda',
-    branchAr: 'فرع النهضة',
+    branchAr: 'Oilo Spa',
   })
 
   return Response.json({

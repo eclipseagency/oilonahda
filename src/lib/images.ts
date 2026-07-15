@@ -24,5 +24,4 @@ export const images = {
   facial: '/services/facial.webp',
   jacuzzi: '/services/jacuzzi.webp',
   maniPedi: '/services/pedicure-chairs.webp',
-  offerBanner: '/services/offer-banner.webp',
 }

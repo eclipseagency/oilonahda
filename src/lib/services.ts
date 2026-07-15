@@ -190,19 +190,6 @@ export const services: Service[] = [
 
   // ── OFFERS ──
   {
-    key: 'offer-massage-bath',
-    category: 'offer',
-    nameAr: 'عرض خاص: مساج + حمام مغربي',
-    nameEn: 'Special Offer: Massage + Moroccan Bath',
-    descriptionAr: 'مساج احترافي يخفف التوتر ويعيد النشاط مع حمام مغربي لتنقية الجسم واستعادة الحيوية',
-    descriptionEn: 'A professional massage to relieve stress and restore energy, paired with a Moroccan bath to cleanse the body and revive vitality',
-    includes: [
-      { ar: 'مساج احترافي يخفف التوتر ويعيد النشاط', en: 'Professional massage to relieve stress and restore energy' },
-      { ar: 'حمام مغربي لتنقية الجسم واستعادة الحيوية', en: 'Moroccan bath to cleanse the body and revive vitality' },
-    ],
-    price: 310,
-  },
-  {
     key: 'offer-massage-pedi',
     category: 'offer',
     nameAr: 'عرض خاص: مساج + بديكير',

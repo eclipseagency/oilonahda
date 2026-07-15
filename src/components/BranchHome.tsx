@@ -385,7 +385,6 @@ const serviceImages: Record<string, string> = {
   'vip-package': images.royalBath,
   'swedish-40': images.swedish,
   'thai-40': images.thai,
-  'offer-massage-bath': images.massage,
   'offer-massage-pedi': images.maniPedi,
   'offer-bath-pedi': images.classicBath,
 }
@@ -399,9 +398,9 @@ function nahdaCtx(): BranchCtx {
     primaryBookingHref: '/booking',
     serviceHref: (key: string) => `/booking?service=${key}`,
     location: { ...nahdaLocation },
-    branchName: { ar: 'النهضة', en: 'Al Nahda' },
-    heroBadge: { ar: 'منتجع صحي وسبا', en: 'Wellness & Spa Resort · Al Nahda' },
-    heroTagline: { ar: 'استرخاء وعافية باحترافية في حي النهضة', en: 'Professional Relaxation & Wellness in Al Nahda' },
+    branchName: { ar: 'Oilo Spa', en: 'Oilo Spa' },
+    heroBadge: { ar: 'سبا واسترخاء فاخر بالرياض · فرع النهضة', en: 'Premium Wellness Spa · Al Nahda' },
+    heroTagline: { ar: 'استرخاء وعافية باحترافية في الرياض', en: 'Professional Relaxation & Wellness in Riyadh' },
     heroSubtitle: { ar: 'جلسات مساج واسترخاء وحمام مغربي وعناية، على يد معالجين محترفين مؤهلين في بيئة راقية ونظيفة.', en: 'Massage, Moroccan bath and grooming by qualified professional therapists in a refined, hygienic setting.' },
     servicesSubtitle: { ar: 'جلسات استرخاء وعناية احترافية', en: 'Professional relaxation & wellness treatments' },
   }

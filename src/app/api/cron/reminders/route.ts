@@ -113,7 +113,7 @@ export async function GET(req: NextRequest) {
         `${b.name}, نراك في Oilo Spa.\n` +
         `الخدمة: ${serviceAr}\n` +
         `الوقت: ${b.time_slot}\n` +
-        `العنوان: شارع سلمان الفارسي، حي النهضة، الرياض\n\n` +
+        `العنوان: شارع سلمان الفارسي، الرياض\n\n` +
         `رقم الحجز: ${ref}`
       await sendWa(phoneIntl, text)
       await supabase.from('bookings').update({ reminded_2h: true }).eq('id', b.id)
