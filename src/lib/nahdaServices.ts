@@ -1,8 +1,8 @@
 // ════════════════════════════════════════════════════════════════
-// Al Nahda branch service menu (فرع النهضة)
+// Branch service menu
 // Source: Al Nahda branch management price list.
 // All massages are 40 min unless stated; +40 SAR upgrades a massage to
-// 60 min. Opening offer: 20 SAR off every massage type.
+// 60 min.
 // ════════════════════════════════════════════════════════════════
 
 export type NahdaCategory = 'massage' | 'addon' | 'pedicure' | 'bath' | 'package' | 'offer'
@@ -24,7 +24,7 @@ export interface NahdaService {
   includes?: { ar: string; en: string }[]
 }
 
-// Global opening-offer discount applied to every massage type (SAR).
+// Legacy opening-offer value retained for older integrations.
 export const NAHDA_MASSAGE_OPENING_DISCOUNT = 20
 // Upcharge to extend any 40-min massage to a full hour (SAR).
 export const NAHDA_HOUR_UPGRADE = 40
@@ -231,12 +231,6 @@ export const nahdaServices: NahdaService[] = [
   },
 
   // ── SPECIAL OFFERS ──
-  {
-    key: 'offer-massage-bath', category: 'offer', price: 310, fromPrice: true,
-    nameAr: 'مساج استرخائي + حمام مغربي', nameEn: 'Relaxing Massage + Moroccan Bath',
-    descriptionAr: 'مساج احترافي يخفف التوتر ويعيد النشاط مع حمام مغربي لتنقية الجسم واستعادة الحيوية.',
-    descriptionEn: 'A professional massage that relieves tension and restores energy, with a Moroccan bath to purify the body and revive vitality.',
-  },
   {
     key: 'offer-massage-pedi', category: 'offer', price: 310, fromPrice: true,
     nameAr: 'مساج + بديكير', nameEn: 'Massage + Pedicure',

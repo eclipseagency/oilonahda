@@ -1,8 +1,8 @@
 ﻿// ════════════════════════════════════════════════════════════════
-// Oilo Spa Al Nahda branch. Single source of truth for branch identity used by
+// Oilo Spa branch. Single source of truth for branch identity used by
 // SEO metadata, JSON-LD LocalBusiness, booking, and the sitemap.
 //
-// NOTE: Al Nahda's address, map pin, hours and phone are confirmed (location
+// NOTE: Address, map pin, hours and phone are confirmed (location
 // from the client's Google Maps share link + own number 0556733851, June 2026).
 // ════════════════════════════════════════════════════════════════
 
@@ -31,7 +31,7 @@ export interface Branch {
   locationConfirmed: boolean
 }
 
-// Al Nahda keeps its own hours (10 AM – 6 AM daily, Friday 4 PM – 6 AM).
+// Branch hours (10 AM – 6 AM daily, Friday 4 PM – 6 AM).
 const NAHDA_HOURS: BranchHours = {
   dailyAr: 'السبت – الخميس', dailyEn: 'Sat – Thu', dailyTime: '١٠ صباحًا – ٦ صباحًا',
   fridayAr: 'الجمعة', fridayEn: 'Friday', fridayTime: '٤ عصرًا – ٦ صباحًا',
@@ -41,13 +41,13 @@ export const branches: Record<BranchId, Branch> = {
   'al-nahda': {
     id: 'al-nahda',
     slug: 'al-nahda',
-    nameAr: 'فرع النهضة', nameEn: 'Al Nahda Branch',
-    districtAr: 'حي النهضة', districtEn: 'Al Nahda',
-    taglineAr: 'فرعنا الجديد في حي النهضة', taglineEn: 'Our new branch in Al Nahda',
+    nameAr: 'Oilo Spa', nameEn: 'Oilo Spa',
+    districtAr: 'الرياض', districtEn: 'Riyadh',
+    taglineAr: 'منتجع صحي وسبا في الرياض', taglineEn: 'Wellness spa in Riyadh',
     heroImage: '/services/nahda-hero.webp',
     cardImage: '/services/nahda-hero.webp',
-    addressAr: 'شارع سلمان الفارسي، حي النهضة، الرياض ١٠٠١١',
-    addressEn: 'Salman Al Farisi Street, Al Nahda, Riyadh 10011',
+    addressAr: 'شارع سلمان الفارسي، الرياض ١٠٠١١',
+    addressEn: 'Salman Al Farisi Street, Riyadh 10011',
     mapsLink: 'https://maps.app.goo.gl/XAj26BEYUN9rBZp58',
     geo: { lat: 24.7585401, lng: 46.8133352 },
     phone: '0556733851',

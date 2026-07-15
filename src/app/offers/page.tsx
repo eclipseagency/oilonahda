@@ -1,10 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  nahdaServices,
-  NAHDA_MASSAGE_OPENING_DISCOUNT,
-  NAHDA_HOUR_UPGRADE,
-} from "@/lib/nahdaServices";
+import { nahdaServices } from "@/lib/nahdaServices";
 import { nahdaServiceImages } from "@/lib/nahdaBranchData";
 import { branches } from "@/lib/branches";
 import SiteNav from "@/components/SiteNav";
@@ -16,7 +12,7 @@ const heroImage = "/aamassage_13_1310x980.webp";
 
 const titleSeo = "عروض وباقات أويلو سبا، مساج وحمام مغربي بأسعار خاصة | Oilo Spa";
 const descriptionSeo =
-  "العروض الحالية في أويلو سبا بالرياض: عروض مجمعة مساج وحمام مغربي وبديكير من 310 ريال، وباقات متكاملة، وخصم افتتاح على جلسات المساج. احجز عرضك الآن.";
+  "العروض الحالية في أويلو سبا بالرياض: عروض مجمعة وباقات متكاملة بأسعار خاصة. احجز عرضك الآن.";
 
 export const metadata = {
   title: titleSeo,
@@ -54,15 +50,11 @@ function waHref(whatsapp: string, offerNameAr: string) {
 const faqs = [
   {
     q: "هل العروض متاحة حاليًا؟",
-    a: "نعم، العروض والباقات المعروضة هنا تشمل عروض المساج والحمام المغربي والبديكير والباقات المتكاملة.",
+    a: "نعم، العروض والباقات المعروضة هنا متاحة للحجز، وتشمل عروض المساج والبديكير والباقات المتكاملة.",
   },
   {
     q: "كيف أحجز عرضًا؟",
     a: "تقدر تحجز مباشرة من صفحة الحجز في الموقع باختيار العرض، أو ترسل لنا واتساب على رقمنا ونأكد لك الموعد.",
-  },
-  {
-    q: "هل يوجد عرض افتتاح على المساج؟",
-    a: `نعم، يوجد خصم ${NAHDA_MASSAGE_OPENING_DISCOUNT} ريال على جلسات المساج، ويمكن ترقية أي جلسة 40 دقيقة إلى 60 دقيقة بإضافة ${NAHDA_HOUR_UPGRADE} ريال فقط.`,
   },
 ];
 
@@ -125,7 +117,7 @@ export default function OffersPage() {
               عروض وباقات أويلو سبا
             </h1>
             <p className="text-lg sm:text-xl max-w-2xl" style={{ color: "#D8CFBF" }}>
-              عروض مجمعة وباقات متكاملة بأسعار خاصة في حي النهضة
+              عروض مجمعة وباقات متكاملة بأسعار خاصة
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
@@ -148,7 +140,7 @@ export default function OffersPage() {
                 عروض مجمعة من 310 ريال
               </span>
               <span className="px-4 py-2 rounded-full text-sm" style={{ background: "rgba(201,169,110,0.15)", color: "#dbb97a" }}>
-                ترقية المساج إلى 60 دقيقة
+                باقات متكاملة بأسعار خاصة
               </span>
             </div>
           </div>
@@ -159,7 +151,7 @@ export default function OffersPage() {
             عروضنا
           </h2>
           <p className="mb-8" style={{ color: "#D8CFBF" }}>
-            عرض الافتتاح: خصم {NAHDA_MASSAGE_OPENING_DISCOUNT} ريال على جميع أنواع المساج، وترقية أي جلسة 40 دقيقة إلى 60 دقيقة بإضافة {NAHDA_HOUR_UPGRADE} ريال فقط.
+            اختر العرض المناسب واحجز موعدك مباشرة من الموقع أو عبر واتساب.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {nahdaOffers.map((s) => (

@@ -52,7 +52,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // Location
     'location.title': 'موقعنا',
     'location.subtitle': 'زورنا في قلب الرياض',
-    'location.address': 'شارع سلمان الفارسي، حي النهضة، الرياض ١٠٠١١',
+    'location.address': 'شارع سلمان الفارسي، الرياض ١٠٠١١',
     'location.view': 'عرض الموقع',
 
     // Hours
@@ -151,7 +151,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'faq.q6': 'هل تقدمون بطاقات هدايا؟',
     'faq.a6': 'نعم، بطاقات الهدايا متاحة لجميع خدماتنا وباقاتنا. هدية مثالية للمناسبات.',
     'faq.q7': 'هل يوجد مواقف سيارات؟',
-    'faq.a7': 'نعم، يتوفر موقف سيارات مجاني للعملاء في موقعنا بحي النهضة.',
+    'faq.a7': 'نعم، يتوفر موقف سيارات مجاني للعملاء في موقعنا.',
     'faq.q8': 'كم مدة الجلسة عادة؟',
     'faq.a8': 'جلسات المساج ٤٠-٦٠ دقيقة، والحمام المغربي حوالي ٦٠ دقيقة، والباقات المتكاملة ٢-٣ ساعات.',
 
@@ -225,7 +225,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     'location.title': 'Our Location',
     'location.subtitle': 'Visit us in the heart of Riyadh',
-    'location.address': 'Salman Al Farisi Street, Al Nahda, Riyadh 10011',
+    'location.address': 'Salman Al Farisi Street, Riyadh 10011',
     'location.view': 'View on Maps',
 
     'hours.title': 'Working Hours',

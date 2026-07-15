@@ -100,7 +100,7 @@ export function getFaqJsonLd(lang: 'ar' | 'en' = 'ar') {
       ['هل يمكنني اختيار المعالج؟', 'جميع معالجينا محترفون مؤهلون ومدربون. يمكنك طلب معالج محدد إذا كان متاحًا وقت الحجز.'],
       ['ما هي سياسة الإلغاء؟', 'يمكن إلغاء أو تعديل الحجز قبل الموعد بـ ٤ ساعات على الأقل دون أي رسوم.'],
       ['هل تقدمون بطاقات هدايا؟', 'نعم، بطاقات الهدايا متاحة لجميع خدماتنا وباقاتنا. هدية مثالية للمناسبات.'],
-      ['هل يوجد مواقف سيارات؟', 'نعم، يتوفر موقف سيارات مجاني للعملاء في موقعنا بحي النهضة.'],
+      ['هل يوجد مواقف سيارات؟', 'نعم، يتوفر موقف سيارات مجاني للعملاء في موقعنا.'],
       ['كم مدة الجلسة عادة؟', 'جلسات المساج ٤٠-٦٠ دقيقة، والحمام المغربي حوالي ٦٠ دقيقة، والباقات المتكاملة ٢-٣ ساعات.'],
     ],
     en: [
@@ -110,7 +110,7 @@ export function getFaqJsonLd(lang: 'ar' | 'en' = 'ar') {
       ['Can I choose my therapist?', 'All our therapists are qualified and trained professionals. You can request a specific therapist if available at booking time.'],
       ['What is the cancellation policy?', 'You can cancel or reschedule up to 4 hours before your appointment at no charge.'],
       ['Do you offer gift cards?', 'Yes, gift cards are available for all our services and packages, the perfect gift for any occasion.'],
-      ['Is parking available?', 'Yes, free customer parking is available at our Al Nahda location.'],
+      ['Is parking available?', 'Yes, free customer parking is available at our location.'],
       ['How long is a typical session?', 'Massage sessions are 40–60 minutes, Moroccan bath about 60 minutes, and full packages are 2–3 hours.'],
     ],
   }
