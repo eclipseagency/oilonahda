@@ -41,27 +41,21 @@ export const nahdaServicesAsServices: Service[] = nahdaServices.map(s => ({
   ...variantFields(s.key),
 }))
 
+// Only for keys whose file isn't named after them. The facial-cleansing and
+// oil-bath keys are variants of one card, so they share that card's photo by
+// design (see SERVICE_VARIANTS).
 const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
   'warm-olive-oil-60': '/services/nahda-addon-warm-oil.webp',
-  'foot-peeling': '/services/nahda-pedi.webp',
-  'paraffin-hand-mask': '/services/nahda-mani.webp',
-  'paraffin-foot-mask': '/services/nahda-pedi.webp',
   'oil-bath-steam': '/services/nahda-oil.webp',
   'oil-bath-protein-keratin': '/services/nahda-oil.webp',
-  'charcoal-mask': '/services/nahda-care.webp',
-  'face-scrub': '/services/nahda-care.webp',
-  'moroccan-clay-mask': '/services/nahda-care.webp',
   'regular-facial-cleansing': '/services/nahda-care.webp',
   'vitamin-c-facial': '/services/nahda-care.webp',
   'senior-facial-cleansing': '/services/nahda-care.webp',
   'combination-skin-cleansing': '/services/nahda-care.webp',
   'mix-facial-cleansing': '/services/nahda-care.webp',
-  'nose-strip': '/services/nahda-care.webp',
 }
 
-// Each service prefers its own branch image where one exists. The remaining
-// entries above are small add-ons with no photo of their own; they borrow the
-// shot of the area they happen in, which is why a few still coincide.
+// Every other service resolves to its own /services/nahda-<key>.webp.
 export const nahdaServiceImages: Record<string, string> = Object.fromEntries(
   nahdaServices.map(s => [s.key, SERVICE_IMAGE_OVERRIDES[s.key] ?? `/services/nahda-${s.key}.webp`]),
 )
