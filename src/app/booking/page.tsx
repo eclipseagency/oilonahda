@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
-import { type ServiceCategory, type Service } from '@/lib/services'
+import { groupServices, type ServiceCategory, type Service } from '@/lib/services'
 import { nahdaServicesAsServices, nahdaCategoriesTabs, nahdaServiceImages } from '@/lib/nahdaBranchData'
 import { branches } from '@/lib/branches'
 import { trackEvent } from '@/lib/track'
@@ -311,7 +311,9 @@ function BookingServiceCard({
             className="text-white font-semibold text-base"
             style={{ fontFamily: isAr ? '"IBM Plex Sans Arabic", sans-serif' : '"Cormorant Garamond", serif' }}
           >
-            {isAr ? service.nameAr : service.nameEn}
+            {hasVariants && service.variantGroupNameAr
+              ? (isAr ? service.variantGroupNameAr : service.variantGroupNameEn)
+              : (isAr ? service.nameAr : service.nameEn)}
           </h3>
           {!hasVariants && service.duration && (
             <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-1 rounded-md whitespace-nowrap"
@@ -331,7 +333,9 @@ function BookingServiceCard({
         {hasVariants && (
           <div className="mt-4">
             <p className="text-[10px] font-bold tracking-widest uppercase mb-2" style={{ color: '#C9A96E' }}>
-              {isAr ? 'اختر المدة' : 'Choose Duration'}
+              {service.variantGroup
+                ? (isAr ? 'اختر النوع' : 'Choose Type')
+                : (isAr ? 'اختر المدة' : 'Choose Duration')}
             </p>
             <div className="inline-flex gap-1.5 p-1 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
               {variants.map((v, i) => (
@@ -345,7 +349,9 @@ function BookingServiceCard({
                     color: i === activeIdx ? '#060608' : 'rgba(255,255,255,0.55)',
                   }}
                 >
-                  {isAr ? v.duration : v.durationEn || v.duration}
+                  {isAr
+                    ? (v.variantLabelAr ?? v.duration)
+                    : (v.variantLabelEn ?? v.durationEn ?? v.duration)}
                 </button>
               ))}
             </div>
@@ -584,21 +590,7 @@ function BookingContent() {
     ? catalog
     : catalog.filter((s) => s.category === selectedCategory)
 
-  // Group same-name services into a single card with duration variants
-  const groupedServices: Service[][] = (() => {
-    const out: Service[][] = []
-    const seen = new Map<string, number>()
-    for (const s of filteredServices) {
-      const key = s.nameEn
-      if (seen.has(key)) {
-        out[seen.get(key)!].push(s)
-      } else {
-        seen.set(key, out.length)
-        out.push([s])
-      }
-    }
-    return out
-  })()
+  const groupedServices: Service[][] = groupServices(filteredServices)
   const selectedKeys = new Set(selectedServices.map((s) => s.key))
 
   const handleVariantSelect = (variant: Service, prevVariantKey?: string) => {

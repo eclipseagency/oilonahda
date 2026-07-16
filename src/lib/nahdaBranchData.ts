@@ -6,7 +6,7 @@
 // NOTE: service card images are brand placeholders for now; unique
 // per-service Al Nahda images are the pending "image review" task.
 // ════════════════════════════════════════════════════════════════
-import type { Service, ServiceCategory } from '@/lib/services'
+import { variantFields, type Service, type ServiceCategory } from '@/lib/services'
 import { nahdaServices, type NahdaCategory } from '@/lib/nahdaServices'
 import { branches } from '@/lib/branches'
 
@@ -38,6 +38,7 @@ export const nahdaServicesAsServices: Service[] = nahdaServices.map(s => ({
   durationEn: s.durationEn,
   price: s.price,
   includes: s.includes,
+  ...variantFields(s.key),
 }))
 
 const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
@@ -58,8 +59,9 @@ const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
   'nose-strip': '/services/nahda-care.webp',
 }
 
-// Each service prefers its own branch image where one exists, with intentional
-// fallbacks for new menu items that share the same care area.
+// Each service prefers its own branch image where one exists. The remaining
+// entries above are small add-ons with no photo of their own; they borrow the
+// shot of the area they happen in, which is why a few still coincide.
 export const nahdaServiceImages: Record<string, string> = Object.fromEntries(
   nahdaServices.map(s => [s.key, SERVICE_IMAGE_OVERRIDES[s.key] ?? `/services/nahda-${s.key}.webp`]),
 )
