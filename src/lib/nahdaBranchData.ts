@@ -94,16 +94,16 @@ const AD_SAFE_SERVICE_COPY: Record<string, Partial<Pick<Service, 'nameAr' | 'nam
   'pkg-grooms-day': { nameAr: 'باقة تجهيز العريس - يوم واحد', nameEn: 'Groom Care Package - One Day' },
   'pkg-grooms-program': { nameAr: 'برنامج تجهيز العريس - 3 أسابيع', nameEn: 'Groom Care Program - 3 Weeks' },
   'offer-massage-bath': {
-    nameAr: 'عرض خاص: مساج استرخائي + حمام مغربي',
-    nameEn: 'Special Offer: Relaxing Massage + Moroccan Bath',
-    descriptionAr: 'مساج احترافي يخفف التوتر ويعيد النشاط مع حمام مغربي لتنقية الجسم واستعادة الحيوية.',
-    descriptionEn: 'A professional massage for relaxation and renewed energy, paired with a Moroccan bath for a refreshing body cleanse.',
+    nameAr: 'عرض خاص: جلسة عافية استرخائية + عناية مغربية',
+    nameEn: 'Special Offer: Relaxing Wellness Session + Moroccan Body Care',
+    descriptionAr: 'جلسة عافية احترافية تخفف التوتر وتعيد النشاط مع عناية مغربية لتنقية الجسم واستعادة الحيوية.',
+    descriptionEn: 'A professional wellness session for relaxation and renewed energy, paired with Moroccan body care for a refreshing cleanse.',
   },
   'offer-massage-pedi': {
-    nameAr: 'عرض خاص: مساج + بديكير',
-    nameEn: 'Special Offer: Massage + Pedicure',
-    descriptionAr: 'مساج للاسترخاء واستعادة النشاط مع بديكير اليدين والقدمين للعناية الكاملة.',
-    descriptionEn: 'A relaxing massage paired with hand and foot pedicure for complete care.',
+    nameAr: 'عرض خاص: جلسة عافية + بديكير',
+    nameEn: 'Special Offer: Wellness Session + Pedicure',
+    descriptionAr: 'جلسة عافية للاسترخاء واستعادة النشاط مع بديكير اليدين والقدمين للعناية الكاملة.',
+    descriptionEn: 'A relaxing wellness session paired with hand and foot pedicure for complete care.',
   },
 }
 
