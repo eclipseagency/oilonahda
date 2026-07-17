@@ -41,11 +41,29 @@ export const nahdaServicesAsServices: Service[] = nahdaServices.map(s => ({
   ...variantFields(s.key),
 }))
 
-// Only for keys whose file isn't named after them. The facial-cleansing and
-// oil-bath keys are variants of one card, so they share that card's photo by
-// design (see SERVICE_VARIANTS).
+// Only for keys whose file isn't named plainly after them.
+//
+// The -v2 files had their contents replaced (they used to be copies of another
+// service's photo). public/ is served `immutable, max-age=31536000`, so a
+// browser that already fetched the old bytes will never ask again — the
+// filename is the cache key, and a new one is the only way the new picture ever
+// reaches a returning visitor. Rename rather than overwrite when a photo
+// changes; do not add a ?v= query, next/image rejects it unless every local
+// image path is enumerated in images.localPatterns.
 const SERVICE_IMAGE_OVERRIDES: Record<string, string> = {
-  'warm-olive-oil-60': '/services/nahda-addon-warm-oil.webp',
+  'addon-compress': '/services/nahda-addon-compress-v2.webp',
+  'addon-cupping': '/services/nahda-addon-cupping-v2.webp',
+  'addon-foot': '/services/nahda-addon-foot-v2.webp',
+  'addon-wood': '/services/nahda-addon-wood-v2.webp',
+  'addon-warm-oil': '/services/nahda-addon-warm-oil-v2.webp',
+  'warm-olive-oil-60': '/services/nahda-addon-warm-oil-v2.webp',
+  'bath-vip': '/services/nahda-bath-vip-v2.webp',
+  'mani': '/services/nahda-mani-v2.webp',
+  'mani-pedi-vip': '/services/nahda-mani-pedi-vip-v2.webp',
+  'mix-massage': '/services/nahda-mix-massage-v2.webp',
+  'offer-massage-pedi': '/services/nahda-offer-massage-pedi-v2.webp',
+  'shiatsu-massage': '/services/nahda-shiatsu-massage-v2.webp',
+  // Variants of one card, sharing that card's photo by design (SERVICE_VARIANTS).
   'oil-bath-steam': '/services/nahda-oil.webp',
   'oil-bath-protein-keratin': '/services/nahda-oil.webp',
   'regular-facial-cleansing': '/services/nahda-care.webp',
