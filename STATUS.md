@@ -66,3 +66,58 @@ npx vercel --prod --yes
 - `vercel --prod` ships the working dir (see §2).
 - Two navs to keep in sync (see §3).
 - Homepage hero is a `/hero.mp4` video (needs a poster; already added).
+
+## 8. Service card images — read before touching them
+
+Four traps, each of which cost real time on 2026-07-17. Every one was avoidable.
+
+**Read §1 first.** `oilospa.com` is **this** repo (Al Nahda). `oilo.sa` is the
+*other* one (`oilo-spa`). A bug reported on oilospa.com was diagnosed and shipped
+against the wrong site before anyone re-read §1, which says this plainly. Quick
+check: oilospa.com serves `/services/nahda-*.webp`; oilo.sa does not.
+
+**`public/` is served `immutable, max-age=31536000`.** The filename is the cache
+key. **Never replace an image's contents in place** — new visitors get the new
+picture, everyone who already loaded the page keeps the old one for a year, and
+you will "fix" a bug that the reporter still sees. Rename instead (`-v2`, as in
+`SERVICE_IMAGE_OVERRIDES`). A `?v=` query does *not* work here: `next/image`
+rejects query strings unless `images.localPatterns` enumerates every local image
+path, and anything not listed then 400s.
+
+**Counting distinct URLs proves nothing.** The set once had 39 files but only 26
+pictures — `nahda-pedi`, `nahda-addon-foot`, `nahda-mani-pedi-vip` and
+`nahda-offer-massage-pedi` were byte-identical, plus six more groups. "33 distinct
+images" passed while the grid still looked duplicated. Verify by **content**:
+```
+cd public/services && md5 -q nahda-*.webp | sort | uniq -d      # identical files
+```
+Expect **two** hits, both fine: `nahda-candles` = `nahda-pkg-grooms-program` and
+`nahda-hammam` = `nahda-pkg-grooms-day`. Those pairs are a booking card and a
+`gallery/page.tsx` image sharing a photo — different sections, not two cards.
+Any *other* hit is a real duplicate.
+
+Then verify by **appearance**: dHash the image each card resolves to and compare
+every pair. Two different photos of the same room (as `بدكير يد` and `بدكير قدم`
+once were) still read as a duplicate to a customer, which is the only test that
+counts.
+
+**Same-room services can't be told apart by a photo.** The five facial cleansings
+are one procedure at five price points; the two oil baths differ only by what goes
+in the hair. They share a card with a type toggle via `SERVICE_VARIANTS` in
+`src/lib/services.ts` (same mechanism as the 60/40 min massages) — grouping, not
+ten near-identical photos. Booking renders **33 cards from 39 keys** because of it.
+
+Images are AI-generated still lifes in the branch's style (warm beige, objects, no
+people, no text). Swap in real photos whenever they exist — only the filename
+matters, and per the rule above, give the replacement a new name.
+
+## 9. Homepage → booking (verified 2026-07-17)
+
+Already wired; don't rebuild it. Homepage service cards are `<Link>`s to
+`/booking?service=<key>` (`serviceHref` in `BranchHome.tsx`), and `booking/page.tsx`
+pre-selects from that param, sets the right category tab, and enables Continue.
+Homepage and booking both render the same 33 services from the same catalog
+(`nahdaServices` → `nahdaServicesAsServices`), so they cannot drift.
+
+Note `/services` is a different thing: 4 **SEO landing pages**
+(`serviceLanding.ts`), not the bookable catalog. It is not meant to match booking.
