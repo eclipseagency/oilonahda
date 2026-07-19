@@ -261,19 +261,6 @@ export const services: Service[] = [
     bundleCount: 3,
     bundlePrice: 600,
   },
-  {
-    key: 'offer-bath-pedi',
-    category: 'offer',
-    nameAr: 'عرض خاص: حمام مغربي + بديكير',
-    nameEn: 'Special Offer: Moroccan Bath + Pedicure',
-    descriptionAr: 'حمام مغربي يعيد نقاء البشرة مع بديكير اليدين والقدمين لإطلالة مرتبة وعناية كاملة',
-    descriptionEn: 'A Moroccan bath to restore skin clarity with hand & foot pedicure for a neat look and complete care',
-    includes: [
-      { ar: 'حمام مغربي', en: 'Moroccan Bath' },
-      { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
-    ],
-    price: 310,
-  },
 ]
 
 export const categories: { key: ServiceCategory; nameAr: string; nameEn: string }[] = [
