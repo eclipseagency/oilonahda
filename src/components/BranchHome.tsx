@@ -124,7 +124,9 @@ function Navbar() {
       {/* Spacer for fixed nav */}
       <div className="h-0" />
 
-      <nav className="fixed top-4 inset-x-4 sm:inset-x-6 lg:inset-x-10 z-50">
+      {/* top-[52px] = the 36px announcement ticker + the original 16px inset.
+          The ticker is sticky, so it stays put and this offset holds on scroll. */}
+      <nav className="fixed top-[52px] inset-x-4 sm:inset-x-6 lg:inset-x-10 z-50">
         <div className={`mx-auto max-w-6xl transition-all duration-700 rounded-2xl ${scrolled ? 'shadow-[0_8px_40px_rgba(0,0,0,0.5)]' : ''}`}
           style={{
             background: scrolled ? 'rgba(8,8,12,0.7)' : 'rgba(8,8,12,0.4)',
@@ -169,7 +171,7 @@ function Navbar() {
               </button>
 
               <Link href={branch.primaryBookingHref}
-                className="btn-primary text-[11px] tracking-[0.1em] uppercase px-6 py-2.5 ms-2">
+                className={`btn-primary text-[11px] px-6 py-2.5 ms-2 ${locale === 'ar' ? 'font-ar' : 'font-body tracking-[0.1em] uppercase'}`}>
                 {t('nav.booking')}
               </Link>
             </div>
@@ -220,8 +222,11 @@ function Navbar() {
 
           <div className="mt-10 px-2">
             <div className="h-px mb-8" style={{ background: 'linear-gradient(90deg, rgba(201,169,110,0.2), transparent)' }} />
+            {/* font-ar zeroes the letter-spacing that `tracking-wider` would
+                otherwise apply: Arabic is a connected script and tracking pulls
+                the letters apart, breaking their joins. */}
             <Link href={branch.primaryBookingHref} onClick={() => setOpen(false)}
-              className="btn-primary block text-center py-4 text-sm tracking-wider uppercase rounded-2xl">
+              className={`btn-primary block text-center py-4 text-sm rounded-2xl ${locale === 'ar' ? 'font-ar' : 'font-body tracking-wider uppercase'}`}>
               {t('nav.booking')}
             </Link>
           </div>
@@ -242,17 +247,25 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full-bleed still. Composed symmetrically with the visual interest at the
-          left and right edges and a pool of shadow through the middle, so it
-          survives both a wide desktop crop and a tall phone crop with the
-          centred headline still readable. */}
-      <img
-        src="/services/nahda-hero-still.webp"
-        alt=""
-        aria-hidden="true"
-        fetchPriority="high"
+      {/* Full-bleed hero loop. Composed symmetrically with the visual interest at
+          the left and right edges and a pool of shadow through the middle, so it
+          survives both a wide desktop crop and a tall phone crop with the centred
+          headline still readable.
+
+          The clip is a palindrome — the push-in plays forward then reverses — so
+          `loop` never snaps back to the first frame. The poster is the video's
+          own opening frame, so there is no visible swap once it starts. */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/services/nahda-hero-still.webp"
         className="absolute inset-0 w-full h-full object-cover"
-      />
+      >
+        <source src="/hero-nahda-loop.mp4" type="video/mp4" />
+      </video>
 
       {/* Heavy gradient overlay — cinematic */}
       <div className="absolute inset-0" style={{

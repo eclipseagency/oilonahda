@@ -42,11 +42,14 @@ export default function AnnouncementTicker() {
     </div>
   )
 
+  // Sticky and above the navbar, which is fixed at z-50 and would otherwise
+  // paint straight over this strip. The navbar is offset to top-9 to clear it,
+  // so this must stay pinned or that 36px becomes an empty gap once scrolled.
   return (
     <Link
       href="/booking"
       dir={isAr ? 'rtl' : 'ltr'}
-      className="group relative flex h-9 items-center overflow-hidden border-b border-white/5"
+      className="group sticky top-0 z-[60] flex h-9 items-center overflow-hidden border-b border-white/5"
       style={{ background: 'linear-gradient(90deg, #0d0d10 0%, #14120f 50%, #0d0d10 100%)' }}
     >
       <div className="ticker-track flex min-w-full items-center group-hover:[animation-play-state:paused] motion-reduce:[animation:none]">
