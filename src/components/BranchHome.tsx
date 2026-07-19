@@ -242,11 +242,17 @@ function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full-bleed Video — poster shows instantly while the mp4 loads (no black flash) */}
-      <video autoPlay muted loop playsInline preload="metadata" poster="/services/nahda-hero.webp"
-        className="absolute inset-0 w-full h-full object-cover">
-        <source src="/hero.mp4" type="video/mp4" />
-      </video>
+      {/* Full-bleed still. Composed symmetrically with the visual interest at the
+          left and right edges and a pool of shadow through the middle, so it
+          survives both a wide desktop crop and a tall phone crop with the
+          centred headline still readable. */}
+      <img
+        src="/services/nahda-hero-still.webp"
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
       {/* Heavy gradient overlay — cinematic */}
       <div className="absolute inset-0" style={{

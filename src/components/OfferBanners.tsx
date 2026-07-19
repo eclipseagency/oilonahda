@@ -9,9 +9,16 @@ import { services } from '@/lib/services'
 // it stays translatable, selectable, indexable, and never needs re-rendering
 // when a price changes. Key must match the Service.key it illustrates.
 const ART: Record<string, string> = {
+  'royal-package': '/offers/offer-royal-package.webp',
+  'vip-package': '/offers/offer-vip-package.webp',
   'offer-massage-pedi': '/offers/offer-massage-pedi.webp',
   'foot-crack-care': '/offers/offer-foot-crack-care.webp',
 }
+
+// Display order, highest-value first — the packages carry the real discounts
+// (Royal saves 310 SAR, VIP saves 360) so they lead. Anything with art but no
+// entry here falls to the end in data order.
+const ORDER = ['royal-package', 'vip-package', 'offer-massage-pedi', 'foot-crack-care']
 
 export default function OfferBanners() {
   const { locale } = useI18n()
@@ -29,7 +36,13 @@ export default function OfferBanners() {
     return () => observer.disconnect()
   }, [])
 
-  const offers = services.filter(s => s.category === 'offer' && ART[s.key])
+  const rank = (key: string) => {
+    const at = ORDER.indexOf(key)
+    return at === -1 ? ORDER.length : at
+  }
+  const offers = services
+    .filter(s => s.category === 'offer' && ART[s.key])
+    .sort((a, b) => rank(a.key) - rank(b.key))
   if (offers.length === 0) return null
 
   return (
@@ -39,6 +52,12 @@ export default function OfferBanners() {
           {offers.map((offer, i) => {
             const name = isAr ? offer.nameAr : offer.nameEn
             const desc = isAr ? offer.descriptionAr : offer.descriptionEn
+
+            // Only claim a discount when the data actually backs one.
+            const saved =
+              offer.originalPrice != null && offer.price != null && offer.originalPrice > offer.price
+                ? Math.round((1 - offer.price / offer.originalPrice) * 100)
+                : null
 
             return (
               <Link
@@ -81,7 +100,9 @@ export default function OfferBanners() {
                     className={`w-full text-center md:w-[56%] ${isAr ? 'md:text-right' : 'md:text-left'}`}
                   >
                     <span className="badge mb-4 text-[10px] sm:text-[11px]">
-                      {isAr ? 'عرض خاص' : 'Special Offer'}
+                      {saved != null
+                        ? (isAr ? `وفّر ${saved}%` : `Save ${saved}%`)
+                        : (isAr ? 'عرض خاص' : 'Special Offer')}
                     </span>
 
                     <h3
@@ -107,6 +128,14 @@ export default function OfferBanners() {
                           <span className="text-xs" style={{ color: 'rgba(245,239,228,0.6)' }}>
                             {isAr ? 'ريال' : 'SAR'}
                           </span>
+                          {offer.originalPrice != null && offer.originalPrice > offer.price && (
+                            <span
+                              className="text-sm line-through"
+                              style={{ color: 'rgba(245,239,228,0.45)' }}
+                            >
+                              {offer.originalPrice}
+                            </span>
+                          )}
                         </span>
                       )}
 

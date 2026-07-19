@@ -188,7 +188,7 @@ export const services: Service[] = [
   // ── PACKAGES ──
   {
     key: 'royal-package',
-    category: 'package',
+    category: 'offer',
     nameAr: 'الباقة الملكية',
     nameEn: 'Royal Package',
     descriptionAr: 'تجربة فاخرة متكاملة تشمل مساج أويلو سبا مع الأحجار الساخنة لمدة 60 دقيقة وحمام مغربي ملكي بزيت الأرجان وبديكير اليدين والقدمين وتنظيف بشرة وجاكوزي ومشروبات ساخنة وباردة',
@@ -206,7 +206,7 @@ export const services: Service[] = [
   },
   {
     key: 'vip-package',
-    category: 'package',
+    category: 'offer',
     nameAr: 'باقة VIP',
     nameEn: 'VIP Package',
     descriptionAr: 'تجربة متكاملة تشمل مساج أويلو سبا 40 دقيقة وحمام مغربي بطين البحر الميت والأعشاب العطرية وبديكير اليدين والقدمين وتنظيف بشرة وجاكوزي ومشروبات ساخنة وباردة',
@@ -254,7 +254,10 @@ export const categories: { key: ServiceCategory; nameAr: string; nameEn: string 
   { key: 'massage', nameAr: 'المساج', nameEn: 'Massage' },
   { key: 'bath', nameAr: 'الحمام المغربي', nameEn: 'Moroccan Bath' },
   { key: 'grooming', nameAr: 'العناية', nameEn: 'Grooming' },
-  { key: 'package', nameAr: 'الباقات', nameEn: 'Packages' },
+  // 'package' is intentionally absent: the Royal and VIP packages now live under
+  // 'offer' so customers see one combined العروض tab instead of two competing
+  // ones. The category is kept in the union type so existing filters still
+  // compile — they simply match nothing.
   { key: 'offer', nameAr: 'العروض', nameEn: 'Offers' },
 ]
 
