@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, createContext, useContext } from 'react'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n'
-import { services, categories, type ServiceCategory, type Service } from '@/lib/services'
+import { services, categories, groupServices, type ServiceCategory, type Service } from '@/lib/services'
 import { images } from '@/lib/images'
 import OpenNow from '@/components/OpenNow'
 import Reviews from '@/components/Reviews'
@@ -379,6 +379,7 @@ const serviceImages: Record<string, string> = {
   'dead-sea-bath': images.deadSeaBath,
   'classic-bath': images.classicBath,
   'mani-pedi': images.maniPedi,
+  'pedi': '/services/nahda-pedi.webp',
   'facial': images.facial,
   'jacuzzi': images.jacuzzi,
   'royal-package': images.candles,
@@ -440,7 +441,9 @@ function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar
 
       <div className="p-6 md:p-7">
         <h3 className={`text-lg font-bold mb-4 text-warm ${locale === 'ar' ? 'font-ar' : 'font-display text-xl'}`}>
-          {locale === 'ar' ? s.nameAr : s.nameEn}
+          {hasVariants && s.variantGroupNameAr
+            ? (locale === 'ar' ? s.variantGroupNameAr : s.variantGroupNameEn)
+            : (locale === 'ar' ? s.nameAr : s.nameEn)}
         </h3>
         <p className={`text-sm leading-[1.9] mb-6 ${locale === 'ar' ? 'font-ar' : 'font-body'}`} style={{ color: 'rgba(245,239,228,0.6)' }}>
           {locale === 'ar' ? s.descriptionAr : s.descriptionEn}
@@ -449,7 +452,9 @@ function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar
         {hasVariants && (
           <div className="mb-6">
             <p className="text-[10px] font-bold tracking-widest uppercase mb-3" style={{ color: '#C9A96E' }}>
-              {locale === 'ar' ? 'اختر المدة' : 'Choose Duration'}
+              {s.variantGroup
+                ? (locale === 'ar' ? 'اختر النوع' : 'Choose Type')
+                : (locale === 'ar' ? 'اختر المدة' : 'Choose Duration')}
             </p>
             <div className="inline-flex gap-1.5 p-1 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
               {variants.map((v, i) => (
@@ -459,7 +464,9 @@ function ServiceCard({ variants, locale, t }: { variants: Service[]; locale: 'ar
                     background: i === activeIdx ? 'linear-gradient(135deg, #C9A96E, #dbb97a)' : 'transparent',
                     color: i === activeIdx ? '#060608' : 'rgba(255,255,255,0.55)',
                   }}>
-                  {locale === 'ar' ? v.duration : v.durationEn || v.duration}
+                  {locale === 'ar'
+                    ? (v.variantLabelAr ?? v.duration)
+                    : (v.variantLabelEn ?? v.durationEn ?? v.duration)}
                 </button>
               ))}
             </div>
@@ -522,18 +529,7 @@ function Services() {
     ...branch.categories.map(c => ({ key: c.key as Filter, ar: c.nameAr, en: c.nameEn })),
   ]
   const filtered = active === 'all' ? branch.services : branch.services.filter(s => s.category === active)
-  // Group same-name services into a single card with duration variants
-  const grouped: Service[][] = []
-  const seen = new Map<string, number>()
-  for (const s of filtered) {
-    const key = s.nameEn
-    if (seen.has(key)) {
-      grouped[seen.get(key)!].push(s)
-    } else {
-      seen.set(key, grouped.length)
-      grouped.push([s])
-    }
-  }
+  const grouped: Service[][] = groupServices(filtered)
   const switchTab = (k: Filter) => {
     if (k === active) return
     setFading(true)

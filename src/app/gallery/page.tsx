@@ -16,11 +16,11 @@ const PHOTOS: { src: string; alt: string }[] = [
   { src: '/services/nahda-oil.webp', alt: 'زيوت طبيعية للمساج' },
   { src: '/services/nahda-stones.webp', alt: 'الأحجار الساخنة' },
   { src: '/services/nahda-swedish-massage.webp', alt: 'غرفة المساج' },
-  { src: '/services/nahda-bath-vip.webp', alt: 'حمام VIP' },
+  { src: '/services/nahda-bath-vip-v2.webp', alt: 'حمام VIP' },
   { src: '/services/nahda-aroma-oil-massage.webp', alt: 'مساج الزيوت العطرية' },
   { src: '/services/nahda-hot-stone-massage.webp', alt: 'مساج الأحجار الساخنة' },
   { src: '/services/nahda-care.webp', alt: 'زاوية العناية والاسترخاء' },
-  { src: '/services/nahda-mix-massage.webp', alt: 'جلسة مساج متكاملة' },
+  { src: '/services/nahda-mix-massage-v2.webp', alt: 'جلسة مساج متكاملة' },
 ]
 
 export default function GalleryPage() {

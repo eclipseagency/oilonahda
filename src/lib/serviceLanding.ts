@@ -151,7 +151,7 @@ export const SERVICE_LANDINGS: Record<string, ServiceLanding> = {
       "أفضل مركز سبا واسترخاء في الرياض. أويلو يقدم مساج، حمام مغربي، بدكير، حمام زيت، وعناية بالبشرة في أجواء هادئة وتجربة استرخاء متكاملة. احجز جلستك.",
     h1: "أفضل مركز سبا واسترخاء في الرياض، أويلو سبا",
     subhead: "خدمات سبا متكاملة في بيئة فاخرة وهادئة: مساج، حمام مغربي، بدكير، حمام زيت، وعناية بالبشرة",
-    heroImage: "/aamassage_13_1310x980.webp",
+    heroImage: "/services/nahda-hero.webp",
     serviceName: "Spa Package",
     durationMin: 120,
     priceFromSAR: 30,

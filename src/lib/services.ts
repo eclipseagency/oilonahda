@@ -12,6 +12,30 @@ export interface Service {
   price?: number
   originalPrice?: number
   includes?: { ar: string; en: string }[]
+  variantGroup?: string
+  variantGroupNameAr?: string
+  variantGroupNameEn?: string
+  variantLabelAr?: string
+  variantLabelEn?: string
+}
+
+export function groupServices(list: Service[]): Service[][] {
+  const out: Service[][] = []
+  const seen = new Map<string, number>()
+
+  for (const service of list) {
+    const key = service.variantGroup ?? service.nameEn
+    const at = seen.get(key)
+
+    if (at !== undefined) {
+      out[at].push(service)
+    } else {
+      seen.set(key, out.length)
+      out.push([service])
+    }
+  }
+
+  return out
 }
 
 export const services: Service[] = [
