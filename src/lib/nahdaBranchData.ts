@@ -31,6 +31,7 @@ export const nahdaServiceImages: Record<string, string> = {
   'vip-package': images.royalBath,
   'offer-massage-bath': images.massage,
   'offer-massage-pedi': images.maniPedi,
+  'foot-crack-care': '/services/nahda-foot-crack-care.webp',
   'offer-bath-pedi': images.classicBath,
 }
 

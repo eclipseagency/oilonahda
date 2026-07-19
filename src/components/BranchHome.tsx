@@ -387,6 +387,7 @@ const serviceImages: Record<string, string> = {
   'swedish-40': images.swedish,
   'thai-40': images.thai,
   'offer-massage-pedi': images.maniPedi,
+  'foot-crack-care': '/services/nahda-foot-crack-care.webp',
   'offer-bath-pedi': images.classicBath,
 }
 

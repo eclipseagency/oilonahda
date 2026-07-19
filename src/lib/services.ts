@@ -11,6 +11,8 @@ export interface Service {
   durationEn?: string
   price?: number
   originalPrice?: number
+  bundleCount?: number
+  bundlePrice?: number
   includes?: { ar: string; en: string }[]
   variantGroup?: string
   variantGroupNameAr?: string
@@ -247,6 +249,17 @@ export const services: Service[] = [
       { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
     ],
     price: 310,
+  },
+  {
+    key: 'foot-crack-care',
+    category: 'offer',
+    nameAr: 'عناية تشققات القدمين',
+    nameEn: 'Cracked Heel Care',
+    descriptionAr: 'علاج متخصص لتشققات وجفاف كعب القدمين، يزيل الجلد المتشقق ويعيد للقدمين النعومة والترطيب العميق. الجلسة 250 ريال، وباقة 3 جلسات بـ 600 ريال.',
+    descriptionEn: 'A specialised treatment for cracked, dry heels that removes rough skin and restores deep softness and hydration. Single session 250 SAR, or a 3-session package for 600 SAR.',
+    price: 250,
+    bundleCount: 3,
+    bundlePrice: 600,
   },
   {
     key: 'offer-bath-pedi',
