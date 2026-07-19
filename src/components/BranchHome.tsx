@@ -1039,20 +1039,18 @@ function Footer() {
 // ═══════════════════════════════════════════
 function WhatsAppButton() {
   const branch = useBranch()
-  const [show, setShow] = useState(false)
-  useEffect(() => {
-    const fn = () => setShow(window.scrollY > 400)
-    window.addEventListener('scroll', fn, { passive: true })
-    return () => window.removeEventListener('scroll', fn)
-  }, [])
 
+  // Pinned with the PHYSICAL `right`, not the logical `end`: under RTL — which
+  // is the default locale here — `end` resolves to the left edge, which is why
+  // this sat on the wrong side. Desktop only: on mobile the sticky bottom bar
+  // already carries its own WhatsApp button and the two would overlap.
   return (
     <a
       href={waLink(branch.location?.whatsapp ?? '966556733851')}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp"
-      className={`fixed bottom-6 end-5 z-40 hidden md:flex items-center justify-center w-14 h-14 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_6px_30px_rgba(37,211,102,0.5)] md:bottom-8 md:end-8 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+      className="fixed bottom-6 right-5 z-40 hidden md:flex items-center justify-center w-14 h-14 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-110 hover:shadow-[0_6px_30px_rgba(37,211,102,0.5)] md:bottom-8 md:right-8"
       style={{ background: '#25D366' }}
     >
       <svg viewBox="0 0 32 32" className="w-7 h-7" fill="white">
