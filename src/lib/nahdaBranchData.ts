@@ -32,7 +32,6 @@ export const nahdaServiceImages: Record<string, string> = {
   'offer-massage-bath': images.massage,
   'offer-massage-pedi': images.maniPedi,
   'foot-crack-care': '/services/nahda-foot-crack-care.webp',
-  'offer-bath-pedi': images.classicBath,
 }
 
 // Tabs to show on the Nahda services section (same component, branch tabs).

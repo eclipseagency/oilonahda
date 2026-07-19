@@ -388,7 +388,6 @@ const serviceImages: Record<string, string> = {
   'thai-40': images.thai,
   'offer-massage-pedi': images.maniPedi,
   'foot-crack-care': '/services/nahda-foot-crack-care.webp',
-  'offer-bath-pedi': images.classicBath,
 }
 
 // Branch context used by the single-page hub.
