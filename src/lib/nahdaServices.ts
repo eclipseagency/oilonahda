@@ -13,6 +13,8 @@ export interface NahdaService {
   durationEn?: string
   price?: number
   originalPrice?: number
+  bundleCount?: number
+  bundlePrice?: number
   includes?: { ar: string; en: string }[]
 }
 
@@ -34,6 +36,8 @@ export const nahdaServices: NahdaService[] = services.map((service) => ({
   durationEn: service.durationEn,
   price: service.price,
   originalPrice: service.originalPrice,
+  bundleCount: service.bundleCount,
+  bundlePrice: service.bundlePrice,
   includes: service.includes,
 }))
 
