@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SERVICE_LANDINGS, SERVICE_LANDING_SLUGS } from "@/lib/serviceLanding";
-import { nahdaServices, nahdaCategories } from "@/lib/nahdaServices";
-import { nahdaServiceImages } from "@/lib/nahdaBranchData";
+import { nahdaServicesAsServices, nahdaCategoriesTabs, nahdaServiceImages } from "@/lib/nahdaBranchData";
 import { branches } from "@/lib/branches";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
@@ -37,8 +36,13 @@ export default function ServicesIndexPage() {
   const nahda = branches["al-nahda"];
   const guides = SERVICE_LANDING_SLUGS.map((slug) => SERVICE_LANDINGS[slug]);
   // Only show categories that actually have services, in menu order.
-  const menu = nahdaCategories
-    .map((c) => ({ ...c, items: nahdaServices.filter((s) => s.category === c.id) }))
+  const menu = nahdaCategoriesTabs
+    .map((c) => ({
+      id: c.key,
+      titleAr: c.nameAr,
+      titleEn: c.nameEn,
+      items: nahdaServicesAsServices.filter((s) => s.category === c.key),
+    }))
     .filter((c) => c.items.length > 0);
 
   const waHref = `https://wa.me/${nahda.whatsapp}?text=${encodeURIComponent("السلام عليكم، أود الاستفسار عن خدماتنا والحجز")}`;
@@ -50,7 +54,7 @@ export default function ServicesIndexPage() {
         "@type": "OfferCatalog",
         name: "خدمات أويلو سبا",
         url,
-        itemListElement: nahdaServices.map((s, i) => ({
+        itemListElement: nahdaServicesAsServices.map((s, i) => ({
           "@type": "Offer",
           position: i + 1,
           name: s.nameAr,
@@ -123,10 +127,10 @@ export default function ServicesIndexPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,6,8,0.9) 6%, transparent 65%)" }} />
-                    {s.durationAr && (
+                    {s.duration && (
                       <span className="absolute top-3 start-3 px-2.5 py-1 rounded-full text-[11px] font-bold font-ar"
                         style={{ background: "rgba(6,6,8,0.6)", color: "#dbb97a", backdropFilter: "blur(4px)" }}>
-                        {s.durationAr}
+                        {s.duration}
                       </span>
                     )}
                   </div>
@@ -148,11 +152,8 @@ export default function ServicesIndexPage() {
                       <div className="flex flex-col">
                         {s.price !== undefined && (
                           <span className="font-bold text-lg" style={{ color: gold }}>
-                            {s.fromPrice ? "من " : ""}{s.price} <span className="text-xs font-normal font-ar">ريال</span>
+                            {s.price} <span className="text-xs font-normal font-ar">ريال</span>
                           </span>
-                        )}
-                        {s.bundlePrice && s.bundleCount && (
-                          <span className="font-ar text-[11px]" style={{ color: "#8f877a" }}>{s.bundleCount} جلسات بـ {s.bundlePrice} ريال</span>
                         )}
                       </div>
                       <Link href={`/booking?service=${s.key}`}

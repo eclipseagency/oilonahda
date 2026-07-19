@@ -1,5 +1,3 @@
-import { nahdaServices, type NahdaCategory } from './nahdaServices'
-
 export type ServiceCategory = 'massage' | 'bath' | 'grooming' | 'package' | 'offer'
 
 export interface Service {
@@ -16,33 +14,235 @@ export interface Service {
   includes?: { ar: string; en: string }[]
 }
 
-const CATEGORY_MAP: Record<NahdaCategory, ServiceCategory> = {
-  massage: 'massage',
-  bath: 'bath',
-  pedicure: 'grooming',
-  oilBath: 'grooming',
-  facial: 'grooming',
-  package: 'package',
-  offer: 'offer',
-}
+export const services: Service[] = [
+  // ── MASSAGE ──
+  {
+    key: 'oilo-massage',
+    category: 'massage',
+    nameAr: 'مساج أويلو سبا',
+    nameEn: 'Oilo Spa Massage',
+    descriptionAr: 'تجربة مساج متكاملة تساعد على استرخاء الجسم وتنقلك إلى عالم من الراحة والدلال. كل لمسة مصممة بعناية لتمنحك يومًا أكثر هدوءًا ومتعة',
+    descriptionEn: 'A complete massage experience that helps your body relax and transports you to a world of comfort. Every touch is carefully designed to give you a calmer, more enjoyable day',
+    duration: '60 دقيقة',
+    durationEn: '60 min',
+    price: 240,
+  },
+  {
+    key: 'swedish-60',
+    category: 'massage',
+    nameAr: 'المساج السويدي',
+    nameEn: 'Swedish Massage',
+    descriptionAr: 'مساج ينساب على الجسم بهدوء، يخفف التوتر ويعيد التوازن ويمنحك حالة من الصفاء والاسترخاء العميق',
+    descriptionEn: 'A massage that flows gently across the body, relieving tension, restoring balance, and giving you a state of deep relaxation',
+    duration: '60 دقيقة',
+    durationEn: '60 min',
+    price: 240,
+  },
+  {
+    key: 'swedish-40',
+    category: 'massage',
+    nameAr: 'المساج السويدي',
+    nameEn: 'Swedish Massage',
+    descriptionAr: 'جلسة سويدية أقصر بنفس الانسياب والهدوء، مثالية لتخفيف التوتر بسرعة واستعادة التوازن',
+    descriptionEn: 'A shorter Swedish session with the same gentle flow, ideal for quickly relieving tension and restoring balance',
+    duration: '40 دقيقة',
+    durationEn: '40 min',
+    price: 200,
+  },
+  {
+    key: 'hot-stone',
+    category: 'massage',
+    nameAr: 'مساج الأحجار الساخنة',
+    nameEn: 'Hot Stone Massage',
+    descriptionAr: 'مساج باستخدام أحجار دافئة توضع على نقاط محددة من الجسم، يساعد على تخفيف التوتر ويرفع مستوى الراحة والاسترخاء العميق',
+    descriptionEn: 'A massage using warm stones placed on specific body points, helping relieve tension and elevating deep relaxation',
+    price: 200,
+  },
+  {
+    key: 'thai-60',
+    category: 'massage',
+    nameAr: 'المساج التايلاندي',
+    nameEn: 'Thai Massage',
+    descriptionAr: 'يساعد على تنشيط الجسم وتمديد العضلات ويحرر الطاقة ويمنحك إحساسًا بالخفة والراحة العميقة',
+    descriptionEn: 'Helps energize the body, stretch muscles, release energy, and gives you a feeling of lightness and deep comfort',
+    duration: '60 دقيقة',
+    durationEn: '60 min',
+    price: 240,
+  },
+  {
+    key: 'thai-40',
+    category: 'massage',
+    nameAr: 'المساج التايلاندي',
+    nameEn: 'Thai Massage',
+    descriptionAr: 'جلسة تايلاندية أقصر تركز على تمديد العضلات وتحرير الطاقة لإحساس سريع بالخفة والانتعاش',
+    descriptionEn: 'A shorter Thai session focused on stretching muscles and releasing energy for a quick feeling of lightness and refreshment',
+    duration: '40 دقيقة',
+    durationEn: '40 min',
+    price: 200,
+  },
+  {
+    key: 'shiatsu',
+    category: 'massage',
+    nameAr: 'مساج شياتسو',
+    nameEn: 'Shiatsu Massage',
+    descriptionAr: 'مساج ياباني يعتمد على الضغط بأصابع اليد على نقاط محددة لتحفيز الطاقة وتخفيف التوتر وتحسين الدورة الدموية',
+    descriptionEn: 'A Japanese massage that uses finger pressure on specific points to stimulate energy, relieve tension, and improve blood circulation',
+    duration: '40 دقيقة',
+    durationEn: '40 min',
+    price: 200,
+  },
 
-export const services: Service[] = nahdaServices.map((service) => ({
-  key: service.key,
-  category: CATEGORY_MAP[service.category],
-  nameAr: service.nameAr,
-  nameEn: service.nameEn,
-  descriptionAr: service.descriptionAr,
-  descriptionEn: service.descriptionEn,
-  duration: service.durationAr,
-  durationEn: service.durationEn,
-  price: service.price,
-  includes: service.includes,
-}))
+  // ── MOROCCAN BATH ──
+  {
+    key: 'royal-bath',
+    category: 'bath',
+    nameAr: 'حمام ملكي بزيت الأرجان',
+    nameEn: 'Royal Bath with Argan Oil',
+    descriptionAr: 'حمام مغربي ملكي يجمع بين التقشير والترطيب العميق باستخدام زيت الأرجان الطبيعي، ليترك البشرة ناعمة ومغذية ومشرقة ويمنح إحساسًا بالاسترخاء الفاخر',
+    descriptionEn: 'A royal Moroccan bath combining exfoliation and deep moisturizing with natural argan oil, leaving skin soft, nourished, and radiant with a sense of luxurious relaxation',
+    price: 450,
+  },
+  {
+    key: 'dead-sea-bath',
+    category: 'bath',
+    nameAr: 'حمام بطين البحر الميت والأعشاب العطرية',
+    nameEn: 'Dead Sea Clay & Aromatic Herbs Bath',
+    descriptionAr: 'تنظيف عميق للجسم باستخدام طين البحر الميت لإزالة السموم والشوائب، مع أعشاب عطرية تمنحك رائحة منعشة وإحساس استرخاء عميق',
+    descriptionEn: 'Deep body cleansing using Dead Sea clay to remove toxins and impurities, with aromatic herbs that give you a refreshing scent and deep relaxation',
+    price: 250,
+  },
+  {
+    key: 'classic-bath',
+    category: 'bath',
+    nameAr: 'حمام مغربي كلاسيكي',
+    nameEn: 'Classic Moroccan Clay Bath',
+    descriptionAr: 'تنظيف عميق باستخدام الطين المغربي الطبيعي مع تقشير وترطيب للبشرة، يترك الجلد ناعمًا ومتجددًا ومشرقًا ويمنح إحساس راحة واسترخاء',
+    descriptionEn: 'Deep cleansing with natural Moroccan clay, exfoliation and moisturizing that leaves skin soft, renewed, and radiant with a sense of comfort and relaxation',
+    price: 170,
+  },
+
+  // ── GROOMING ──
+  {
+    key: 'mani-pedi',
+    category: 'grooming',
+    nameAr: 'بديكير اليدين والقدمين',
+    nameEn: 'Hand & Foot Pedicure',
+    descriptionAr: 'عناية متكاملة بالأظافر والجلد تشمل تقليم وتشكيل الأظافر، إزالة الجلد الميت وترطيب البشرة لتصبح اليدين والقدمين ناعمتين ومرتبتين وصحيتين',
+    descriptionEn: 'Complete nail and skin care including trimming, shaping, dead skin removal, and moisturizing for smooth, neat, and healthy hands and feet',
+    price: 210,
+  },
+  {
+    key: 'pedi',
+    category: 'grooming',
+    nameAr: 'بدكير قدم',
+    nameEn: 'Foot Pedicure',
+    descriptionAr: 'عناية وتنظيف للقدمين والأظافر.',
+    descriptionEn: 'Care and grooming for feet and nails.',
+    price: 120,
+  },
+  {
+    key: 'facial',
+    category: 'grooming',
+    nameAr: 'تنظيف البشرة',
+    nameEn: 'Facial Cleansing',
+    descriptionAr: 'تنظيف عميق للبشرة يزيل الشوائب ويمنح البشرة صفاء ونعومة وانتعاش',
+    descriptionEn: 'Deep facial cleansing that removes impurities and gives your skin clarity, softness, and freshness',
+    price: 170,
+  },
+  {
+    key: 'jacuzzi',
+    category: 'grooming',
+    nameAr: 'جاكوزي',
+    nameEn: 'Jacuzzi',
+    descriptionAr: 'تجربة استرخاء مائية فاخرة تعيد توازن الجسم وتمنحك إحساس بالراحة والانتعاش',
+    descriptionEn: 'A luxurious water relaxation experience that restores body balance and gives you a sense of comfort and freshness',
+    price: 100,
+  },
+
+  // ── PACKAGES ──
+  {
+    key: 'royal-package',
+    category: 'package',
+    nameAr: 'الباقة الملكية',
+    nameEn: 'Royal Package',
+    descriptionAr: 'تجربة فاخرة متكاملة تشمل مساج أويلو سبا مع الأحجار الساخنة لمدة 60 دقيقة وحمام مغربي ملكي بزيت الأرجان وبديكير اليدين والقدمين وتنظيف بشرة وجاكوزي ومشروبات ساخنة وباردة',
+    descriptionEn: 'A complete luxury experience including 60-minute Oilo Spa massage with hot stones, Royal Moroccan bath with argan oil, hand & foot pedicure, skin care, jacuzzi, and hot & cold beverages',
+    includes: [
+      { ar: 'مساج Oilo سبا مع الأحجار الساخنة 60 دقيقة', en: 'Oilo Spa Massage with hot stones — 60 min' },
+      { ar: 'حمام مغربي ملكي بزيت الأرجان', en: 'Royal Moroccan Bath with Argan Oil' },
+      { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
+      { ar: 'تنظيف بشرة', en: 'Skin Care' },
+      { ar: 'جاكوزي', en: 'Jacuzzi' },
+      { ar: 'الاستمتاع بالمشروبات الساخنة والباردة', en: 'Hot & Cold Beverages' },
+    ],
+    price: 830,
+    originalPrice: 1140,
+  },
+  {
+    key: 'vip-package',
+    category: 'package',
+    nameAr: 'باقة VIP',
+    nameEn: 'VIP Package',
+    descriptionAr: 'تجربة متكاملة تشمل مساج أويلو سبا 40 دقيقة وحمام مغربي بطين البحر الميت والأعشاب العطرية وبديكير اليدين والقدمين وتنظيف بشرة وجاكوزي ومشروبات ساخنة وباردة',
+    descriptionEn: 'A complete experience including 40-minute Oilo Spa massage, Moroccan hammam with Dead Sea mud and aromatic herbs, hand & foot pedicure, skin care, jacuzzi, and hot & cold beverages',
+    includes: [
+      { ar: 'مساج Oilo سبا 40 دقيقة', en: 'Oilo Spa Massage — 40 min' },
+      { ar: 'حمام مغربي بطين البحر الميت والأعشاب العطرية', en: 'Moroccan Hammam with Dead Sea Mud & Aromatic Herbs' },
+      { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
+      { ar: 'تنظيف بشرة', en: 'Skin Care' },
+      { ar: 'جاكوزي', en: 'Jacuzzi' },
+      { ar: 'الاستمتاع بالمشروبات الساخنة والباردة', en: 'Hot & Cold Beverages' },
+    ],
+    price: 620,
+    originalPrice: 980,
+  },
+
+  // ── OFFERS ──
+  {
+    key: 'offer-massage-bath',
+    category: 'offer',
+    nameAr: 'عرض خاص: مساج + حمام مغربي',
+    nameEn: 'Special Offer: Massage + Moroccan Bath',
+    descriptionAr: 'مساج احترافي يخفف التوتر ويعيد النشاط مع حمام مغربي لتنقية الجسم واستعادة الحيوية',
+    descriptionEn: 'A professional massage to relieve stress and restore energy, paired with a Moroccan bath to cleanse the body and revive vitality',
+    includes: [
+      { ar: 'مساج احترافي يخفف التوتر ويعيد النشاط', en: 'Professional massage to relieve stress and restore energy' },
+      { ar: 'حمام مغربي لتنقية الجسم واستعادة الحيوية', en: 'Moroccan bath to cleanse the body and revive vitality' },
+    ],
+    price: 310,
+  },
+  {
+    key: 'offer-massage-pedi',
+    category: 'offer',
+    nameAr: 'عرض خاص: مساج + بديكير',
+    nameEn: 'Special Offer: Massage + Pedicure',
+    descriptionAr: 'مساج للاسترخاء واستعادة النشاط مع بديكير اليدين والقدمين للعناية الكاملة',
+    descriptionEn: 'A relaxing massage to restore energy combined with hand & foot pedicure for complete care',
+    includes: [
+      { ar: 'مساج للاسترخاء', en: 'Relaxing massage' },
+      { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
+    ],
+    price: 310,
+  },
+  {
+    key: 'offer-bath-pedi',
+    category: 'offer',
+    nameAr: 'عرض خاص: حمام مغربي + بديكير',
+    nameEn: 'Special Offer: Moroccan Bath + Pedicure',
+    descriptionAr: 'حمام مغربي يعيد نقاء البشرة مع بديكير اليدين والقدمين لإطلالة مرتبة وعناية كاملة',
+    descriptionEn: 'A Moroccan bath to restore skin clarity with hand & foot pedicure for a neat look and complete care',
+    includes: [
+      { ar: 'حمام مغربي', en: 'Moroccan Bath' },
+      { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
+    ],
+    price: 310,
+  },
+]
 
 export const categories: { key: ServiceCategory; nameAr: string; nameEn: string }[] = [
   { key: 'massage', nameAr: 'المساج', nameEn: 'Massage' },
   { key: 'bath', nameAr: 'الحمام المغربي', nameEn: 'Moroccan Bath' },
-  { key: 'grooming', nameAr: 'العناية والبديكير', nameEn: 'Care & Pedicure' },
+  { key: 'grooming', nameAr: 'العناية', nameEn: 'Grooming' },
   { key: 'package', nameAr: 'الباقات', nameEn: 'Packages' },
   { key: 'offer', nameAr: 'العروض', nameEn: 'Offers' },
 ]
