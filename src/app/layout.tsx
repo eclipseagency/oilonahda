@@ -5,7 +5,10 @@ import AnalyticsListeners from "@/components/AnalyticsListeners";
 import { branches } from "@/lib/branches";
 import "./globals.css";
 
-const TIKTOK_PIXEL_ID = "D7KD9ARC77UDI5AAGF50";
+// Al Nahda's own TikTok pixel. This site was forked from the Al Rabie site and
+// inherited its pixel (D7KD9ARC77UDI5AAGF50), so until now both branches were
+// reporting into one dataset. Keep these two IDs distinct.
+const TIKTOK_PIXEL_ID = "D9E9VUJC77UD5IE52D6G";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim();
 const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID?.trim();
 const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID?.trim();
