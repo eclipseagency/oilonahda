@@ -11,7 +11,9 @@ import "./globals.css";
 const TIKTOK_PIXEL_ID = "D9E9VUJC77UD5IE52D6G";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim();
 const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID?.trim();
-const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID?.trim();
+// NEXT_PUBLIC_GADS_ID (the main / Al Rabie account) is deliberately NOT read here.
+// This standalone Al Nahda site must neither load nor configure the Rabie tag —
+// see the gtag-init comment below.
 const GADS_ID_NAHDA = process.env.NEXT_PUBLIC_GADS_ID_NAHDA?.trim(); // Al Nahda's separate Google Ads account tag
 const SNAP_PIXEL_ID = process.env.NEXT_PUBLIC_SNAP_PIXEL_ID?.trim();
 
@@ -140,10 +142,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full" style={{ background: "#060608", color: "#e0ddd8" }}>
-        {(GA_ID || GADS_ID || GADS_ID_NAHDA) && (
+        {(GA_ID || GADS_ID_NAHDA) && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID || GADS_ID || GADS_ID_NAHDA}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID || GADS_ID_NAHDA}`}
               strategy="afterInteractive"
             />
             <Script id="gtag-init" strategy="afterInteractive">
