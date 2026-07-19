@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { I18nProvider } from "@/lib/i18n";
 import AnalyticsListeners from "@/components/AnalyticsListeners";
+import AnnouncementTicker from "@/components/AnnouncementTicker";
 import { branches } from "@/lib/branches";
 import "./globals.css";
 
@@ -192,7 +193,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 }(window, document, 'ttq');
           `}
         </Script>
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          <AnnouncementTicker />
+          {children}
+        </I18nProvider>
         <AnalyticsListeners />
         <Script id="statcounter-config" strategy="afterInteractive">
           {`var sc_project=13224581; var sc_invisible=1; var sc_security="44f76be7";`}

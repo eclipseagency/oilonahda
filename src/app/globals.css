@@ -443,3 +443,38 @@ html[dir="rtl"] .heading-warm-eyebrow::before {
 .prose-oilo a:hover {
   color: #e0c88a;
 }
+
+/* Announcement ticker — the track holds two identical strips, so translating
+   by exactly -50% lands on the clone and the loop is seamless. RTL scrolls
+   the other way so text always enters from the reading edge. */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes ticker-scroll-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
+}
+.ticker-track { animation: ticker-scroll 32s linear infinite; will-change: transform; }
+[dir="rtl"] .ticker-track { animation-name: ticker-scroll-rtl; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* Arabic display typography.
+   Ocean Spa uses PingARLT (commercial, licensed to Salla merchants). We match
+   its FEEL with IBM Plex Sans Arabic rather than hotlinking a font we have no
+   licence for: heavier display weight, tighter leading, optical size bump.
+   Deliberately NO letter-spacing — Arabic is a connected script and tracking
+   breaks the joins between letters. */
+.font-ar {
+  font-optical-sizing: auto;
+  letter-spacing: 0;
+}
+h1.font-ar, h2 .font-ar, .font-ar.text-3xl, .font-ar.text-4xl,
+.font-ar.text-5xl, .font-ar.text-6xl, .font-ar.text-7xl, .font-ar.text-8xl {
+  font-weight: 700;
+  line-height: 1.18;
+  word-spacing: 0.04em;
+}
+[dir="rtl"] .badge { letter-spacing: 0; }

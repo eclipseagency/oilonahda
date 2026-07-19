@@ -12,6 +12,7 @@ import FAQ, { getFaqJsonLd } from '@/components/FAQ'
 import WhatToExpect from '@/components/WhatToExpect'
 import GiftMembership from '@/components/GiftMembership'
 import ContactSection from '@/components/ContactSection'
+import OfferBanners from '@/components/OfferBanners'
 import { OrnamentDivider } from '@/components/Monogram'
 import { type BranchId } from '@/lib/branches'
 import {
@@ -240,7 +241,7 @@ function Hero() {
   useEffect(() => { setTimeout(() => setShow(true), 200) }, [])
 
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full-bleed Video — poster shows instantly while the mp4 loads (no black flash) */}
       <video autoPlay muted loop playsInline preload="metadata" poster="/services/nahda-hero.webp"
         className="absolute inset-0 w-full h-full object-cover">
@@ -250,7 +251,7 @@ function Hero() {
       {/* Heavy gradient overlay — cinematic */}
       <div className="absolute inset-0" style={{
         background: `
-          linear-gradient(to top, rgba(6,6,8,1) 0%, rgba(6,6,8,0.7) 30%, rgba(6,6,8,0.2) 60%, rgba(6,6,8,0.4) 100%)
+          linear-gradient(to top, rgba(6,6,8,1) 0%, rgba(6,6,8,0.82) 25%, rgba(6,6,8,0.62) 50%, rgba(6,6,8,0.58) 75%, rgba(6,6,8,0.72) 100%)
         `
       }} />
 
@@ -259,7 +260,7 @@ function Hero() {
         style={{ background: 'rgba(201,169,110,0.08)' }} />
 
       {/* Content */}
-      <div className="relative z-10 w-full pb-20 sm:pb-28 md:pb-36 pt-40">
+      <div className="relative z-10 w-full py-28 sm:py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           {/* Animated badges */}
           <div className={`mb-8 flex flex-wrap items-center justify-center gap-2 transition-all duration-1000 delay-200 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
@@ -1102,6 +1103,7 @@ export default function BranchHome() {
       <Navbar />
       <main>
         <Hero />
+        <OfferBanners />
         <Services />
         {branch.showPackages && <Packages />}
         {branch.showGallery && <Gallery />}
