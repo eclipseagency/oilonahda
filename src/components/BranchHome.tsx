@@ -379,6 +379,7 @@ const serviceImages: Record<string, string> = {
   'dead-sea-bath': images.deadSeaBath,
   'classic-bath': images.classicBath,
   'mani-pedi': images.maniPedi,
+  'pedi': '/services/nahda-pedi.webp',
   'facial': images.facial,
   'jacuzzi': images.jacuzzi,
   'royal-package': images.candles,

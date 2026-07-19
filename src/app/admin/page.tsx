@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useI18n } from '@/lib/i18n'
 import { services } from '@/lib/services'
-import { nahdaServices } from '@/lib/nahdaServices'
 import type { Booking } from '@/lib/supabase'
 import AdsPanel from './AdsPanel'
 
@@ -143,10 +142,7 @@ const DAY_NAMES_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const DAY_NAMES_AR = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت']
 
 function getServiceName(key: string, isAr: boolean): string {
-  // Search the service catalogs, prioritizing Al Nahda services for this build.
-  // Nahda-only keys (e.g. pkg-vip, bath-royal) render their real names.
-  const service = nahdaServices.find(s => s.key === key)
-    ?? services.find(s => s.key === key)
+  const service = services.find(s => s.key === key)
   if (!service) return key
   return isAr ? service.nameAr : service.nameEn
 }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { nahdaServices } from "@/lib/nahdaServices";
-import { nahdaServiceImages } from "@/lib/nahdaBranchData";
+import { nahdaServicesAsServices, nahdaServiceImages } from "@/lib/nahdaBranchData";
 import { branches } from "@/lib/branches";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
@@ -60,8 +59,8 @@ const faqs = [
 
 export default function OffersPage() {
   const nahda = branches["al-nahda"];
-  const nahdaOffers = nahdaServices.filter((s) => s.category === "offer");
-  const nahdaPackages = nahdaServices.filter((s) => s.category === "package");
+  const nahdaOffers = nahdaServicesAsServices.filter((s) => s.category === "offer");
+  const nahdaPackages = nahdaServicesAsServices.filter((s) => s.category === "package");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -174,14 +173,8 @@ export default function OffersPage() {
                   <div className="flex items-end flex-wrap gap-x-4 gap-y-1 mb-4">
                     {s.price !== undefined && (
                       <p className="text-2xl font-bold" style={{ color: gold }}>
-                        {s.fromPrice ? "من " : ""}{s.price} <span className="text-sm font-normal">ريال</span>
-                        {s.bundlePrice && <span className="text-xs font-normal" style={{ color: "#D8CFBF" }}> / الجلسة</span>}
+                        {s.price} <span className="text-sm font-normal">ريال</span>
                       </p>
-                    )}
-                    {s.bundlePrice && s.bundleCount && (
-                      <span className="px-3 py-1.5 rounded-full text-xs font-bold" style={{ background: "rgba(201,169,110,0.15)", color: "#dbb97a" }}>
-                        {s.bundleCount} جلسات بـ {s.bundlePrice} ريال
-                      </span>
                     )}
                   </div>
                   <div className="flex gap-2 mt-auto">

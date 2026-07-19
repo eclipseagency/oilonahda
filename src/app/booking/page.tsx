@@ -391,7 +391,7 @@ function BookingContent() {
   const cats = nahdaCategoriesTabs
   // Al Nahda uses its real interior shots (/services/nahda-*.webp).
   const branchImages = nahdaServiceImages
-  const branchFallbackImg = nahdaServiceImages['dry-massage']
+  const branchFallbackImg = nahdaServiceImages['oilo-massage']
 
   const [step, setStep] = useState(1)
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | 'all'>('all')
