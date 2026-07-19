@@ -29,7 +29,6 @@ export const nahdaServiceImages: Record<string, string> = {
   'jacuzzi': images.jacuzzi,
   'royal-package': images.candles,
   'vip-package': images.royalBath,
-  'offer-massage-bath': images.massage,
   'offer-massage-pedi': images.maniPedi,
   'foot-crack-care': '/services/nahda-foot-crack-care.webp',
 }
