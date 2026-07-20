@@ -9,7 +9,9 @@ import "./globals.css";
 // Al Nahda's own TikTok pixel. This site was forked from the Al Rabie site and
 // inherited its pixel (D7KD9ARC77UDI5AAGF50), so until now both branches were
 // reporting into one dataset. Keep these two IDs distinct.
-const TIKTOK_PIXEL_ID = "D9E9VUJC77UD5IE52D6G";
+// 2026-07-20: replaced Al Nahda's previous pixel (D9E9VUJC77UD5IE52D6G) with
+// the new one Mustafa set up; history stays on the old dataset.
+const TIKTOK_PIXEL_ID = "D9ETNTJC77UBS5FSHTG0";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim();
 const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID?.trim();
 // NEXT_PUBLIC_GADS_ID (the main / Al Rabie account) is deliberately NOT read here.
