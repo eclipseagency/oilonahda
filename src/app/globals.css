@@ -258,6 +258,9 @@ html[dir="rtl"] .heading-warm-eyebrow::before {
   border-radius: 14px;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
+/* Arabic is a connected script; the base 0.06em tracking above breaks the
+   letter joins. font-ar on a button opts out of it. */
+.btn-primary.font-ar { letter-spacing: 0; }
 .btn-primary:hover {
   background-position: 100% 0;
   transform: translateY(-3px);

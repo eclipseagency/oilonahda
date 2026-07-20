@@ -225,8 +225,12 @@ function Navbar() {
             {/* font-ar zeroes the letter-spacing that `tracking-wider` would
                 otherwise apply: Arabic is a connected script and tracking pulls
                 the letters apart, breaking their joins. */}
+            {/* w-full is required: .btn-primary is display:inline-flex, so the
+                Tailwind `block` utility can't stretch it and the button collapses
+                to its text width. font-ar zeroes the base class's 0.06em tracking
+                (Arabic is connected). */}
             <Link href={branch.primaryBookingHref} onClick={() => setOpen(false)}
-              className={`btn-primary block text-center py-4 text-sm rounded-2xl ${locale === 'ar' ? 'font-ar' : 'font-body tracking-wider uppercase'}`}>
+              className={`btn-primary w-full text-center py-4 text-sm rounded-2xl ${locale === 'ar' ? 'font-ar' : 'font-body tracking-wider uppercase'}`}>
               {t('nav.booking')}
             </Link>
           </div>
@@ -311,7 +315,7 @@ function Hero() {
           {/* CTAs */}
           <div className={`mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 transition-all duration-[1.4s] delay-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <Link href={branch.primaryBookingHref}
-              className="btn-primary w-full sm:w-auto px-10 sm:px-14 py-4 sm:py-4 text-xs sm:text-sm tracking-[0.12em] uppercase">
+              className={`btn-primary w-full sm:w-auto px-10 sm:px-14 py-4 sm:py-4 text-xs sm:text-sm ${locale === 'ar' ? 'font-ar' : 'tracking-[0.12em] uppercase'}`}>
               {t('hero.cta')}
             </Link>
             <a href={`tel:${branch.location?.phone ?? '0556733851'}`}
@@ -1077,7 +1081,7 @@ function WhatsAppButton() {
 // STICKY MOBILE CTA
 // ═══════════════════════════════════════════
 function StickyCTA() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const branch = useBranch()
   const [show, setShow] = useState(false)
   useEffect(() => {
@@ -1090,7 +1094,7 @@ function StickyCTA() {
     <div className={`fixed bottom-4 inset-x-4 z-30 md:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${show ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
       <div className="flex items-center gap-2">
         <Link href={branch.primaryBookingHref}
-          className="btn-primary flex-1 text-center py-4 text-sm tracking-wider uppercase rounded-2xl shadow-[0_10px_40px_rgba(201,169,110,0.3)]">
+          className={`btn-primary flex-1 text-center py-4 text-sm rounded-2xl shadow-[0_10px_40px_rgba(201,169,110,0.3)] ${locale === 'ar' ? 'font-ar' : 'tracking-wider uppercase'}`}>
           {t('hero.cta')}
         </Link>
         <a
