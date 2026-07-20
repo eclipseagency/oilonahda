@@ -86,6 +86,13 @@ export default function OfferBanners() {
                   }}
                 />
 
+                {/* Mobile-only darkening pass. On phones the copy is full-width and
+                    centred, so it sits over the bright photo subject on the left
+                    where the horizontal scrim above is nearly clear. This flat
+                    layer guarantees contrast there; md+ keeps the elegant
+                    right-side-only scrim untouched. */}
+                <div className="absolute inset-0 bg-black/45 md:hidden" />
+
                 {/* The artwork always keeps its subject on the physical left, so the
                     copy must sit on the physical right in BOTH languages. Logical
                     properties (justify-end / text-start) flip under RTL and would
@@ -97,7 +104,7 @@ export default function OfferBanners() {
                 >
                   <div
                     dir={isAr ? 'rtl' : 'ltr'}
-                    className={`w-full text-center md:w-[56%] ${isAr ? 'md:text-right' : 'md:text-left'}`}
+                    className={`relative z-10 w-full text-center md:w-[56%] ${isAr ? 'md:text-right' : 'md:text-left'}`}
                   >
                     <span className="badge mb-4 text-[10px] sm:text-[11px]">
                       {saved != null
@@ -147,7 +154,9 @@ export default function OfferBanners() {
                         </span>
                       )}
 
-                      <span className="btn-primary px-8 py-3 text-[11px] uppercase tracking-[0.12em] sm:text-xs">
+                      {/* Arabic is connected — tracking/uppercase would break the
+                          letter joins, so gate them to English only. */}
+                      <span className={`btn-primary px-8 py-3 text-[11px] sm:text-xs ${isAr ? 'font-ar' : 'uppercase tracking-[0.12em]'}`}>
                         {isAr ? 'احجز هذا العرض' : 'Book this offer'}
                       </span>
                     </div>

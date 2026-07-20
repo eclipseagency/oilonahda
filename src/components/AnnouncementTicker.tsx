@@ -33,7 +33,7 @@ export default function AnnouncementTicker() {
     >
       {filled.map((text, i) => (
         <span key={i} className={`flex items-center gap-10 whitespace-nowrap ${isAr ? 'font-ar' : 'font-body'}`}>
-          <span className="text-[11px] tracking-[0.06em]" style={{ color: 'rgba(245,239,228,0.82)' }}>
+          <span className={`text-[11px] ${isAr ? '' : 'tracking-[0.06em]'}`} style={{ color: 'rgba(245,239,228,0.82)' }}>
             {text}
           </span>
           <span className="h-1 w-1 rounded-full bg-[#C9A96E]/50" />
@@ -43,8 +43,9 @@ export default function AnnouncementTicker() {
   )
 
   // Sticky and above the navbar, which is fixed at z-50 and would otherwise
-  // paint straight over this strip. The navbar is offset to top-9 to clear it,
-  // so this must stay pinned or that 36px becomes an empty gap once scrolled.
+  // paint straight over this strip. The navbar pill is offset to top-[52px]
+  // (this 36px strip + its 16px inset), so this must stay pinned or that gap
+  // opens up once the page scrolls.
   return (
     <Link
       href="/booking"
