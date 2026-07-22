@@ -14,8 +14,8 @@ export const nahdaServicesAsServices: Service[] = services
 
 export const nahdaServiceImages: Record<string, string> = {
   'oilo-massage': '/services/nahda-dry-massage.webp',
-  'swedish-60': images.swedish,
-  'swedish-40': images.swedish,
+  'swedish-60': '/services/nahda-mix-massage-v2.webp',
+  'swedish-40': '/services/nahda-mix-massage-v2.webp',
   'hot-stone': '/services/nahda-hot-stone-massage.webp',
   'warm-olive-oil': '/services/nahda-addon-warm-oil-v2.webp',
   'air-cupping': '/services/nahda-addon-cupping-v2.webp',
@@ -28,9 +28,9 @@ export const nahdaServiceImages: Record<string, string> = {
   'reflexology-30': '/services/therapy.webp',
   'thai-60': images.thai,
   'thai-40': images.thai,
-  'shiatsu': images.shiatsu,
+  'shiatsu': '/services/nahda-shiatsu-massage-v2.webp',
   'royal-bath': images.royalBath,
-  'dead-sea-bath': images.deadSeaBath,
+  'dead-sea-bath': '/services/nahda-bath-vip-v2.webp',
   'classic-bath': images.classicBath,
   'mani-pedi': images.maniPedi,
   'pedi': '/services/nahda-pedi.webp',
@@ -45,7 +45,7 @@ export const nahdaServiceImages: Record<string, string> = {
   'vip-package': '/services/nahda-pkg-vip.webp',
   'offer-massage-pedi': '/services/nahda-offer-massage-pedi-v2.webp',
   'offer-massage-bath': '/services/eid-offer-bath.webp',
-  'foot-crack-care': '/services/nahda-foot-crack-care.webp',
+  'foot-crack-care': '/services/nahda-foot-peeling.webp',
 }
 
 // Tabs to show on the Nahda services section (same component, branch tabs).
