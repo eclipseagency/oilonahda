@@ -155,7 +155,7 @@ export const services: Service[] = [
     nameEn: 'Hand & Foot Pedicure',
     descriptionAr: 'عناية متكاملة بالأظافر والجلد تشمل تقليم وتشكيل الأظافر، إزالة الجلد الميت وترطيب البشرة لتصبح اليدين والقدمين ناعمتين ومرتبتين وصحيتين',
     descriptionEn: 'Complete nail and skin care including trimming, shaping, dead skin removal, and moisturizing for smooth, neat, and healthy hands and feet',
-    price: 210,
+    price: 175,
   },
   {
     key: 'pedi',
@@ -164,7 +164,7 @@ export const services: Service[] = [
     nameEn: 'Foot Pedicure',
     descriptionAr: 'عناية وتنظيف للقدمين والأظافر.',
     descriptionEn: 'Care and grooming for feet and nails.',
-    price: 120,
+    price: 100,
   },
   {
     key: 'facial',
