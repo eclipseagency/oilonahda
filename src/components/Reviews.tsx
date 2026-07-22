@@ -31,6 +31,16 @@ const reviews = [
     text: 'مكان ممتاز وخدمه اكتر من رائعه بدايه من الاستقبال الي الاخصائي ونضافه فوق الممتاز انصحكوا تجربوا لا تترددوا',
     date: 'قبل شهر',
   },
+  {
+    name: 'عمار',
+    text: 'شغل احترافي ومكان نظيف ومرتب أشكر الأستاذ ابو وديع والاخ وليد في الاستقبال تعامل طيب وراقي وايضا الشكر لعامل الاندونيسي متمكن جدا فالمساج',
+    date: 'قبل شهر',
+  },
+  {
+    name: 'RAWAF 6',
+    text: 'ماقصر اخ وليد تعامل و احترام و مرافق نضيفه',
+    date: 'قبل شهر',
+  },
 ]
 
 function GoogleWordmark() {
@@ -58,6 +68,7 @@ function Stars({ size = 18 }: { size?: number }) {
 export default function Reviews() {
   const { locale } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const el = sectionRef.current
@@ -76,6 +87,17 @@ export default function Reviews() {
   }, [])
 
   const isAr = locale === 'ar'
+
+  const scrollReviews = (direction: 'previous' | 'next') => {
+    const slider = sliderRef.current
+    if (!slider) return
+    const step = Math.min(slider.clientWidth * 0.85, 760)
+    const logicalDirection = isAr ? -1 : 1
+    slider.scrollBy({
+      left: (direction === 'next' ? 1 : -1) * logicalDirection * step,
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <section id="reviews" ref={sectionRef} className="bg-section-a py-16 sm:py-24 md:py-32">
@@ -102,14 +124,29 @@ export default function Reviews() {
           </a>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mb-5 flex items-center justify-end gap-3">
+          <button type="button" onClick={() => scrollReviews('previous')}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-xl text-white transition-colors hover:border-[#C9A96E] hover:text-[#C9A96E]"
+            aria-label={isAr ? 'التقييمات السابقة' : 'Previous reviews'}>
+            {isAr ? '›' : '‹'}
+          </button>
+          <button type="button" onClick={() => scrollReviews('next')}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-xl text-white transition-colors hover:border-[#C9A96E] hover:text-[#C9A96E]"
+            aria-label={isAr ? 'المزيد من التقييمات' : 'More reviews'}>
+            {isAr ? '‹' : '›'}
+          </button>
+        </div>
+
+        <div ref={sliderRef}
+          className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 scroll-smooth"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {reviews.map((review, index) => (
             <article key={review.name}
-              className="reveal flex min-h-[260px] flex-col rounded-xl border border-[#dadce0] bg-white p-5 text-[#202124] shadow-[0_1px_2px_rgba(60,64,67,0.18),0_1px_3px_1px_rgba(60,64,67,0.08)]">
+              className="reveal flex min-h-[280px] w-[86vw] max-w-[360px] shrink-0 snap-start flex-col rounded-xl border border-[#dadce0] bg-white p-5 text-[#202124] shadow-[0_1px_2px_rgba(60,64,67,0.18),0_1px_3px_1px_rgba(60,64,67,0.08)] sm:w-[340px] lg:w-[360px]">
               <div className="mb-4 flex items-center justify-between gap-3" dir="ltr">
                 <div className="flex min-w-0 items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-base font-semibold text-white"
-                    style={{ background: ['#1a73e8', '#9334e6', '#00897b', '#d93025', '#f9ab00'][index] }}>
+                    style={{ background: ['#1a73e8', '#9334e6', '#00897b', '#d93025', '#f9ab00', '#5f6368', '#7b1fa2'][index] }}>
                     {review.name.trim().charAt(0).toUpperCase()}
                   </div>
                   <div className="min-w-0">
