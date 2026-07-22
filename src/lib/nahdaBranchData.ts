@@ -14,14 +14,15 @@ export const nahdaServicesAsServices: Service[] = services
 
 export const nahdaServiceImages: Record<string, string> = {
   'oilo-massage': '/services/nahda-dry-massage.webp',
-  'swedish-60': '/services/nahda-mix-massage-v2.webp',
-  'swedish-40': '/services/nahda-mix-massage-v2.webp',
+  'swedish-60': '/services/nahda-swedish-massage.webp',
+  'swedish-40': '/services/nahda-swedish-massage.webp',
   'hot-stone': '/services/nahda-hot-stone-massage.webp',
   'warm-olive-oil': '/services/nahda-addon-warm-oil-v2.webp',
   'air-cupping': '/services/nahda-addon-cupping-v2.webp',
   'wood-60': '/services/nahda-addon-wood-v2.webp',
   'wood-30': '/services/nahda-addon-wood-v2.webp',
   'warm-compress': '/services/nahda-addon-compress-v2.webp',
+  'mix-massage': '/services/nahda-mix-massage-v2.webp',
   'aromatherapy': '/services/nahda-aroma-oil-massage.webp',
   'reflexology-60': '/services/therapy.webp',
   'reflexology-40': '/services/therapy.webp',

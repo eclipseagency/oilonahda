@@ -140,6 +140,12 @@ export const services: Service[] = [
   {
     key: 'warm-compress', category: 'massage', nameAr: 'مساج الكمادات الدافئة', nameEn: 'Warm Compress Massage',
     descriptionAr: 'كمادات دافئة لراحة العضلات والاسترخاء.', descriptionEn: 'Warm compresses for muscle comfort and relaxation.',
+    price: 100,
+  },
+  {
+    key: 'mix-massage', category: 'massage', nameAr: 'مساج مكس', nameEn: 'Mix Massage',
+    descriptionAr: 'جلسة تجمع بين تقنيات مساج متنوعة لتجربة متكاملة من الراحة والاسترخاء.', descriptionEn: 'A session combining varied massage techniques for a complete relaxation experience.',
+    duration: '60 دقيقة', durationEn: '60 min', price: 365,
   },
   {
     key: 'aromatherapy', category: 'massage', nameAr: 'مساج الزيوت العطرية', nameEn: 'Aromatherapy Massage',
