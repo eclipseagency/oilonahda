@@ -82,9 +82,8 @@ export default function Reviews() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <div className="mb-10 flex flex-col items-center justify-between gap-7 md:flex-row md:items-end">
           <div className={isAr ? 'text-center md:text-right' : 'text-center md:text-left'}>
-            <p className="mb-3 text-sm font-semibold text-[#C9A96E]">{isAr ? 'آراء عملائنا على Google' : 'Our customers on Google'}</p>
             <h2 className={`text-3xl font-bold text-[#F5EFE4] sm:text-4xl md:text-5xl ${isAr ? 'font-ar' : 'font-display'}`}>
-              {isAr ? 'تقييمات حقيقية من Google' : 'Real Google Reviews'}
+              {isAr ? 'آراء عملائنا على Google' : 'Our customers on Google'}
             </h2>
           </div>
 
