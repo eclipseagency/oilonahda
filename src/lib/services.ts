@@ -51,7 +51,7 @@ export const services: Service[] = [
     descriptionEn: 'A complete massage experience that helps your body relax and transports you to a world of comfort. Every touch is carefully designed to give you a calmer, more enjoyable day',
     duration: '60 دقيقة',
     durationEn: '60 min',
-    price: 240,
+    price: 195,
   },
   {
     key: 'swedish-60',
@@ -62,7 +62,7 @@ export const services: Service[] = [
     descriptionEn: 'A massage that flows gently across the body, relieving tension, restoring balance, and giving you a state of deep relaxation',
     duration: '60 دقيقة',
     durationEn: '60 min',
-    price: 240,
+    price: 195,
   },
   {
     key: 'swedish-40',
@@ -73,7 +73,7 @@ export const services: Service[] = [
     descriptionEn: 'A shorter Swedish session with the same gentle flow, ideal for quickly relieving tension and restoring balance',
     duration: '40 دقيقة',
     durationEn: '40 min',
-    price: 200,
+    price: 170,
   },
   {
     key: 'hot-stone',
@@ -82,7 +82,7 @@ export const services: Service[] = [
     nameEn: 'Hot Stone Massage',
     descriptionAr: 'مساج باستخدام أحجار دافئة توضع على نقاط محددة من الجسم، يساعد على تخفيف التوتر ويرفع مستوى الراحة والاسترخاء العميق',
     descriptionEn: 'A massage using warm stones placed on specific body points, helping relieve tension and elevating deep relaxation',
-    price: 200,
+    price: 190,
   },
   {
     key: 'thai-60',
@@ -93,7 +93,7 @@ export const services: Service[] = [
     descriptionEn: 'Helps energize the body, stretch muscles, release energy, and gives you a feeling of lightness and deep comfort',
     duration: '60 دقيقة',
     durationEn: '60 min',
-    price: 240,
+    price: 195,
   },
   {
     key: 'thai-40',
@@ -104,7 +104,7 @@ export const services: Service[] = [
     descriptionEn: 'A shorter Thai session focused on stretching muscles and releasing energy for a quick feeling of lightness and refreshment',
     duration: '40 دقيقة',
     durationEn: '40 min',
-    price: 200,
+    price: 170,
   },
   {
     key: 'shiatsu',
@@ -115,7 +115,7 @@ export const services: Service[] = [
     descriptionEn: 'A Japanese massage that uses finger pressure on specific points to stimulate energy, relieve tension, and improve blood circulation',
     duration: '40 دقيقة',
     durationEn: '40 min',
-    price: 200,
+    price: 170,
   },
 
   // ── MOROCCAN BATH ──
@@ -126,7 +126,7 @@ export const services: Service[] = [
     nameEn: 'Royal Bath with Argan Oil',
     descriptionAr: 'حمام مغربي ملكي يجمع بين التقشير والترطيب العميق باستخدام زيت الأرجان الطبيعي، ليترك البشرة ناعمة ومغذية ومشرقة ويمنح إحساسًا بالاسترخاء الفاخر',
     descriptionEn: 'A royal Moroccan bath combining exfoliation and deep moisturizing with natural argan oil, leaving skin soft, nourished, and radiant with a sense of luxurious relaxation',
-    price: 450,
+    price: 400,
   },
   {
     key: 'dead-sea-bath',
@@ -144,7 +144,7 @@ export const services: Service[] = [
     nameEn: 'Classic Moroccan Clay Bath',
     descriptionAr: 'تنظيف عميق باستخدام الطين المغربي الطبيعي مع تقشير وترطيب للبشرة، يترك الجلد ناعمًا ومتجددًا ومشرقًا ويمنح إحساس راحة واسترخاء',
     descriptionEn: 'Deep cleansing with natural Moroccan clay, exfoliation and moisturizing that leaves skin soft, renewed, and radiant with a sense of comfort and relaxation',
-    price: 170,
+    price: 140,
   },
 
   // ── GROOMING ──
@@ -182,7 +182,7 @@ export const services: Service[] = [
     nameEn: 'Jacuzzi',
     descriptionAr: 'تجربة استرخاء مائية فاخرة تعيد توازن الجسم وتمنحك إحساس بالراحة والانتعاش',
     descriptionEn: 'A luxurious water relaxation experience that restores body balance and gives you a sense of comfort and freshness',
-    price: 100,
+    price: 50,
   },
 
   // ── PACKAGES ──
@@ -201,8 +201,8 @@ export const services: Service[] = [
       { ar: 'جاكوزي', en: 'Jacuzzi' },
       { ar: 'الاستمتاع بالمشروبات الساخنة والباردة', en: 'Hot & Cold Beverages' },
     ],
-    price: 830,
-    originalPrice: 1140,
+    price: 690,
+    originalPrice: 1130,
   },
   {
     key: 'vip-package',
@@ -219,8 +219,7 @@ export const services: Service[] = [
       { ar: 'جاكوزي', en: 'Jacuzzi' },
       { ar: 'الاستمتاع بالمشروبات الساخنة والباردة', en: 'Hot & Cold Beverages' },
     ],
-    price: 620,
-    originalPrice: 980,
+    price: 490,
   },
 
   // ── OFFERS ──
