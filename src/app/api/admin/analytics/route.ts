@@ -12,17 +12,28 @@ export async function GET(request: Request) {
   const ninetyDaysAgo = new Date(Date.now() - 90 * 86400_000).toISOString().slice(0, 10)
 
   const branch = resolveBranch(request, auth)
-  const [bookingsRes, giftsRes, membershipsRes, clicksRes] = await Promise.all([
+  const CLICK_TYPES = ['whatsapp', 'phone', 'email', 'location', 'social', 'other'] as const
+  const clickCountQueries = CLICK_TYPES.flatMap(type => [
+    supabase.from('outbound_clicks').select('*', { count: 'exact', head: true }).eq('branch', branch).eq('type', type).gte('created_at', thirtyDaysAgo),
+    supabase.from('outbound_clicks').select('*', { count: 'exact', head: true }).eq('branch', branch).eq('type', type).gte('created_at', ninetyDaysAgo),
+  ])
+
+  const [bookingsRes, giftsRes, membershipsRes, clickCountResults] = await Promise.all([
     supabase.from('bookings').select('service_key, status, date, time_slot, phone').eq('branch', branch).gte('date', ninetyDaysAgo),
     supabase.from('gift_requests').select('amount, status, created_at').eq('branch', branch).gte('created_at', ninetyDaysAgo),
     supabase.from('membership_requests').select('bundle, status, created_at').eq('branch', branch).gte('created_at', ninetyDaysAgo),
-    supabase.from('outbound_clicks').select('type, created_at').eq('branch', branch).gte('created_at', ninetyDaysAgo),
+    Promise.all(clickCountQueries),
   ])
+
+  const queryError = bookingsRes.error || giftsRes.error || membershipsRes.error || clickCountResults.find(result => result.error)?.error
+  if (queryError) {
+    console.error('Failed to load admin analytics', queryError)
+    return Response.json({ error: 'Unable to load analytics' }, { status: 503 })
+  }
 
   const bookings = bookingsRes.data || []
   const gifts = giftsRes.data || []
   const memberships = membershipsRes.data || []
-  const clicks = clicksRes.data || []
 
   const serviceCatalog = [...services, ...nahdaServicesAsServices]
   const priceByKey = new Map(serviceCatalog.map(s => [s.key, s.price || 0]))
@@ -115,15 +126,12 @@ export async function GET(request: Request) {
   const uniqueCustomers = Object.keys(phoneCounts).length
   const repeatCustomers = Object.values(phoneCounts).filter(c => c >= 2).length
 
-  // Outbound / exit-link clicks (WhatsApp, phone, email, location, social)
-  const CLICK_TYPES = ['whatsapp', 'phone', 'email', 'location', 'social']
+  // Exact database counts avoid the Data API's row-return limit as traffic grows.
   const clicks30: Record<string, number> = {}
   const clicks90: Record<string, number> = {}
-  CLICK_TYPES.forEach(t => { clicks30[t] = 0; clicks90[t] = 0 })
-  clicks.forEach(c => {
-    if (clicks90[c.type] === undefined) return
-    clicks90[c.type] += 1
-    if ((c.created_at || '').slice(0, 10) >= thirtyDaysAgo) clicks30[c.type] += 1
+  CLICK_TYPES.forEach((type, index) => {
+    clicks30[type] = clickCountResults[index * 2].count || 0
+    clicks90[type] = clickCountResults[index * 2 + 1].count || 0
   })
   const outboundClicks = {
     total_30d: Object.values(clicks30).reduce((a, b) => a + b, 0),
