@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { I18nProvider } from "@/lib/i18n";
 import AnalyticsListeners from "@/components/AnalyticsListeners";
-import AnnouncementTicker from "@/components/AnnouncementTicker";
 import { branches } from "@/lib/branches";
 import "./globals.css";
 
@@ -196,7 +195,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           `}
         </Script>
         <I18nProvider>
-          <AnnouncementTicker />
           {children}
         </I18nProvider>
         <AnalyticsListeners />

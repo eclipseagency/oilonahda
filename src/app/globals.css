@@ -447,23 +447,6 @@ html[dir="rtl"] .heading-warm-eyebrow::before {
   color: #e0c88a;
 }
 
-/* Announcement ticker — the track holds two identical strips, so translating
-   by exactly -50% lands on the clone and the loop is seamless. RTL scrolls
-   the other way so text always enters from the reading edge. */
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes ticker-scroll-rtl {
-  from { transform: translateX(0); }
-  to   { transform: translateX(50%); }
-}
-.ticker-track { animation: ticker-scroll 32s linear infinite; will-change: transform; }
-[dir="rtl"] .ticker-track { animation-name: ticker-scroll-rtl; }
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
-}
-
 /* Arabic display typography.
    Ocean Spa uses PingARLT (commercial, licensed to Salla merchants). We match
    its FEEL with IBM Plex Sans Arabic rather than hotlinking a font we have no

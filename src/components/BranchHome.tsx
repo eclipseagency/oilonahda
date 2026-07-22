@@ -124,9 +124,7 @@ function Navbar() {
       {/* Spacer for fixed nav */}
       <div className="h-0" />
 
-      {/* top-[52px] = the 36px announcement ticker + the original 16px inset.
-          The ticker is sticky, so it stays put and this offset holds on scroll. */}
-      <nav className="fixed top-[52px] inset-x-4 sm:inset-x-6 lg:inset-x-10 z-50">
+      <nav className="fixed top-4 inset-x-4 sm:inset-x-6 lg:inset-x-10 z-50">
         <div className={`mx-auto max-w-6xl transition-all duration-700 rounded-2xl ${scrolled ? 'shadow-[0_8px_40px_rgba(0,0,0,0.5)]' : ''}`}
           style={{
             background: scrolled ? 'rgba(8,8,12,0.7)' : 'rgba(8,8,12,0.4)',
