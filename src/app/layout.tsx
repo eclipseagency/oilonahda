@@ -199,7 +199,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         </I18nProvider>
         <AnalyticsListeners />
         <Script id="statcounter-config" strategy="afterInteractive">
-          {`var sc_project=13224581; var sc_invisible=1; var sc_security="44f76be7";`}
+          {`var sc_project=13337647; var sc_invisible=1; var sc_security="a3d34503";`}
         </Script>
         <Script
           id="statcounter-js"
@@ -217,7 +217,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="statcounter"
-                src="https://c.statcounter.com/13224581/0/44f76be7/1/"
+                src="https://c.statcounter.com/13337647/0/a3d34503/1/"
                 alt="Web Analytics"
                 referrerPolicy="no-referrer-when-downgrade"
               />

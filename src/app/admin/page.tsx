@@ -1067,8 +1067,8 @@ function SourceBadge({ booking, isAr }: { booking: { source?: string | null; utm
   )
 }
 
-// Statcounter project for oilo.sa — see reference_statcounter_ids.md.
-const OILO_STATCOUNTER_URL = 'https://statcounter.com/p13224581/visitors/?dr=&fdr=&fdrs='
+// Dedicated Statcounter project for the Al Nahda site (oilospa.com).
+const OILO_STATCOUNTER_URL = 'https://statcounter.com/p13337647/visitors/?dr=&fdr=&fdrs='
 
 function IpCell({ ip, isAr }: { ip?: string | null; isAr: boolean }) {
   const [copied, setCopied] = useState(false)
