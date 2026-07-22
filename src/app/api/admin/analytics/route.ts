@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   const ninetyDaysAgo = new Date(Date.now() - 90 * 86400_000).toISOString().slice(0, 10)
 
   const branch = resolveBranch(request, auth)
-  const CLICK_TYPES = ['whatsapp', 'phone', 'email', 'location', 'social', 'other'] as const
+  const CLICK_TYPES = ['whatsapp', 'phone', 'email', 'location', 'social'] as const
   const clickCountQueries = CLICK_TYPES.flatMap(type => [
     supabase.from('outbound_clicks').select('*', { count: 'exact', head: true }).eq('branch', branch).eq('type', type).gte('created_at', thirtyDaysAgo),
     supabase.from('outbound_clicks').select('*', { count: 'exact', head: true }).eq('branch', branch).eq('type', type).gte('created_at', ninetyDaysAgo),

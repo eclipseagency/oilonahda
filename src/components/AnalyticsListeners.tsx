@@ -6,11 +6,11 @@ import { trackEvent } from '@/lib/track'
 // Document-wide click listener for outbound / "exit" links, mounted once in the
 // root layout so we don't have to instrument each <a> in the codebase.
 // - fires the existing gtag events for WhatsApp + phone (GA4/Ads), and
-// - persists every exit click (WhatsApp, phone, email, location, social, other) to the
+// - persists every exit click (WhatsApp, phone, email, location, social/sites) to the
 //   DB via /api/track/click so the admin can count off-site conversions.
 // This is the standalone Al Nahda site, so every click is branch 'al-nahda'.
 
-type ClickType = 'whatsapp' | 'phone' | 'email' | 'location' | 'social' | 'other'
+type ClickType = 'whatsapp' | 'phone' | 'email' | 'location' | 'social'
 
 function classify(href: string): ClickType | null {
   if (!href) return null
@@ -21,7 +21,9 @@ function classify(href: string): ClickType | null {
   if (/(?:instagram\.com|x\.com|twitter\.com|tiktok\.com|snapchat\.com|facebook\.com|fb\.com)/i.test(href)) return 'social'
   try {
     const url = new URL(href, window.location.href)
-    if ((url.protocol === 'http:' || url.protocol === 'https:') && url.origin !== window.location.origin) return 'other'
+    // Keep generic website exits in the existing `social` database bucket. The
+    // production table constrains types to these five stable categories.
+    if ((url.protocol === 'http:' || url.protocol === 'https:') && url.origin !== window.location.origin) return 'social'
   } catch {
     return null
   }

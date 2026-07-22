@@ -2,13 +2,13 @@ import { NextRequest } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
 
 // Records an outbound / "exit" link click (WhatsApp, phone, email, location,
-// social, other) so the admin can see how many visitors left to convert off-site.
+// social/sites) so the admin can see how many visitors left to convert off-site.
 // Called from AnalyticsListeners via navigator.sendBeacon on every such click.
 // Fire-and-forget from the browser, but the response still reflects whether the
 // database accepted the event so production checks and logs can catch failures.
 // This is the standalone Al Nahda site, so every click is branch 'al-nahda'.
 
-const TYPES = new Set(['whatsapp', 'phone', 'email', 'location', 'social', 'other'])
+const TYPES = new Set(['whatsapp', 'phone', 'email', 'location', 'social'])
 
 export async function POST(request: NextRequest) {
   try {

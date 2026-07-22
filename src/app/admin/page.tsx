@@ -866,14 +866,13 @@ function AnalyticsTab({ analytics: a, loading, isAr, dayNames }: { analytics: An
           <h3 className="text-sm font-semibold text-[#C9A96E] uppercase tracking-wider">{tr('نقرات التواصل والخروج', 'Outbound / Contact Clicks')}</h3>
           <span className="text-xs text-[#666]">{tr('آخر 30 يوم', 'last 30d')}: <span className="text-white font-semibold">{a.outbound_clicks.total_30d}</span> · {tr('90 يوم', '90d')}: {a.outbound_clicks.total_90d}</span>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {([
             ['whatsapp', tr('واتساب', 'WhatsApp'), '#25D366'],
             ['phone', tr('اتصال', 'Phone'), '#3b82f6'],
             ['email', tr('إيميل', 'Email'), '#eab308'],
             ['location', tr('الموقع', 'Location'), '#ef4444'],
-            ['social', tr('السوشيال', 'Social'), '#a855f7'],
-            ['other', tr('روابط أخرى', 'Other sites'), '#94a3b8'],
+            ['social', tr('السوشيال والمواقع', 'Social / sites'), '#a855f7'],
           ] as const).map(([key, label, color]) => (
             <div key={key} className="bg-white/[0.03] rounded-xl p-4 border border-white/[0.04]">
               <div className="text-2xl font-bold" style={{ color }}>{a.outbound_clicks.by_type_90d[key] || 0}</div>
