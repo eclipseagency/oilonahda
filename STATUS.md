@@ -51,21 +51,24 @@ npx vercel --prod --yes
 - **Membership** now uses the Nahda catalog (was Rabie's `@/lib/services`).
 - **i18n Location hours** corrected to Nahda.
 - **Sitemap** gained `/gallery` + `/al-nahda`.
-- **Reviews:** removed the fabricated "4.9 · 187 reviews on Google" badge (new branch can't claim it).
+- **Reviews (2026-07-22):** replaced the inherited/fabricated testimonials with seven real 5-star reviews manually verified on the Al Nahda Google Maps listing. The live Google-style slider shows the verified aggregate **4.9 / 18 reviews** and links back to the listing. This is a curated snapshot, not an automatic API feed.
+- **Performance (2026-07-22):** removed the sticky announcement ticker, its continuous animation, and its navbar offset (`cfc0c38`).
+- **Service catalog/images (2026-07-22):** reconciled the latest client prices/services, including warm-compress massage at 100 SAR and 60-minute Mix Massage at 365 SAR. The rendered catalog has 29 cards using 29 content-distinct images (MD5 + dHash checked). Images showing or ambiguously suggesting women were replaced; the site is a men's spa.
 - **Analytics:** stopped firing the main (Rabie) Google Ads tag — only the Nahda account (`AW-18168193830`) configures now.
 - **Cleanup:** deleted dead `Services.tsx`/`Offers.tsx`/`Footer.tsx`; removed stray source PNG.
 - **Fixes:** broken blog image `swedish.webp`→`swedish-massage.webp`; hero `<video>` got a `poster` (no mobile black flash).
 
 ## 6. ⚠ OPEN / IN PROGRESS
 - **"Massage → Wellness" rebrand (uncommitted, half-live).** A terminology change مساج/سبا → عافية/عناية (Massage/Spa → Wellness/Grooming), likely for ad-policy compliance, is in the working tree across ~7 files (layout, page, BranchHome, SiteFooter, al-nahda, booking/layout, nahdaBranchData) but **not committed**. Because a `vercel --prod` deploy shipped the working tree, the **homepage meta/hero already say "عافية/عناية" LIVE**, while the **service menu (`nahdaServices.ts`), booking, and blog still say "مساج"** → the live site is currently inconsistent, and git HEAD is behind production. DECISION NEEDED: finish the rebrand through the service menu + commit, or revert.
-- **Reviews testimonials** are carried over from Al Rabie (the fake count is gone, but the quotes aren't verified Nahda reviews). Swap for real ones or hide the section — client call.
+- **Hero replacement awaiting approval.** `public/services/nahda-hero-branch-v2.webp` and a local `BranchHome.tsx` change replace the video with a 120 KB branch-derived still, but Mustafa asked to inspect it before changing the live site. It remains uncommitted and must not be included in unrelated deploys until explicitly approved.
 - **Email sending domain** still `info@oilo.sa`. Move to `@oilospa.com` only after DNS/DKIM setup.
 
 ## 7. Gotchas
 - Modified Next 16 — heed `AGENTS.md`.
 - `vercel --prod` ships the working dir (see §2).
 - Two navs to keep in sync (see §3).
-- Homepage hero is a `/hero.mp4` video (needs a poster; already added).
+- The live homepage hero remains the video. A branch-derived still is staged locally but unapproved; see §6.
+- Several unrelated local files remain modified. For production, commit only task files and deploy from a clean detached worktree at the intended commit; never run `vercel --prod` from the dirty primary tree.
 
 ## 8. Service card images — read before touching them
 
