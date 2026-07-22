@@ -13,10 +13,19 @@ export const nahdaAboutImage = images.about
 export const nahdaServicesAsServices: Service[] = services
 
 export const nahdaServiceImages: Record<string, string> = {
-  'oilo-massage': images.oiloMassage,
+  'oilo-massage': '/services/nahda-dry-massage.webp',
   'swedish-60': images.swedish,
   'swedish-40': images.swedish,
   'hot-stone': images.hotStone,
+  'warm-olive-oil': '/services/nahda-addon-warm-oil-v2.webp',
+  'air-cupping': '/services/nahda-addon-cupping-v2.webp',
+  'wood-60': '/services/nahda-addon-wood-v2.webp',
+  'wood-30': '/services/nahda-addon-wood-v2.webp',
+  'warm-compress': '/services/nahda-addon-compress-v2.webp',
+  'aromatherapy': '/services/nahda-aroma-oil-massage.webp',
+  'reflexology-60': '/services/therapy.webp',
+  'reflexology-40': '/services/therapy.webp',
+  'reflexology-30': '/services/therapy.webp',
   'thai-60': images.thai,
   'thai-40': images.thai,
   'shiatsu': images.shiatsu,
@@ -25,6 +34,8 @@ export const nahdaServiceImages: Record<string, string> = {
   'classic-bath': images.classicBath,
   'mani-pedi': images.maniPedi,
   'pedi': '/services/nahda-pedi.webp',
+  'hand-pedi': '/services/nahda-mani-v2.webp',
+  'vip-pedi-paraffin': '/services/nahda-mani-pedi-vip-v2.webp',
   'facial': images.facial,
   'facial-vitc': images.facial,
   'charcoal-mask': images.facial,
@@ -33,6 +44,7 @@ export const nahdaServiceImages: Record<string, string> = {
   'royal-package': images.candles,
   'vip-package': images.royalBath,
   'offer-massage-pedi': images.maniPedi,
+  'offer-massage-bath': '/services/eid-offer-bath.webp',
   'foot-crack-care': '/services/nahda-foot-crack-care.webp',
 }
 

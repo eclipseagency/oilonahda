@@ -45,8 +45,8 @@ export const services: Service[] = [
   {
     key: 'oilo-massage',
     category: 'massage',
-    nameAr: 'مساج أويلو سبا',
-    nameEn: 'Oilo Spa Massage',
+    nameAr: 'مساج جاف',
+    nameEn: 'Dry Massage',
     descriptionAr: 'تجربة مساج متكاملة تساعد على استرخاء الجسم وتنقلك إلى عالم من الراحة والدلال. كل لمسة مصممة بعناية لتمنحك يومًا أكثر هدوءًا ومتعة',
     descriptionEn: 'A complete massage experience that helps your body relax and transports you to a world of comfort. Every touch is carefully designed to give you a calmer, more enjoyable day',
     duration: '60 دقيقة',
@@ -82,7 +82,9 @@ export const services: Service[] = [
     nameEn: 'Hot Stone Massage',
     descriptionAr: 'مساج باستخدام أحجار دافئة توضع على نقاط محددة من الجسم، يساعد على تخفيف التوتر ويرفع مستوى الراحة والاسترخاء العميق',
     descriptionEn: 'A massage using warm stones placed on specific body points, helping relieve tension and elevating deep relaxation',
-    price: 190,
+    duration: '30 دقيقة',
+    durationEn: '30 min',
+    price: 100,
   },
   {
     key: 'thai-60',
@@ -117,6 +119,40 @@ export const services: Service[] = [
     durationEn: '40 min',
     price: 170,
   },
+  {
+    key: 'warm-olive-oil', category: 'massage', nameAr: 'مساج زيت الزيتون الدافئ', nameEn: 'Warm Olive Oil Massage',
+    descriptionAr: 'مساج بزيت الزيتون الدافئ لراحة العضلات والاسترخاء.', descriptionEn: 'A warm olive oil massage for muscle comfort and relaxation.',
+    duration: '40 دقيقة', durationEn: '40 min', price: 170,
+  },
+  {
+    key: 'air-cupping', category: 'massage', nameAr: 'مساج الكاسات الهوائية', nameEn: 'Air Cupping Massage',
+    descriptionAr: 'جلسة بالكاسات الهوائية للراحة والاسترخاء.', descriptionEn: 'An air-cupping session for comfort and relaxation.',
+    duration: '20 دقيقة', durationEn: '20 min', price: 100,
+  },
+  ...([
+    ['wood-60', '60 دقيقة', '60 min', 210],
+    ['wood-30', '30 دقيقة', '30 min', 100],
+  ] as const).map(([key, duration, durationEn, price]) => ({
+    key, category: 'massage' as const, nameAr: 'مساج الأخشاب', nameEn: 'Wood Massage',
+    descriptionAr: 'مساج بالأخشاب للراحة والاسترخاء.', descriptionEn: 'A wood massage for comfort and relaxation.',
+    duration, durationEn, price, variantGroup: 'wood-massage', variantGroupNameAr: 'مساج الأخشاب', variantGroupNameEn: 'Wood Massage', variantLabelAr: duration, variantLabelEn: durationEn,
+  })),
+  {
+    key: 'warm-compress', category: 'massage', nameAr: 'مساج الكمادات الدافئة', nameEn: 'Warm Compress Massage',
+    descriptionAr: 'كمادات دافئة لراحة العضلات والاسترخاء.', descriptionEn: 'Warm compresses for muscle comfort and relaxation.',
+  },
+  {
+    key: 'aromatherapy', category: 'massage', nameAr: 'مساج الزيوت العطرية', nameEn: 'Aromatherapy Massage',
+    descriptionAr: 'مساج بالزيوت العطرية للاسترخاء والراحة.', descriptionEn: 'An aromatic-oil massage for relaxation and comfort.',
+    duration: '60 دقيقة', durationEn: '60 min', price: 190,
+  },
+  ...([
+    ['reflexology-60', '60 دقيقة', '60 min', 210], ['reflexology-40', '40 دقيقة', '40 min', 170], ['reflexology-30', '30 دقيقة', '30 min', 150],
+  ] as const).map(([key, duration, durationEn, price]) => ({
+    key, category: 'massage' as const, nameAr: 'مساج رفلكسولوجي', nameEn: 'Reflexology Massage',
+    descriptionAr: 'جلسة رفلكسولوجي تركز على نقاط الضغط للراحة والاسترخاء.', descriptionEn: 'A reflexology session focused on pressure points for comfort and relaxation.',
+    duration, durationEn, price, variantGroup: 'reflexology', variantGroupNameAr: 'مساج رفلكسولوجي', variantGroupNameEn: 'Reflexology Massage', variantLabelAr: duration, variantLabelEn: durationEn,
+  })),
 
   // ── MOROCCAN BATH ──
   {
@@ -165,6 +201,14 @@ export const services: Service[] = [
     descriptionAr: 'عناية وتنظيف للقدمين والأظافر.',
     descriptionEn: 'Care and grooming for feet and nails.',
     price: 100,
+  },
+  {
+    key: 'hand-pedi', category: 'grooming', nameAr: 'بديكير أيادي', nameEn: 'Hand Pedicure',
+    descriptionAr: 'عناية وتنظيف لليدين والأظافر.', descriptionEn: 'Care and grooming for hands and nails.', price: 80,
+  },
+  {
+    key: 'vip-pedi-paraffin', category: 'grooming', nameAr: 'بديكير VIP مع قناع البرافين', nameEn: 'VIP Pedicure with Paraffin Mask',
+    descriptionAr: 'عناية VIP متكاملة مع قناع البرافين.', descriptionEn: 'Complete VIP pedicure care with a paraffin mask.', price: 250,
   },
   {
     key: 'facial',
@@ -270,6 +314,11 @@ export const services: Service[] = [
       { ar: 'بديكير اليدين والقدمين', en: 'Hand & Foot Pedicure' },
     ],
     price: 310,
+  },
+  {
+    key: 'offer-massage-bath', category: 'offer', nameAr: 'عرض مساج 40 دقيقة + حمام مغربي', nameEn: '40-min Massage + Moroccan Bath Offer',
+    descriptionAr: 'عرض يجمع مساج 40 دقيقة مع حمام مغربي.', descriptionEn: 'A 40-minute massage combined with a Moroccan bath.',
+    includes: [{ ar: 'مساج 40 دقيقة', en: '40-minute massage' }, { ar: 'حمام مغربي', en: 'Moroccan bath' }], price: 250,
   },
   {
     key: 'foot-crack-care',
